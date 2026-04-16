@@ -445,22 +445,23 @@ input:checked + .slider:before {
 
 .highlight-ca .label {
   color: rgba(255, 255, 255, 0.7) !important;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
 }
 
 .highlight-ca .value {
-  font-size: 4.5rem;
+  font-size: 5.5rem;
   font-weight: 900;
   color: white !important;
-  text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+  text-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
   margin: 0.5rem 0;
 }
 
 .highlight-ca .sub {
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 800;
+  font-size: 1.2rem;
 }
 
 .charges-summary-grid {
@@ -472,9 +473,26 @@ input:checked + .slider:before {
 .result-card.premium {
   background: white;
   border: 1px solid var(--card-border);
-  padding: 2.5rem 2rem;
+  padding: 3rem 2rem;
   border-radius: 24px;
   transition: var(--transition-smooth);
+  text-align: center;
+}
+
+.result-card.premium .label {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent-violet);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.result-card.premium .sub {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
 }
 
 .blur-data {
