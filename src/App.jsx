@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { TrendingUp, Network, Award, ChevronLeft } from 'lucide-react'
 import ActivityStep from './components/steps/ActivityStep'
@@ -36,6 +36,10 @@ function App() {
 
   const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, 4))
   const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1))
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentStep])
 
   const updateData = (newData) => {
     setData(prev => ({ ...prev, ...newData }))

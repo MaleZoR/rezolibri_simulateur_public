@@ -66,16 +66,20 @@ export default function ResultStep({ data, updateData, onPrev }) {
           <span className="sub">/ mois</span>
         </div>
 
-        {/* 2. Charges & Taux (Deux Cartes côte à côte - Floues) */}
+        {/* 2. Charges & Taux (Deux Cartes côte à côte - Labels clairs, Valeurs floues) */}
         <div className="charges-summary-grid">
-          <div className={`result-card premium ${!submitted ? 'blur-data' : ''}`}>
+          <div className="result-card premium">
             <span className="label">CHARGES MENSUELLES</span>
-            <div className="value">{chargesMensuelles.toLocaleString()} €</div>
+            <div className={`value ${!submitted ? 'blur-data' : ''}`}>
+              {chargesMensuelles.toLocaleString()} €
+            </div>
             <span className="sub">/ mois</span>
           </div>
-          <div className={`result-card premium ${!submitted ? 'blur-data' : ''}`}>
+          <div className="result-card premium">
             <span className="label">TAUX DE CHARGES</span>
-            <div className="value">{tauxCharges}%</div>
+            <div className={`value ${!submitted ? 'blur-data' : ''}`}>
+              {tauxCharges}%
+            </div>
             <span className="sub">cotisations sociales</span>
           </div>
         </div>
