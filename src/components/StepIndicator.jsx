@@ -10,27 +10,48 @@ const steps = [
 ]
 
 export default function StepIndicator({ currentStep }) {
+  const progressWidth = ((currentStep - 1) / (steps.length - 1)) * 100
+
   return (
-    <div className="step-indicator-wrapper">
-      {steps.map((step, index) => (
-        <div key={step.id} className="step-item">
-          <div className="step-line-container">
-            {index > 0 && (
-              <div className={`step-line ${currentStep >= step.id ? 'active' : ''}`} />
-            )}
-            <div className={`step-node ${currentStep >= step.id ? 'active' : ''} ${currentStep > step.id ? 'completed' : ''}`}>
-              {currentStep > step.id ? (
-                <Check size={14} strokeWidth={4} />
-              ) : (
-                <span>{step.id}</span>
+    <div className="step-indicator-container">
+      <div className="progress-track-bg">
+        <motion.div 
+          className="progress-track-fill"
+          initial={{ width: 0 }}
+          animate={{ width: `${progressWidth}%` }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        />
+      </div>
+
+      <div className="steps-wrapper">
+        {steps.map((step) => (
+          <div key={step.id} className="step-column">
+            <motion.div 
+              className={`step-circle ${currentStep >= step.id ? 'active' : ''} ${currentStep > step.id ? 'completed' : ''}`}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="circle-inner">
+                {currentStep > step.id ? (
+                  <Check size={16} strokeWidth={3} />
+                ) : (
+                  <span>{step.id}</span>
+                )}
+              </div>
+              {currentStep === step.id && (
+                <motion.div 
+                  className="pulse-ring"
+                  layoutId="pulse"
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                />
               )}
-            </div>
+            </motion.div>
+            <span className={`step-text ${currentStep >= step.id ? 'active' : ''}`}>
+              {step.label}
+            </span>
           </div>
-          <span className={`step-label ${currentStep >= step.id ? 'active' : ''}`}>
-            {step.label}
-          </span>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }
