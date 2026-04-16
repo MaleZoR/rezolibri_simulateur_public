@@ -85,7 +85,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
           </div>
 
           <div className="result-card premium highlight-net-preview">
-            <span className="label">VOTRE REVENU NET</span>
+            <span className="label">REVENU NET ESTIMÉ</span>
             <div className={`value ${!submitted ? 'blur-data' : ''}`}>
               {(caMensuel - cotisationsSociales - chargesMensuelles).toLocaleString()} €
             </div>
