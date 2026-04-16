@@ -466,8 +466,17 @@ input:checked + .slider:before {
 
 .charges-summary-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+}
+
+.highlight-net-preview {
+  border: 1px solid var(--accent-fuchsia) !important;
+  background: linear-gradient(to bottom, #fff, #fff9fc) !important;
+}
+
+.highlight-net-preview .label {
+  color: var(--accent-fuchsia) !important;
 }
 
 .result-card.premium {
@@ -666,7 +675,7 @@ input:checked + .slider:before {
 }
 
 /* --- RESPONSIVE ÉTAPE 4 --- */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .charges-summary-grid {
     grid-template-columns: 1fr;
   }

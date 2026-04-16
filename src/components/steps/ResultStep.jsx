@@ -66,7 +66,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
           <span className="sub">/ mois</span>
         </div>
 
-        {/* 2. Charges & Taux (Deux Cartes côte à côte - Labels clairs, Valeurs floues) */}
+        {/* 2. Grille de Preview (3 cartes : Charges, Taux, Revenu Net - Floues) */}
         <div className="charges-summary-grid">
           <div className="result-card premium">
             <span className="label">CHARGES MENSUELLES</span>
@@ -75,12 +75,21 @@ export default function ResultStep({ data, updateData, onPrev }) {
             </div>
             <span className="sub">/ mois</span>
           </div>
+          
           <div className="result-card premium">
             <span className="label">TAUX DE CHARGES</span>
             <div className={`value ${!submitted ? 'blur-data' : ''}`}>
               {tauxCharges}%
             </div>
             <span className="sub">cotisations sociales</span>
+          </div>
+
+          <div className="result-card premium highlight-net-preview">
+            <span className="label">VOTRE REVENU NET</span>
+            <div className={`value ${!submitted ? 'blur-data' : ''}`}>
+              {(caMensuel - cotisationsSociales - chargesMensuelles).toLocaleString()} €
+            </div>
+            <span className="sub">Avant impôts</span>
           </div>
         </div>
 
