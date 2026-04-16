@@ -23,7 +23,7 @@ export default function ActivityStep({ data, updateData, onNext }) {
       </div>
 
       <div className="input-group">
-        <label>Nombre d'ETP / mois — <span className="muted">moyenne du réseau : 10 ETP / mois</span></label>
+        <label>Nombre de consultants gérés — <span className="muted">moyenne du réseau : 8 consultants</span></label>
         <div className="slider-container">
           <input 
             type="range" 

@@ -3,13 +3,13 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import './Steps.css'
 
 const benefits = [
-  { icon: '🎓', label: 'Formation complète et accompagnement continu' },
-  { icon: '📄', label: 'Gestion des contrats, paie, facturation' },
-  { icon: '⚡', label: 'Une plateforme ultra innovante tout-en-un' },
-  { icon: '🔍', label: 'Accès aux meilleurs jobboards et CVthèques du marché' },
-  { icon: '⚖️', label: 'Responsabilité juridique employeur' },
-  { icon: '🛡️', label: 'Garantie financière obligatoire' },
-  { icon: '💸', label: 'Avance de commissions' },
+  { icon: '🎓', label: 'Académie Rézolibri : Formation intensive et certification' },
+  { icon: '⚖️', label: 'Support juridique et conformité recrutement' },
+  { icon: '🚀', label: 'Accès exclusif à la plateforme de matching IA' },
+  { icon: '🤝', label: 'Réseau de co-recrutement et partage de mandats' },
+  { icon: '🖥️', label: 'Outils de sourcing premium inclus' },
+  { icon: '📊', label: 'Tableau de bord de performance temps réel' },
+  { icon: '💰', label: 'Paiement express des commissions' },
 ]
 
 export default function BenefitsStep({ onNext, onPrev }) {

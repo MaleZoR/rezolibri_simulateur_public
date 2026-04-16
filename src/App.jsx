@@ -13,10 +13,10 @@ function App() {
     etp: 10,
     isAcre: true,
     chargesFixes: [
-      { id: 1, label: 'Abonnement Slash', value: 99, locked: true },
-      { id: 2, label: 'Abonnement téléphonique', value: 12, locked: false },
-      { id: 3, label: 'Assurance RC Pro', value: 12, locked: false, partner: 'Orus' },
-      { id: 4, label: 'Compte bancaire Pro', value: 12, locked: false, partner: 'Qonto' },
+      { id: 1, label: 'Accès Plateforme Rézolibri', value: 79, locked: true },
+      { id: 2, label: 'Forfait Mobile & Cloud', value: 15, locked: false },
+      { id: 3, label: 'Protection RC Pro Expert', value: 11, locked: false, partner: 'Orus' },
+      { id: 4, label: 'Solution Bancaire Pro', value: 9, locked: false, partner: 'Qonto' },
     ],
     chargesVariables: [
       { id: 5, label: 'Frais de carburant', value: 0 },
@@ -101,34 +101,34 @@ function App() {
         </div>
         
         <p className="disclaimer">
-          *La simulation est basée sur la moyenne du réseau Slash Intérim et ne constitue pas un conseil fiscal ou financier.
+          *Simulation basée sur les indicateurs de performance du réseau Rézolibri et fournie à titre indicatif uniquement.
         </p>
       </main>
 
       <footer className="extra-content">
-        <h2 className="section-title">Les 3 sources de revenus d'un conseiller indépendant Slash</h2>
-        <div className="info-cards">
-          <div className="info-card">
-            <div className="icon">💰</div>
-            <h3>Commissions</h3>
-            <p>Tu touches 50% sur la marge intérim, 70% sur les placements CDD/CDI. Sans plafond.</p>
+        <h2 className="section-title">Les piliers de réussite d'un expert Rézolibri</h2>
+        <div className="rezolibri-piliers">
+          <div className="pilier-card">
+            <div className="icon">🚀</div>
+            <h3>Expertise Recrutement</h3>
+            <p>Maximisez vos revenus sur chaque placement réussi avec une rétrocession ultra-compétitive. Liberté totale, sans plafond.</p>
           </div>
-          <div className="info-card">
-            <div className="icon">🤝</div>
-            <h3>Parrainage</h3>
-            <p>Intègre des personnes dans ton réseau et touche des rétrocommissions sur 5 niveaux.</p>
+          <div className="pilier-card">
+            <div className="icon">🧬</div>
+            <h3>Croissance Réseau</h3>
+            <p>Bénéficiez de la puissance du collectif Rézolibri en parrainant de nouveaux experts et percevez des bonus sur la durée.</p>
           </div>
-          <div className="info-card">
-            <div className="icon">📢</div>
-            <h3>Apport d'affaires</h3>
-            <p>Tu as un client sans candidat ? Transmets l'opportunité à un autre conseiller Slash.</p>
+          <div className="pilier-card">
+            <div className="icon">✨</div>
+            <h3>Co-Coaching Business</h3>
+            <p>Partagez vos opportunités avec le réseau et profitez de l'intelligence collective pour débloquer des commissions bonus.</p>
           </div>
         </div>
 
         <div className="cta-section">
-          <h3>Prêt à te lancer ?</h3>
-          <p>Rejoins le réseau Slash Intérim et développe ton activité d'indépendant avec un accompagnement personnalisé.</p>
-          <button className="btn-devenir">Devenir conseiller</button>
+          <h3>Prêt à vivre l'aventure Rézolibri ?</h3>
+          <p>Rejoignez un réseau d'experts passionnés et donnez une nouvelle dimension à votre carrière de recruteur indépendant.</p>
+          <button className="btn-devenir">Nous rejoindre</button>
         </div>
       </footer>
     </div>

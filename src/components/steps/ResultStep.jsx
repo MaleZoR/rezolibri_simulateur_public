@@ -105,7 +105,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
               onChange={(e) => handleLeadChange('acceptedPolicy', e.target.checked)} 
               required 
             />
-            <label htmlFor="policy">J'accepte que mes données soient traitées conformément à la /politique-de-confidentialite/ de Slash Intérim *</label>
+            <label htmlFor="policy">J'accepte que mes données soient traitées conformément à la politique de confidentialité de Rézolibri *</label>
           </div>
 
           <button type="submit" className="btn-submit">Envoyer</button>
