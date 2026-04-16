@@ -1,0 +1,76 @@
+.step-indicator-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+}
+
+.step-item:last-child {
+  flex: 0;
+}
+
+.step-line-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.step-node {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #666;
+  z-index: 2;
+  transition: var(--transition-smooth);
+}
+
+.step-node.active {
+  background: var(--accent-yellow);
+  color: #000;
+  box-shadow: 0 0 15px rgba(255, 209, 0, 0.3);
+}
+
+.step-line {
+  height: 1px;
+  background: #333;
+  flex: 1;
+  transition: var(--transition-smooth);
+}
+
+.step-line.active {
+  background: var(--accent-yellow);
+}
+
+.step-label {
+  margin-left: 0.8rem;
+  font-size: 0.9rem;
+  color: #666;
+  white-space: nowrap;
+}
+
+.step-label.active {
+  color: #fff;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .step-label {
+    display: none;
+  }
+}
