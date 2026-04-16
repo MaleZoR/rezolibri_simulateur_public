@@ -1,7 +1,7 @@
 import { Plus, Minus } from 'lucide-react'
 import './NumberInput.css'
 
-export default function NumberInput({ value, onChange, min = 0, max = 1000000 }) {
+export default function NumberInput({ value, onChange, min = 0, max = 1000000, suffix = "" }) {
   const handleIncrement = () => {
     if (value < max) onChange(value + 1)
   }
@@ -20,12 +20,15 @@ export default function NumberInput({ value, onChange, min = 0, max = 1000000 })
       <button className="num-btn dec" onClick={handleDecrement} type="button">
         <Minus size={16} />
       </button>
-      <input 
-        type="number" 
-        value={value} 
-        onChange={handleChange}
-        className="num-field"
-      />
+      <div className="input-with-unit">
+        <input 
+          type="number" 
+          value={value} 
+          onChange={handleChange}
+          className="num-field"
+        />
+        {suffix && <span className="input-euro">{suffix}</span>}
+      </div>
       <button className="num-btn inc" onClick={handleIncrement} type="button">
         <Plus size={16} />
       </button>

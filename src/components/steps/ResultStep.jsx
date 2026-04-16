@@ -147,8 +147,8 @@ export default function ResultStep({ data, updateData, onPrev }) {
           )}
         </AnimatePresence>
 
-        {/* Le Dashboard Flouté */}
-        <div className={`res-dashboard ${!submitted ? 'blur-data' : ''}`}>
+        {/* Le Dashboard (Détails floutés sélectivement pour Lead Gen) */}
+        <div className="res-dashboard">
           <div className="results-grid">
             <div className="result-card premium highlighted">
               <span className="label">REVENU NET ESTIMÉ</span>
@@ -162,13 +162,13 @@ export default function ResultStep({ data, updateData, onPrev }) {
               <span className="sub">CA Mensuel Brut</span>
             </div>
 
-            <div className="result-card premium">
+            <div className={`result-card premium ${!submitted ? 'blur-data' : ''}`}>
               <span className="label">CHARGES SOCIALES</span>
               <div className="value">{cotisationsSociales.toLocaleString()} €</div>
               <span className="sub">URSSAF ({tauxCharges}%)</span>
             </div>
 
-            <div className="result-card premium">
+            <div className={`result-card premium ${!submitted ? 'blur-data' : ''}`}>
               <span className="label">FRAIS DE FONCTIONNEMENT</span>
               <div className="value">{(chargesMensuelles).toLocaleString()} €</div>
               <span className="sub">Abonnements & Logiciels</span>

@@ -63,11 +63,12 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
             </div>
             
             <div className="charge-input-wrapper">
-              <span className="muted-text">Montant (€)</span>
+              <span className="muted-text">Montant</span>
               <NumberInput 
                 value={charge.value} 
                 onChange={(val) => handleFixeChange(charge.id, val)}
                 readOnly={charge.locked}
+                suffix="€"
               />
             </div>
           </div>
@@ -86,10 +87,11 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
             </div>
             
             <div className="charge-input-wrapper">
-              <span className="muted-text">Montant (€)</span>
+              <span className="muted-text">Montant</span>
               <NumberInput 
                 value={charge.value} 
                 onChange={(val) => handleVariableChange(charge.id, val)}
+                suffix="€"
               />
             </div>
           </div>

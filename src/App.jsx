@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { TrendingUp, Network, Award, ChevronLeft } from 'lucide-react'
 import ActivityStep from './components/steps/ActivityStep'
 import ChargesStep from './components/steps/ChargesStep'
 import BenefitsStep from './components/steps/BenefitsStep'
@@ -49,30 +50,30 @@ function App() {
           </div>
           <button 
             className="btn-back-site" 
-            onClick={() => {
-              if (document.referrer && document.referrer.includes(window.location.hostname)) {
-                window.history.back();
-              } else {
-                window.location.href = 'https://rezolibri.fr';
-              }
-            }}
+            onClick={() => window.location.href = 'https://rezolibri.fr'}
           >
-            ← Retour au site
+            <ChevronLeft size={18} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
+            Retour au site
           </button>
         </div>
         
-        <motion.h1 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="main-title"
-        >
-          Révélez votre potentiel, <br/>
-          <span className="highlight">boostez votre avenir pro</span>
-        </motion.h1>
-        <p className="main-subtitle">Parce que chaque parcours est unique, nous vous accompagnons à trouver l'opportunité qui vous correspond.</p>
+        <div style={{ textAlign: 'center' }}>
+          <motion.h1 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="main-title"
+          >
+            Révélez votre potentiel, <br/>
+            <span className="highlight">boostez votre avenir pro</span>
+          </motion.h1>
+          <p className="main-subtitle">
+            Simule ton futur revenu de consultant indépendant avec l'infrastructure de Rézolibri. 
+            Précis, transparent, sans compromis.
+          </p>
+        </div>
       </header>
 
-      <main className="simulator-wrapper">
+      <main className="simulator-wrapper" style={{ maxWidth: '1000px', margin: '0 auto' }}>
         <StepIndicator currentStep={currentStep} />
         
         <div className="step-container premium-card">
@@ -89,7 +90,7 @@ function App() {
             )}
             {currentStep === 3 && (
               <motion.div key="step3">
-                <BenefitsStep onNext={nextStep} onPrev={prevStep} />
+                <BenefitsStep data={data} updateData={updateData} onNext={nextStep} onPrev={prevStep} />
               </motion.div>
             )}
             {currentStep === 4 && (
@@ -100,26 +101,26 @@ function App() {
           </AnimatePresence>
         </div>
         
-        <p className="disclaimer">
+        <p className="disclaimer" style={{ textAlign: 'center', marginTop: '2rem', fontSize: '0.8rem', opacity: '0.6' }}>
           *Simulation basée sur les indicateurs de performance du réseau Rézolibri et fournie à titre indicatif uniquement.
         </p>
       </main>
 
-      <footer className="extra-content">
+      <footer className="extra-content" style={{ textAlign: 'center' }}>
         <h2 className="section-title">Les piliers de réussite d'un expert Rézolibri</h2>
         <div className="rezolibri-piliers">
           <div className="pilier-card">
-            <div className="icon">🚀</div>
+            <div className="icon-pilier"><TrendingUp size={32} /></div>
             <h3>Expertise Recrutement</h3>
             <p>Maximisez vos revenus sur chaque placement réussi avec une rétrocession ultra-compétitive. Liberté totale, sans plafond.</p>
           </div>
           <div className="pilier-card">
-            <div className="icon">🧬</div>
+            <div className="icon-pilier"><Network size={32} /></div>
             <h3>Croissance Réseau</h3>
             <p>Bénéficiez de la puissance du collectif Rézolibri en parrainant de nouveaux experts et percevez des bonus sur la durée.</p>
           </div>
           <div className="pilier-card">
-            <div className="icon">✨</div>
+            <div className="icon-pilier"><Award size={32} /></div>
             <h3>Co-Coaching Business</h3>
             <p>Partagez vos opportunités avec le réseau et profitez de l'intelligence collective pour débloquer des commissions bonus.</p>
           </div>
@@ -128,7 +129,9 @@ function App() {
         <div className="cta-section">
           <h3>Prêt à vivre l'aventure Rézolibri ?</h3>
           <p>Rejoignez un réseau d'experts passionnés et donnez une nouvelle dimension à votre carrière de recruteur indépendant.</p>
-          <button className="btn-devenir">Nous rejoindre</button>
+          <button className="btn-devenir" onClick={() => window.location.href = 'https://rezolibri.fr/rejoindre'}>
+            Nous rejoindre
+          </button>
         </div>
       </footer>
     </div>

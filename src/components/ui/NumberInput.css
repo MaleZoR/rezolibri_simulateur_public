@@ -31,9 +31,9 @@
 }
 
 .num-field {
-  width: 80px;
+  width: 70px;
   border: none;
-  text-align: center;
+  text-align: right;
   font-weight: 800;
   font-family: inherit;
   font-size: 1.2rem;
@@ -42,6 +42,21 @@
   appearance: textfield;
   -webkit-appearance: none;
   margin: 0;
+  padding-right: 2px;
+}
+
+.input-with-unit {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: white;
+  padding: 0 5px;
+}
+
+.input-euro {
+  font-weight: 800;
+  color: var(--accent-violet);
+  font-size: 1.1rem;
 }
 
 .num-field:focus {
