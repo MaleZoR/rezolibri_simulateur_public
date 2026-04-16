@@ -13,9 +13,13 @@
     "vite": "^8.0.4"
   },
   "dependencies": {
+    "@vitejs/plugin-react-swc": "^4.3.0",
+    "canvas-confetti": "^1.9.4",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.8.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
     "tailwind-merge": "^3.5.0"
   }
 }

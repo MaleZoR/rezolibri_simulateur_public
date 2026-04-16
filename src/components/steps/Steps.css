@@ -6,11 +6,14 @@
 
 /* Étape 1 : Activité */
 .info-box {
-  background: #252525;
+  background: var(--bg-soft);
   padding: 1.5rem;
   border-radius: 12px;
   font-size: 0.9rem;
-  border-left: 4px solid var(--accent-yellow);
+  border-left: 4px solid var(--accent-fuchsia);
+  color: var(--accent-violet);
+  border: 1px solid #eee;
+  border-left: 4px solid var(--accent-fuchsia);
 }
 
 .info-box p {
@@ -31,13 +34,14 @@
 }
 
 .value-display {
-  background: var(--input-bg);
+  background: white;
   padding: 0.5rem 1.5rem;
   border-radius: 8px;
   font-weight: 700;
   min-width: 60px;
   text-align: center;
-  border: 1px solid var(--card-border);
+  border: 1px solid #ddd;
+  color: var(--accent-violet);
 }
 
 .results-grid {
@@ -47,10 +51,11 @@
 }
 
 .result-card {
-  background: var(--input-bg);
+  background: white;
   padding: 1.5rem;
   border-radius: 12px;
-  border: 1px solid var(--card-border);
+  border: 1px solid #eee;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
 }
 
 .result-card .label {
@@ -82,13 +87,13 @@
 }
 
 .badge-acre {
-  background: rgba(74, 222, 128, 0.1);
-  color: var(--accent-green);
+  background: rgba(200, 255, 0, 0.1);
+  color: #8ab000;
   padding: 0.8rem;
   border-radius: 8px;
   margin-top: 1rem;
   font-size: 0.9rem;
-  border: 1px solid rgba(74, 222, 128, 0.2);
+  border: 1px solid rgba(200, 255, 0, 0.3);
 }
 
 /* Sombre / Muet */
@@ -227,7 +232,7 @@ input:checked + .slider:before {
 }
 
 .total-box {
-  background: #252525;
+  background: var(--accent-violet);
   padding: 1.5rem;
   border-radius: 12px;
   display: flex;
@@ -235,10 +240,11 @@ input:checked + .slider:before {
   align-items: center;
   font-weight: 700;
   font-size: 1.1rem;
+  color: white;
 }
 
 .total-value {
-  color: var(--accent-yellow);
+  color: var(--accent-lime);
 }
 
 /* Étape 3 : Benefits */

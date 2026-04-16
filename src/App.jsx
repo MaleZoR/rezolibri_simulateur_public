@@ -43,14 +43,28 @@ function App() {
   return (
     <div className="app-container">
       <header className="main-header">
+        <div className="logo-wrapper">
+          <span className="logo-rezo">Rézo</span><span className="logo-libri">libri</span>
+        </div>
+        <nav className="rezo-nav">
+          <a href="#">Le guide de l'emploi</a>
+          <a href="#">Localiser les recruteurs</a>
+          <div className="nav-actions">
+            <button className="nav-btn-outline">Je suis un candidat</button>
+            <button className="nav-btn-outline">Je suis une entreprise</button>
+            <button className="nav-btn-filled">Devenir recruteur</button>
+          </div>
+        </nav>
+        
         <motion.h1 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="main-title"
         >
-          Simule tes revenus en tant qu'indépendant
+          Révélez votre potentiel, <br/>
+          <span className="highlight">boostez votre avenir pro</span>
         </motion.h1>
-        <p className="main-subtitle">Estimation personnalisée en moins de 5 minutes pour ton statut d'auto entrepreneur.</p>
+        <p className="main-subtitle">Parce que chaque parcours est unique, nous vous accompagnons à trouver l'opportunité qui vous correspond.</p>
       </header>
 
       <main className="simulator-wrapper">

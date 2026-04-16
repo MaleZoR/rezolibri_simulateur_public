@@ -7,6 +7,80 @@
 
 .main-header {
   margin-bottom: 4rem;
+  width: 100%;
+}
+
+.logo-wrapper {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-rezo {
+  color: var(--accent-violet);
+}
+
+.logo-libri {
+  color: var(--accent-fuchsia);
+}
+
+.rezo-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.rezo-nav a {
+  text-decoration: none;
+  color: var(--accent-violet);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent-violet);
+  border-radius: 50px;
+  transition: var(--transition-smooth);
+}
+
+.rezo-nav a:hover {
+  background: var(--accent-violet);
+  color: white;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-btn-outline {
+  background: transparent;
+  border: 1px solid var(--accent-violet);
+  color: var(--accent-violet);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.nav-btn-filled {
+  background: var(--accent-fuchsia);
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.highlight {
+  color: var(--accent-fuchsia);
 }
 
 .simulator-wrapper {
