@@ -29,44 +29,44 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #333;
+  background: #eee;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.8rem;
   font-weight: 700;
-  color: #666;
+  color: #999;
   z-index: 2;
   transition: var(--transition-smooth);
 }
 
 .step-node.active {
-  background: var(--accent-yellow);
-  color: #000;
-  box-shadow: 0 0 15px rgba(255, 209, 0, 0.3);
+  background: var(--accent-fuchsia);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(230, 0, 126, 0.3);
 }
 
 .step-line {
-  height: 1px;
-  background: #333;
+  height: 2px;
+  background: #eee;
   flex: 1;
   transition: var(--transition-smooth);
 }
 
 .step-line.active {
-  background: var(--accent-yellow);
+  background: var(--accent-fuchsia);
 }
 
 .step-label {
   margin-left: 0.8rem;
   font-size: 0.9rem;
-  color: #666;
+  color: var(--text-muted);
   white-space: nowrap;
 }
 
 .step-label.active {
-  color: #fff;
-  font-weight: 500;
+  color: var(--accent-violet);
+  font-weight: 700;
 }
 
 @media (max-width: 600px) {
