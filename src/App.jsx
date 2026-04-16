@@ -11,7 +11,7 @@ function App() {
   const [currentStep, setCurrentStep] = useState(1)
   const [data, setData] = useState({
     etp: 10,
-    isAcre: true,
+    isAcre: false,
     chargesFixes: [
       { id: 1, label: 'Accès Plateforme Rézolibri', value: 79, locked: true },
       { id: 2, label: 'Forfait Mobile & Cloud', value: 15, locked: false },

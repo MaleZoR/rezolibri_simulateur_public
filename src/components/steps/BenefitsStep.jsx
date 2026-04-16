@@ -21,8 +21,8 @@ export default function BenefitsStep({ onNext, onPrev }) {
       className="step-content"
     >
       <div className="step-header">
-        <h2>Ce que Slash t'apporte en plus</h2>
-        <p className="muted">Inclus dans ton abonnement plateforme Slash.</p>
+        <h2>Ce que Rézolibri vous apporte en plus</h2>
+        <p className="muted">Inclus dans votre accompagnement expert.</p>
       </div>
 
       <div className="benefits-list">

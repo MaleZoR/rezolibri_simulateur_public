@@ -5,7 +5,7 @@ import './StepIndicator.css'
 const steps = [
   { id: 1, label: 'Mon activité' },
   { id: 2, label: 'Mes charges' },
-  { id: 3, label: 'Les + Slash' },
+  { id: 3, label: 'Vos Avantages' },
   { id: 4, label: 'Mon résultat' },
 ]
 
