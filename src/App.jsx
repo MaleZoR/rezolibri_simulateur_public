@@ -43,18 +43,23 @@ function App() {
   return (
     <div className="app-container">
       <header className="main-header">
-        <div className="logo-wrapper">
-          <span className="logo-rezo">Rézo</span><span className="logo-libri">libri</span>
-        </div>
-        <nav className="rezo-nav">
-          <a href="#">Le guide de l'emploi</a>
-          <a href="#">Localiser les recruteurs</a>
-          <div className="nav-actions">
-            <button className="nav-btn-outline">Je suis un candidat</button>
-            <button className="nav-btn-outline">Je suis une entreprise</button>
-            <button className="nav-btn-filled">Devenir recruteur</button>
+        <div className="header-top">
+          <div className="logo-wrapper">
+            <span className="logo-rezo">Rézo</span><span className="logo-libri">libri</span>
           </div>
-        </nav>
+          <button 
+            className="btn-back-site" 
+            onClick={() => {
+              if (document.referrer && document.referrer.includes(window.location.hostname)) {
+                window.history.back();
+              } else {
+                window.location.href = 'https://rezolibri.fr';
+              }
+            }}
+          >
+            ← Retour au site
+          </button>
+        </div>
         
         <motion.h1 
           initial={{ opacity: 0, y: -20 }}
