@@ -21,6 +21,7 @@
   --radius-xl: 32px;
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(255, 255, 255, 0.3);
+  --main-width: 1000px;
 }
 
 * {
@@ -44,9 +45,9 @@ body {
 }
 
 .app-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  max-width: 100%;
+  margin: 0;
+  padding: 4rem 1rem;
   width: 100%;
 }
 
@@ -73,8 +74,9 @@ body {
 }
 
 .simulator-wrapper {
-  max-width: 850px;
+  max-width: var(--main-width);
   margin: 0 auto;
+  width: 100%;
 }
 
 .premium-card {
@@ -128,7 +130,7 @@ body {
   flex-direction: column;
   gap: 3rem;
   margin: 4rem auto;
-  max-width: 900px;
+  max-width: var(--main-width);
 }
 
 .pilier-card {

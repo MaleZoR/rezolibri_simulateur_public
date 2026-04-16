@@ -8,6 +8,10 @@
 .main-header {
   margin-bottom: 4rem;
   width: 100%;
+  max-width: var(--main-width);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .header-top {
@@ -15,11 +19,10 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 3rem;
-  max-width: var(--container-width);
+  margin-bottom: 5rem;
+  max-width: var(--main-width);
   margin-left: auto;
   margin-right: auto;
-  padding: 0 1rem;
 }
 
 .logo-wrapper {
@@ -80,8 +83,9 @@
 }
 
 .extra-content {
-  max-width: var(--container-width);
-  margin: 8rem auto 4rem;
+  max-width: var(--main-width);
+  margin: 10rem auto 6rem;
+  text-align: center;
 }
 
 .section-title {

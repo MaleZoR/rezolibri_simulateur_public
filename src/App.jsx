@@ -73,7 +73,7 @@ function App() {
         </div>
       </header>
 
-      <main className="simulator-wrapper" style={{ maxWidth: '1000px', margin: '0 auto' }}>
+      <main className="simulator-wrapper">
         <StepIndicator currentStep={currentStep} />
         
         <div className="step-container premium-card">
@@ -101,12 +101,12 @@ function App() {
           </AnimatePresence>
         </div>
         
-        <p className="disclaimer" style={{ textAlign: 'center', marginTop: '2rem', fontSize: '0.8rem', opacity: '0.6' }}>
+        <p className="disclaimer">
           *Simulation basée sur les indicateurs de performance du réseau Rézolibri et fournie à titre indicatif uniquement.
         </p>
       </main>
 
-      <footer className="extra-content" style={{ textAlign: 'center' }}>
+      <footer className="extra-content">
         <h2 className="section-title">Les piliers de réussite d'un expert Rézolibri</h2>
         <div className="rezolibri-piliers">
           <div className="pilier-card">
