@@ -15,18 +15,22 @@ export default function ActivityStep({ data, updateData, onNext }) {
       exit={{ opacity: 0, x: -20 }}
       className="step-content"
     >
-      <div className="info-box">
-        <p><strong>ETP = Équivalent Temps Plein</strong></p>
-        <p>1 ETP = 1 personne à temps plein ou plusieurs à mi-temps.</p>
-        <p>1 ETP correspond à 151,67 heures facturées au client.</p>
-        <div className="examples">
-          <p>💡 <strong>Exemples :</strong> 1 personne à temps plein sur 1 mois = 1 ETP · 2 personnes à mi-temps sur 1 mois = 1 ETP</p>
+      <div className="info-box glass-info">
+        <p className="title"><Info size={18} /> <strong>Comprendre l'ETP</strong></p>
+        <p>1 ETP = 1 consultant à temps plein (151,67 heures facturées / mois).</p>
+        <div className="examples-grid">
+          <div className="example-tag">1 Temps Plein = 1 ETP</div>
+          <div className="example-tag">2 Mi-Temps = 1 ETP</div>
         </div>
       </div>
 
-      <div className="input-group">
-        <label>Nombre de consultants gérés — <span className="muted">moyenne du réseau : 8 consultants</span></label>
-        <div className="slider-container full-width">
+      <div className="input-group main-input">
+        <div className="label-container">
+          <label>Consultants gérés</label>
+          <span className="avg-badge">Moyenne Réseau : 8</span>
+        </div>
+        
+        <div className="slider-wrapper">
           <input 
             type="range" 
             min="1" 
@@ -34,51 +38,72 @@ export default function ActivityStep({ data, updateData, onNext }) {
             value={data.etp} 
             onChange={(e) => updateData({ etp: parseInt(e.target.value) })}
             className="full-slider"
+            style={{
+              background: `linear-gradient(to right, var(--accent-fuchsia) 0%, var(--accent-fuchsia) ${data.etp}%, #eee ${data.etp}%, #eee 100%)`
+            }}
           />
-          <NumberInput 
-            value={data.etp} 
-            onChange={(val) => updateData({ etp: val })} 
-            min={1} 
-            max={100} 
-          />
+          
+          <div className="number-input-container">
+            <NumberInput 
+              value={data.etp} 
+              onChange={(val) => updateData({ etp: val })} 
+              min={1} 
+              max={100} 
+            />
+          </div>
         </div>
       </div>
 
       <div className="results-grid">
-        <div className="result-card">
+        <motion.div 
+          className="result-card premium"
+          whileHover={{ y: -5 }}
+        >
           <span className="label">CA MENSUEL ESTIMÉ</span>
-          <div className="value">{caMensuel.toLocaleString()} € <span className="unit">/ mois</span></div>
-        </div>
-        <div className="result-card">
+          <div className="value">{caMensuel.toLocaleString()} €</div>
+          <span className="sub">Mensuel</span>
+        </motion.div>
+        
+        <motion.div 
+          className="result-card premium highlighted"
+          whileHover={{ y: -5 }}
+        >
           <span className="label">CA ANNUEL ESTIMÉ</span>
-          <div className="value">{caAnnuel.toLocaleString()} € <span className="unit">/ an</span></div>
-        </div>
+          <div className="value">{caAnnuel.toLocaleString()} €</div>
+          <span className="sub">Annuel</span>
+        </motion.div>
       </div>
 
-      <div className="toggle-group">
-        <div className="toggle-header">
-          <p><strong>Je bénéficie de l'ACRE</strong> <Info size={14} className="info-icon" /></p>
-          <label className="switch">
+      <div className="toggle-section-premium">
+        <div className="toggle-card">
+          <div className="toggle-info">
+            <p className="title">Bénéficier de l'ACRE</p>
+            <p className="desc">Exonération partielle de charges la 1ère année</p>
+          </div>
+          <label className="switch-premium">
             <input 
               type="checkbox" 
               checked={data.isAcre} 
               onChange={(e) => updateData({ isAcre: e.target.checked })}
             />
-            <span className="slider round"></span>
+            <span className="slider-premium"></span>
           </label>
         </div>
-        <p className="muted">Exonération partielle de charges la 1ère année — taux réduit à 12,8%</p>
         
         {data.isAcre && (
-          <div className="badge-acre">
-            ✅ ACRE activée — <strong>taux de cotisations : 12,8%</strong> au lieu de 25,6%
-          </div>
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            className="acre-detail-active"
+          >
+            🔥 <strong>Taux réduit à 12,8%</strong> au lieu de 25,6%
+          </motion.div>
         )}
       </div>
 
-      <div className="step-actions">
-        <button className="btn-primary" onClick={onNext}>
-          Suivant <ArrowRight size={18} />
+      <div className="step-actions center">
+        <button className="btn-primary pulse-on-hover" onClick={onNext}>
+          Passer aux Charges <ArrowRight size={18} />
         </button>
       </div>
     </motion.div>

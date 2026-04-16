@@ -2,20 +2,25 @@
 
 :root {
   --bg-color: #ffffff;
-  --bg-soft: #fbf7ff;
-  --card-bg: #ffffff;
-  --card-border: #eee;
+  --bg-soft: #f8f5fe;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(71, 0, 102, 0.08);
   --accent-fuchsia: #e6007e;
   --accent-violet: #470066;
   --accent-lime: #c8ff00;
-  --text-main: #333333;
-  --text-muted: #777777;
-  --input-bg: #f8f8f8;
+  --gradient-main: linear-gradient(135deg, var(--accent-violet), var(--accent-fuchsia));
+  --gradient-soft: linear-gradient(135deg, #fbf7ff, #ffffff);
+  --text-main: #1a1a1a;
+  --text-muted: #6b7280;
+  --input-bg: #f3f4f6;
   --font-family: 'Montserrat', sans-serif;
   
-  --shadow-premium: 0 10px 30px rgba(71, 0, 102, 0.08);
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-premium: 0 20px 40px rgba(71, 0, 102, 0.12);
+  --shadow-glow: 0 0 20px rgba(230, 0, 126, 0.2);
+  --transition-smooth: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   --radius-xl: 32px;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
 }
 
 * {
@@ -74,11 +79,25 @@ body {
 
 .premium-card {
   background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-premium);
-  padding: 3rem;
-  margin-bottom: 1.5rem;
+  padding: 3.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-main);
 }
 
 .disclaimer {
