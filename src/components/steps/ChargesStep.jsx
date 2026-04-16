@@ -1,7 +1,19 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, Plus, Info } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Plus, Info, Landmark, Smartphone, ShieldCheck, CreditCard, Fuel, Coffee, TrainFront } from 'lucide-react'
 import './Steps.css'
 import NumberInput from '../ui/NumberInput'
+
+const getIcon = (label) => {
+  const l = label.toLowerCase()
+  if (l.includes('plateforme')) return <Landmark size={20} />
+  if (l.includes('mobile')) return <Smartphone size={20} />
+  if (l.includes('protection') || l.includes('assurance')) return <ShieldCheck size={20} />
+  if (l.includes('bancaire') || l.includes('qonto')) return <CreditCard size={20} />
+  if (l.includes('carburant')) return <Fuel size={20} />
+  if (l.includes('coworking')) return <Coffee size={20} />
+  if (l.includes('transport')) return <TrainFront size={20} />
+  return <Plus size={20} />
+}
 
 export default function ChargesStep({ data, updateData, onNext, onPrev }) {
   const totalCharges = [...data.chargesFixes, ...data.chargesVariables].reduce((acc, curr) => acc + (curr.value || 0), 0)
@@ -30,55 +42,67 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
     >
       <div className="step-header">
         <h2>Mes charges mensuelles</h2>
-        <p className="muted">Renseigne tes charges pour affiner ta simulation.</p>
+        <p className="muted">Optimise tes charges pour maximiser ton revenu net.</p>
       </div>
 
-      <div className="charges-section">
-        <h3 className="section-subtitle">CHARGES FIXES</h3>
-        <div className="charges-list">
-          {data.chargesFixes.map(charge => (
-            <div key={charge.id} className="charge-item">
-              <div className="charge-label">
-                {charge.label} {charge.partner && <span className="partner-badge">Partenaire {charge.partner}</span>}
-                <Info size={14} className="muted" />
+      <div className="charges-grid">
+        {data.chargesFixes.map(charge => (
+          <div key={charge.id} className="charge-card">
+            <div className="charge-info-top">
+              <div className="charge-icon-wrapper">
+                {getIcon(charge.label)}
               </div>
-              <div className="charge-input-new">
-                <NumberInput 
-                  value={charge.value} 
-                  onChange={(val) => handleFixeChange(charge.id, val)}
-                  readOnly={charge.locked}
-                />
-                <span className="unit">€</span>
+              <div className="charge-details-text">
+                <span className="label">
+                  {charge.label}
+                  {charge.partner && <span className="partner-badge">{charge.partner}</span>}
+                </span>
+                <span className="sub">Charge fixe mensuelle</span>
+              </div>
+              <Info size={16} className="text-muted" style={{ cursor: 'help' }} />
+            </div>
+            
+            <div className="charge-input-wrapper">
+              <span className="muted-text">Montant (€)</span>
+              <NumberInput 
+                value={charge.value} 
+                onChange={(val) => handleFixeChange(charge.id, val)}
+                readOnly={charge.locked}
+              />
+            </div>
+          </div>
+        ))}
+
+        {data.chargesVariables.map(charge => (
+          <div key={charge.id} className="charge-card">
+            <div className="charge-info-top">
+              <div className="charge-icon-wrapper">
+                {getIcon(charge.label)}
+              </div>
+              <div className="charge-details-text">
+                <span className="label">{charge.label}</span>
+                <span className="sub">Charge variable (optionnel)</span>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="charges-section">
-        <h3 className="section-subtitle">CHARGES VARIABLES (OPTIONNELLES)</h3>
-        <div className="charges-list">
-          {data.chargesVariables.map(charge => (
-            <div key={charge.id} className="charge-item">
-              <div className="charge-label">{charge.label}</div>
-              <div className="charge-input-new">
-                <NumberInput 
-                  value={charge.value} 
-                  onChange={(val) => handleVariableChange(charge.id, val)}
-                />
-                <span className="unit">€</span>
-              </div>
+            
+            <div className="charge-input-wrapper">
+              <span className="muted-text">Montant (€)</span>
+              <NumberInput 
+                value={charge.value} 
+                onChange={(val) => handleVariableChange(charge.id, val)}
+              />
             </div>
-          ))}
-          <button className="btn-add-charge" onClick={addCharge}>
-            <Plus size={16} /> Ajouter une charge
-          </button>
-        </div>
+          </div>
+        ))}
+
+        <button className="btn-add-charge" onClick={addCharge}>
+          <Plus size={24} /> <span>Ajouter une charge</span>
+        </button>
       </div>
 
-      <div className="total-box">
-        <span>Total charges mensuelles</span>
-        <span className="total-value">{totalCharges} €</span>
+      <div className="total-box glass">
+        <span>Total des charges mensuelles estimées</span>
+        <span className="total-value">{totalCharges.toLocaleString()} € <span className="small">/ mois</span></span>
       </div>
 
       <div className="step-actions split">
@@ -86,7 +110,7 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
           <ArrowLeft size={18} /> Retour
         </button>
         <button className="btn-primary" onClick={onNext}>
-          Suivant <ArrowRight size={18} />
+          Passer aux Avantages <ArrowRight size={18} />
         </button>
       </div>
     </motion.div>
