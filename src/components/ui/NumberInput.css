@@ -1,0 +1,51 @@
+.number-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  overflow: hidden;
+  background: white;
+  height: 40px;
+}
+
+.num-btn {
+  background: transparent;
+  border: none;
+  padding: 0 0.8rem;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-violet);
+  transition: var(--transition-smooth);
+}
+
+.num-btn:hover {
+  background: #f8f8f8;
+}
+
+.num-field {
+  width: 60px;
+  border: none;
+  text-align: center;
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--accent-violet);
+  appearance: textfield; /* Remove Chrome increment arrows */
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.num-field:focus {
+  outline: none;
+}
+
+/* Chrome/Safari arrows removal */
+.num-field::-webkit-inner-spin-button, 
+.num-field::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

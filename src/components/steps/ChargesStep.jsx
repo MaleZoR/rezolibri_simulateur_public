@@ -1,17 +1,18 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, Plus, Info } from 'lucide-react'
 import './Steps.css'
+import NumberInput from '../ui/NumberInput'
 
 export default function ChargesStep({ data, updateData, onNext, onPrev }) {
   const totalCharges = [...data.chargesFixes, ...data.chargesVariables].reduce((acc, curr) => acc + (curr.value || 0), 0)
 
   const handleFixeChange = (id, val) => {
-    const newFixes = data.chargesFixes.map(c => c.id === id ? { ...c, value: parseInt(val) || 0 } : c)
+    const newFixes = data.chargesFixes.map(c => c.id === id ? { ...c, value: val } : c)
     updateData({ chargesFixes: newFixes })
   }
 
   const handleVariableChange = (id, val) => {
-    const newVars = data.chargesVariables.map(c => c.id === id ? { ...c, value: parseInt(val) || 0 } : c)
+    const newVars = data.chargesVariables.map(c => c.id === id ? { ...c, value: val } : c)
     updateData({ chargesVariables: newVars })
   }
 
@@ -41,11 +42,10 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
                 {charge.label} {charge.partner && <span className="partner-badge">Partenaire {charge.partner}</span>}
                 <Info size={14} className="muted" />
               </div>
-              <div className="charge-input">
-                <input 
-                  type="text" 
+              <div className="charge-input-new">
+                <NumberInput 
                   value={charge.value} 
-                  onChange={(e) => handleFixeChange(charge.id, e.target.value)}
+                  onChange={(val) => handleFixeChange(charge.id, val)}
                   readOnly={charge.locked}
                 />
                 <span className="unit">€</span>
@@ -61,11 +61,10 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
           {data.chargesVariables.map(charge => (
             <div key={charge.id} className="charge-item">
               <div className="charge-label">{charge.label}</div>
-              <div className="charge-input">
-                <input 
-                  type="text" 
+              <div className="charge-input-new">
+                <NumberInput 
                   value={charge.value} 
-                  onChange={(e) => handleVariableChange(charge.id, e.target.value)}
+                  onChange={(val) => handleVariableChange(charge.id, val)}
                 />
                 <span className="unit">€</span>
               </div>

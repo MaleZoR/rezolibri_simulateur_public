@@ -2,6 +2,8 @@ import { motion } from 'framer-motion'
 import { Info, ArrowRight } from 'lucide-react'
 import './Steps.css'
 
+import NumberInput from '../ui/NumberInput'
+
 export default function ActivityStep({ data, updateData, onNext }) {
   const caMensuel = data.etp * 395
   const caAnnuel = caMensuel * 12
@@ -24,15 +26,21 @@ export default function ActivityStep({ data, updateData, onNext }) {
 
       <div className="input-group">
         <label>Nombre de consultants gérés — <span className="muted">moyenne du réseau : 8 consultants</span></label>
-        <div className="slider-container">
+        <div className="slider-container full-width">
           <input 
             type="range" 
             min="1" 
             max="100" 
             value={data.etp} 
             onChange={(e) => updateData({ etp: parseInt(e.target.value) })}
+            className="full-slider"
           />
-          <div className="value-display">{data.etp}</div>
+          <NumberInput 
+            value={data.etp} 
+            onChange={(val) => updateData({ etp: val })} 
+            min={1} 
+            max={100} 
+          />
         </div>
       </div>
 

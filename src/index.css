@@ -201,22 +201,23 @@ body {
   border: none;
   padding: 1rem 2.5rem;
   border-radius: 50px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
   transition: var(--transition-smooth);
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
+  box-shadow: 0 4px 15px rgba(230, 0, 126, 0.2);
 }
 
 .btn-primary:hover {
   background: #c2006a;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(230, 0, 126, 0.2);
+  box-shadow: 0 8px 25px rgba(230, 0, 126, 0.3);
 }
 
 .btn-secondary {
-  background: transparent;
+  background: white;
   color: var(--accent-violet);
   border: 2px solid var(--accent-violet);
   padding: 1rem 2.5rem;
@@ -224,11 +225,15 @@ body {
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
 }
 
 .btn-secondary:hover {
-  background: var(--accent-violet);
-  color: white;
+  background: var(--bg-soft);
+  color: var(--accent-violet);
+  transform: translateX(-3px);
 }
 
 /* Specific elements update */
