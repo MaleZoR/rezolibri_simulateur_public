@@ -58,123 +58,84 @@ export default function ResultStep({ data, updateData, onPrev }) {
         <p className="muted">Analyse de rentabilité basée sur tes paramètres de consultant.</p>
       </div>
 
-      <div className="result-preview-container">
-        {/* L'overlay de capture de lead */}
-        <AnimatePresence>
-          {!submitted && (
-            <motion.div 
-              className="blur-overlay"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-            >
-              <div className="lead-capture-card">
-                <span className="badge-lock"><Lock size={14} /> Accès sécurisé</span>
-                <h3>Débloque ton étude <br/> complète</h3>
-                <p className="muted">Accède instantanément au détail de tes revenus nets, charges sociales et frais de fonctionnement.</p>
-                
-                <form className="form-premium" onSubmit={handleSubmit}>
-                  <div className="form-group">
-                    <label>Prénom</label>
-                    <input 
-                      type="text" 
-                      placeholder="Ex: Thomas"
-                      value={data.lead.prenom} 
-                      onChange={(e) => handleLeadChange('prenom', e.target.value)} 
-                      required 
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Nom</label>
-                    <input 
-                      type="text" 
-                      placeholder="Ex: Muller"
-                      value={data.lead.nom} 
-                      onChange={(e) => handleLeadChange('nom', e.target.value)} 
-                      required 
-                    />
-                  </div>
-                  <div className="form-group form-full">
-                    <label>E-mail professionnel</label>
-                    <input 
-                      type="email" 
-                      placeholder="thomas.m@entreprise.fr"
-                      value={data.lead.email} 
-                      onChange={(e) => handleLeadChange('email', e.target.value)} 
-                      required 
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Téléphone</label>
-                    <input 
-                      type="tel" 
-                      placeholder="06 00 00 00 00"
-                      value={data.lead.telephone} 
-                      onChange={(e) => handleLeadChange('telephone', e.target.value)} 
-                      required 
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Département</label>
-                    <input 
-                      type="text" 
-                      placeholder="Ex: 69"
-                      value={data.lead.departement} 
-                      onChange={(e) => handleLeadChange('departement', e.target.value)} 
-                      required 
-                    />
-                  </div>
-                  
-                  <div className="form-group form-full">
-                    <div className="form-check">
-                      <input 
-                        type="checkbox" 
-                        id="policy" 
-                        checked={data.lead.acceptedPolicy} 
-                        onChange={(e) => handleLeadChange('acceptedPolicy', e.target.checked)} 
-                        required 
-                      />
-                      <label htmlFor="policy">Je souhaite recevoir mon étude détaillée par email et être accompagné par un expert.</label>
-                    </div>
-                  </div>
+      <div className="result-display-flow">
+        {/* 1. CA Mensuel Estimé (Grande Carte - Clair) */}
+        <div className="result-card premium highlight-ca pulse-on-hover">
+          <span className="label">CA MENSUEL ESTIMÉ</span>
+          <div className="value">{caMensuel.toLocaleString()} €</div>
+          <span className="sub">/ mois</span>
+        </div>
 
-                  <button type="submit" className="btn-primary form-full btn-submit pulse-on-hover">
-                    Débloquer mes résultats <Send size={18} />
-                  </button>
-                </form>
-              </div>
+        {/* 2. Charges & Taux (Deux Cartes côte à côte - Floues) */}
+        <div className="charges-summary-grid">
+          <div className={`result-card premium ${!submitted ? 'blur-data' : ''}`}>
+            <span className="label">CHARGES MENSUELLES</span>
+            <div className="value">{chargesMensuelles.toLocaleString()} €</div>
+            <span className="sub">/ mois</span>
+          </div>
+          <div className={`result-card premium ${!submitted ? 'blur-data' : ''}`}>
+            <span className="label">TAUX DE CHARGES</span>
+            <div className="value">{tauxCharges}%</div>
+            <span className="sub">cotisations sociales</span>
+          </div>
+        </div>
+
+        {/* 3. Le Revenu Net (Affiché après soumission) */}
+        <AnimatePresence>
+          {submitted && (
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="result-card premium highlighted success-net"
+            >
+              <span className="label">VOTRE REVENU NET ESTIMÉ</span>
+              <div className="value">{(caMensuel - cotisationsSociales - chargesMensuelles).toLocaleString()} €</div>
+              <span className="sub">Net de tout, avant impôt sur le revenu</span>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Le Dashboard (Détails floutés sélectivement pour Lead Gen) */}
-        <div className="res-dashboard">
-          <div className="results-grid">
-            <div className="result-card premium highlighted">
-              <span className="label">REVENU NET ESTIMÉ</span>
-              <div className="value">{revenuNet.toLocaleString()} €</div>
-              <span className="sub">Mensuel (Net de tout)</span>
-            </div>
+        {/* 4. Formulaire d'accès (Dans le flux) */}
+        {!submitted && (
+          <div className="lead-capture-card-inline">
+            <h3>Accéder à mon résultat complet</h3>
+            <p className="muted">Gratuit et sans engagement — un conseiller te contactera pour t'accompagner.</p>
             
-            <div className="result-card premium">
-              <span className="label">CHIFFRE D'AFFAIRES</span>
-              <div className="value">{caMensuel.toLocaleString()} €</div>
-              <span className="sub">CA Mensuel Brut</span>
-            </div>
+            <form className="form-premium grid-2cols" onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label>Prénom <span className="req">*</span></label>
+                <input type="text" value={data.lead.prenom} onChange={(e) => handleLeadChange('prenom', e.target.value)} required />
+              </div>
+              <div className="form-group">
+                <label>Nom <span className="req">*</span></label>
+                <input type="text" value={data.lead.nom} onChange={(e) => handleLeadChange('nom', e.target.value)} required />
+              </div>
+              <div className="form-group form-full">
+                <label>Email <span className="req">*</span></label>
+                <input type="email" value={data.lead.email} onChange={(e) => handleLeadChange('email', e.target.value)} required />
+              </div>
+              <div className="form-group">
+                <label>Téléphone <span className="req">*</span></label>
+                <input type="tel" value={data.lead.telephone} onChange={(e) => handleLeadChange('telephone', e.target.value)} required />
+              </div>
+              <div className="form-group">
+                <label>Département <span className="req">*</span></label>
+                <input type="text" value={data.lead.departement} onChange={(e) => handleLeadChange('departement', e.target.value)} required />
+              </div>
+              
+              <div className="form-group form-full">
+                <div className="form-check">
+                  <input type="checkbox" id="policy" checked={data.lead.acceptedPolicy} onChange={(e) => handleLeadChange('acceptedPolicy', e.target.checked)} required />
+                  <label htmlFor="policy">J'accepte que mes données soient traitées conformément à la politique de confidentialité de Rézolibri *</label>
+                </div>
+              </div>
 
-            <div className={`result-card premium ${!submitted ? 'blur-data' : ''}`}>
-              <span className="label">CHARGES SOCIALES</span>
-              <div className="value">{cotisationsSociales.toLocaleString()} €</div>
-              <span className="sub">URSSAF ({tauxCharges}%)</span>
-            </div>
-
-            <div className={`result-card premium ${!submitted ? 'blur-data' : ''}`}>
-              <span className="label">FRAIS DE FONCTIONNEMENT</span>
-              <div className="value">{(chargesMensuelles).toLocaleString()} €</div>
-              <span className="sub">Abonnements & Logiciels</span>
-            </div>
+              <button type="submit" className="btn-primary form-full btn-submit">
+                Envoyer <Send size={18} />
+              </button>
+            </form>
           </div>
-        </div>
+        )}
       </div>
 
       <AnimatePresence>
