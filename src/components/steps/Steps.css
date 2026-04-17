@@ -43,11 +43,6 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.avg-network-badge::before {
-  content: "🎯";
-  margin-right: 4px;
-}
-
 .main-logo {
   height: 52px;
   width: auto;
