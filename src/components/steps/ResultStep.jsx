@@ -104,7 +104,8 @@ export default function ResultStep({ data, updateData, onPrev }) {
           </div>
           
           <p className="net-explanation sans-flou">
-            Simulation après déduction de toutes les charges et cotisations sociales.
+            <Sparkles size={14} style={{ marginRight: '6px', verticalAlign: 'middle' }} />
+            Ce montant est calculé **net de toutes charges** (sociales, plateforme et frais de fonctionnement).
           </p>
         </div>
 
