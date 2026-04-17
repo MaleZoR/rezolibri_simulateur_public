@@ -724,25 +724,27 @@ input:checked + .slider-premium:before {
 .net-explanation-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(71, 0, 102, 0.04);
-  border: 1px solid rgba(71, 0, 102, 0.08);
-  padding: 0.8rem 1.5rem;
-  border-radius: 12px;
-  max-width: fit-content;
+  justify-content: center;
+  background: white;
+  border: 1px solid rgba(71, 0, 102, 0.1);
+  padding: 0.6rem 2rem;
+  border-radius: 100px;
   margin: 2rem auto 0;
   font-size: 0.9rem;
   color: var(--accent-violet);
-  font-weight: 500;
-  line-height: 1.4;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(71, 0, 102, 0.05);
+  transition: var(--transition-smooth);
+}
+
+.net-explanation-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(71, 0, 102, 0.1);
 }
 
 .net-explanation-badge span {
-  text-align: left;
-}
-
-.net-explanation-badge strong {
-  font-weight: 800;
+  text-align: center;
+  white-space: nowrap;
 }
 
 /* --- LEAD CAPTURE PREMIUM --- */

@@ -104,8 +104,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
           </div>
           
           <div className="net-explanation-badge">
-            <Sparkles size={14} />
-            <span>Ce montant est calculé **net de toutes charges** (sociales, plateforme et frais de fonctionnement).</span>
+            <span>✨ Net de cotisations et frais de fonctionnement</span>
           </div>
         </div>
 
