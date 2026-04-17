@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Info, ArrowRight, Target, LayoutDashboard } from 'lucide-react'
 import './Steps.css'
 
-import pictoAmpoule from '../../assets/4- PICTOGRAMMES/ampoule rose.png'
+import pictoAmpoule from '../../assets/4- PICTOGRAMMES/ampoule violet.png'
 import NumberInput from '../ui/NumberInput'
 
 export default function ActivityStep({ data, updateData, onNext }) {
