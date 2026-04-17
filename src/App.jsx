@@ -75,7 +75,7 @@ function App() {
             <span className="highlight">boostez votre avenir pro</span>
           </motion.h1>
           <p className="main-subtitle">
-            Simule ton futur revenu de consultant indépendant avec l'infrastructure de Rézolibri. 
+            Simule ton futur revenu d'entrepreneur en intérim avec l'infrastructure de Rézolibri. 
             Précis, transparent, sans compromis.
           </p>
         </div>

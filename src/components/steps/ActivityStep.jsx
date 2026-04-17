@@ -56,12 +56,12 @@ export default function ActivityStep({ data, updateData, onNext }) {
         <div className="simulation-libre-view">
           <div className="info-box glass-info">
             <p className="title"><Info size={18} /> <strong>Comprendre l'ETP</strong></p>
-            <p>1 ETP = 1 consultant à temps plein (151,67 heures facturées / mois). Les temps partiels sont comptabilisés au prorata (ex: 0,5 ETP).</p>
+          <p>1 ETP = 1 intérimaire à temps plein (151,67 heures facturées / mois). Les temps partiels sont comptabilisés au prorata (ex: 0,5 ETP).</p>
           </div>
 
           <div className="input-group main-input">
             <div className="label-container">
-              <label>Consultants gérés <span className="avg-network-badge">Moyenne Réseau : 8</span></label>
+              <label>Intérimaires gérés <span className="avg-network-badge">Moyenne Réseau : 8</span></label>
             </div>
             
             <div className="slider-wrapper">
@@ -106,7 +106,7 @@ export default function ActivityStep({ data, updateData, onNext }) {
               animate={{ opacity: 1, y: 0 }}
             >
               C'est possible ! Tu dois piloter :
-              <strong>{requiredEtp} Consultants (ETP)</strong>
+              <strong>{requiredEtp} Intérimaires (ETP)</strong>
             </motion.div>
           </div>
         </div>
