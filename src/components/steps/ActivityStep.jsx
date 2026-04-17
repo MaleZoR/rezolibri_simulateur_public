@@ -67,13 +67,14 @@ export default function ActivityStep({ data, updateData, onNext }) {
             <div className="slider-wrapper">
               <input 
                 type="range" 
-                min="1" 
-                max="100" 
+                min="0.5" 
+                max="50" 
+                step="0.5"
                 value={data.etp} 
-                onChange={(e) => updateData({ etp: parseInt(e.target.value) })}
+                onChange={(e) => updateData({ etp: parseFloat(e.target.value) })}
                 className="full-slider"
                 style={{
-                  background: `linear-gradient(to right, var(--accent-fuchsia) 0%, var(--accent-fuchsia) ${data.etp}%, #eee ${data.etp}%, #eee 100%)`
+                  background: `linear-gradient(to right, var(--accent-fuchsia) 0%, var(--accent-fuchsia) ${data.etp * 2}%, #eee ${data.etp * 2}%, #eee 100%)`
                 }}
               />
               
@@ -81,8 +82,9 @@ export default function ActivityStep({ data, updateData, onNext }) {
                 <NumberInput 
                   value={data.etp} 
                   onChange={(val) => updateData({ etp: val })} 
-                  min={1} 
+                  min={0.5} 
                   max={100} 
+                  step={0.5}
                 />
               </div>
             </div>
