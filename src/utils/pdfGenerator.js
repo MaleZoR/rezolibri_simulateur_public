@@ -167,9 +167,9 @@ export const generateBusinessPlan = async (data) => {
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(12);
   doc.setFont('helvetica', 'normal');
-  doc.text('📧 recruteurs@rezolibri.fr', 30, 210);
-  doc.text('📞 01 89 20 22 24', 30, 220);
-  doc.text('🌐 www.rezolibri.fr', 30, 230);
+  doc.text('Email : recruteurs@rezolibri.fr', 30, 210);
+  doc.text('Tél : 02 85 35 63 47', 30, 220);
+  doc.text('Site : www.rezolibri.fr', 30, 230);
 
   // Bouton Calendly
   doc.setFillColor(...secondaryColor);
