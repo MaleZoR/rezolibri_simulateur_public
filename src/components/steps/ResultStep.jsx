@@ -119,7 +119,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
             </div>
             <div className="recap-details">
               <span className="recap-label">Frais de fonctionnement</span>
-              <span className="recap-value">{chargesMensuelles} € / mois</span>
+              <span className="recap-value">{chargesMensuelles.toLocaleString('fr-FR')} € / mois</span>
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
           
           <div className="net-value-container">
             <span className={`net-value ${!submitted ? 'blur-text' : ''}`}>
-              {submitted ? `${revenuNet.toLocaleString()} €` : '8 314 11 €'}
+              {submitted ? `${revenuNet.toLocaleString('fr-FR')} €` : '8 314 11 €'}
             </span>
             <span className="net-unit">/ mois net</span>
           </div>

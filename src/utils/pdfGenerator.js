@@ -59,9 +59,9 @@ export const generateBusinessPlan = async (data) => {
     head: [['Indicateur', 'Valeur mensuelle']],
     body: [
       ['Volume d\'activité', `${data.etp} ETP (Équivalent Temps Plein)`],
-      ['Chiffre d\'Affaires estimé', `${caMensuel.toLocaleString()} €`],
+      ['Chiffre d\'Affaires estimé', `${caMensuel.toLocaleString('fr-FR')} €`],
       ['Taux de cotisations (Urssaf)', `${tauxCharges}%`],
-      ['Total des charges de structure', `${chargesMensuelles.toLocaleString()} €`],
+      ['Total des charges de structure', `${chargesMensuelles.toLocaleString('fr-FR')} €`],
     ],
     theme: 'striped',
     headStyles: { fillColor: primaryColor },
@@ -76,7 +76,7 @@ export const generateBusinessPlan = async (data) => {
   doc.setFontSize(16);
   doc.text('VOTRE REVENU NET ESTIMÉ :', 30, finalY + 12);
   doc.setFontSize(22);
-  doc.text(`${revenuNet.toLocaleString()} € / mois`, 30, finalY + 24);
+  doc.text(`${revenuNet.toLocaleString('fr-FR')} € / mois`, 30, finalY + 24);
 
   // --- PAGE 3 : DÉTAIL DES CHARGES ---
   doc.addPage();
