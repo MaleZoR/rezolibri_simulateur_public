@@ -118,7 +118,7 @@ export default function ActivityStep({ data, updateData, onNext }) {
           whileHover={{ y: -5 }}
         >
           <span className="label">CA MENSUEL ESTIMÉ</span>
-          <div className="value">{caMensuel.toLocaleString('fr-FR')} €</div>
+          <div className="value">{caMensuel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} €</div>
           <span className="sub">Mensuel</span>
         </motion.div>
         
@@ -127,7 +127,7 @@ export default function ActivityStep({ data, updateData, onNext }) {
           whileHover={{ y: -5 }}
         >
           <span className="label">CA ANNUEL ESTIMÉ</span>
-          <div className="value">{caAnnuel.toLocaleString('fr-FR')} €</div>
+          <div className="value">{caAnnuel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} €</div>
           <span className="sub">Annuel</span>
         </motion.div>
       </div>

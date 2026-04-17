@@ -12,6 +12,11 @@ export const generateBusinessPlan = async (data) => {
   const primaryColor = [71, 0, 102]; // #470066 (Violet Rézolibri)
   const secondaryColor = [200, 255, 0]; // #c8ff00 (Lime Rézolibri)
   
+  // Helper de formatage manuel (évite les bugs de caractères spéciaux dans jsPDF)
+  const formatFR = (num) => {
+    return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  };
+
   // CALCULS
   const caMensuel = data.etp * 395;
   const tauxCharges = data.isAcre ? 12.8 : 25.6;
@@ -59,9 +64,9 @@ export const generateBusinessPlan = async (data) => {
     head: [['Indicateur', 'Valeur mensuelle']],
     body: [
       ['Volume d\'activité', `${data.etp} ETP (Équivalent Temps Plein)`],
-      ['Chiffre d\'Affaires estimé', `${caMensuel.toLocaleString('fr-FR')} €`],
+      ['Chiffre d\'Affaires estimé', `${formatFR(caMensuel)} €`],
       ['Taux de cotisations (Urssaf)', `${tauxCharges}%`],
-      ['Total des charges de structure', `${chargesMensuelles.toLocaleString('fr-FR')} €`],
+      ['Total des charges de structure', `${formatFR(chargesMensuelles)} €`],
     ],
     theme: 'striped',
     headStyles: { fillColor: primaryColor },
@@ -76,7 +81,7 @@ export const generateBusinessPlan = async (data) => {
   doc.setFontSize(16);
   doc.text('VOTRE REVENU NET ESTIMÉ :', 30, finalY + 12);
   doc.setFontSize(22);
-  doc.text(`${revenuNet.toLocaleString('fr-FR')} € / mois`, 30, finalY + 24);
+  doc.text(`${formatFR(revenuNet)} € / mois`, 30, finalY + 24);
 
   // --- PAGE 3 : DÉTAIL DES CHARGES ---
   doc.addPage();
