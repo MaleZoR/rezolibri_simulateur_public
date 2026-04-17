@@ -14,6 +14,14 @@ export async function onRequestPost(context) {
     const data = await request.json();
     const { lead, etp, pdfBase64 } = data;
 
+    // 1.5 Sécurité HoneyPot : Si le champ caché est rempli, c'est un bot
+    if (lead.website) {
+      console.log('Bot détecté via HoneyPot');
+      return new Response(JSON.stringify({ success: true, bot: true }), {
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
     // 2. Nettoyage du Base64 pour Resend (enlever le préfixe data:application/pdf;base64,)
     const cleanBase64 = pdfBase64.split(',')[1];
 

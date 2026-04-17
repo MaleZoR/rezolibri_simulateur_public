@@ -197,6 +197,10 @@ export default function ResultStep({ data, updateData, onPrev }) {
                 </label>
               </div>
 
+              <div style={{ display: 'none' }}>
+                <input type="text" name="website" tabIndex="-1" autoComplete="off" value={data.lead.website || ''} onChange={(e) => handleLeadChange('website', e.target.value)} />
+              </div>
+
               <button type="submit" className="btn-final-impact pulse">
                 Recevoir mon Business Plan <Send size={20} />
               </button>
