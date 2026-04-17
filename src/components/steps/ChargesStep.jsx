@@ -2,21 +2,22 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, Plus, Info, Landmark, Smartphone, ShieldCheck, CreditCard, Fuel, Coffee, TrainFront } from 'lucide-react'
 import './Steps.css'
 import NumberInput from '../ui/NumberInput'
+import pictoExpert from '../../assets/4- PICTOGRAMMES/Recruteur actif.png'
 
 const getIcon = (label) => {
   const l = label.toLowerCase()
-  if (l.includes('plateforme')) return <Landmark size={20} />
-  if (l.includes('mobile')) return <Smartphone size={20} />
-  if (l.includes('protection') || l.includes('assurance')) return <ShieldCheck size={20} />
-  if (l.includes('bancaire') || l.includes('qonto')) return <CreditCard size={20} />
-  if (l.includes('carburant')) return <Fuel size={20} />
-  if (l.includes('coworking')) return <Coffee size={20} />
-  if (l.includes('transport')) return <TrainFront size={20} />
-  return <Plus size={20} />
+  if (l.includes('plateforme') || l.includes('rezolibri')) return <img src={pictoExpert} alt="Rézolibri" className="picto-charge" />
+  if (l.includes('mobile')) return <Smartphone size={24} />
+  if (l.includes('protection') || l.includes('assurance')) return <ShieldCheck size={24} />
+  if (l.includes('bancaire') || l.includes('qonto')) return <CreditCard size={24} />
+  if (l.includes('carburant')) return <Fuel size={24} />
+  if (l.includes('coworking')) return <Coffee size={24} />
+  if (l.includes('transport')) return <TrainFront size={24} />
+  return <Plus size={24} />
 }
 
 export default function ChargesStep({ data, updateData, onNext, onPrev }) {
-  const totalCharges = [...data.chargesFixes, ...data.chargesVariables].reduce((acc, curr) => acc + (curr.value || 0), 0)
+  const totalCharges = [...data.chargesFixes, ...data.chargesVariables].reduce((acc, curr) => acc + (parseFloat(curr.value) || 0), 0)
 
   const handleFixeChange = (id, val) => {
     const newFixes = data.chargesFixes.map(c => c.id === id ? { ...c, value: val } : c)
@@ -41,85 +42,75 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
       className="step-content"
     >
       <div className="step-header">
+        <div className="info-box glass-info lime-edge">
+          <h5><Info size={18} /> Optimisation des charges</h5>
+          <p>
+            Tes frais fixes sont mutualisés via Rézolibri. <br/>
+            Moins de charges = Plus d'argent net dans ta poche à la fin du mois.
+          </p>
+        </div>
         <h2>Mes charges mensuelles</h2>
-        <p className="muted">Optimise tes charges pour maximiser ton revenu net.</p>
       </div>
 
-      <div className="charges-grid">
-        {data.chargesFixes.map(charge => (
-          <div key={charge.id} className="charge-card">
-            <div className="charge-info-top">
-              <div className="charge-icon-wrapper">
+      <div className="charges-list-premium">
+        {[...data.chargesFixes, ...data.chargesVariables].map(charge => (
+          <motion.div 
+            key={charge.id} 
+            className="charge-row-card"
+            whileHover={{ x: 5 }}
+          >
+            <div className="charge-main-content">
+              <div className="charge-icon-circle">
                 {getIcon(charge.label)}
               </div>
-              <div className="charge-details-text">
-                <span className="label">
-                  {charge.label}
-                  {charge.partner && <span className="partner-badge">{charge.partner}</span>}
+              <div className="charge-text-details">
+                <div className="charge-label-row">
+                  <span className="charge-name">{charge.label}</span>
+                  {charge.locked && <span className="locked-badge">Inclus</span>}
+                </div>
+                <span className="charge-type">
+                  {data.chargesFixes.find(f => f.id === charge.id) ? 'Charge fixe mensuelle' : 'Charge variable (optionnel)'}
                 </span>
-                <span className="sub">Charge fixe mensuelle</span>
               </div>
-              <Info size={16} className="text-muted" style={{ cursor: 'help' }} />
             </div>
             
-            <div className="charge-input-wrapper">
-              <span className="muted-text">Montant</span>
+            <div className="charge-input-section">
               <NumberInput 
                 value={charge.value} 
-                onChange={(val) => handleFixeChange(charge.id, val)}
+                onChange={(val) => data.chargesFixes.find(f => f.id === charge.id) ? handleFixeChange(charge.id, val) : handleVariableChange(charge.id, val)}
                 readOnly={charge.locked}
                 suffix="€"
               />
             </div>
-          </div>
+          </motion.div>
         ))}
 
-        {data.chargesVariables.map(charge => (
-          <div key={charge.id} className="charge-card">
-            <div className="charge-info-top">
-              <div className="charge-icon-wrapper">
-                {getIcon(charge.label)}
-              </div>
-              <div className="charge-details-text">
-                <span className="label">{charge.label}</span>
-                <span className="sub">Charge variable (optionnel)</span>
-              </div>
-            </div>
-            
-            <div className="charge-input-wrapper">
-              <span className="muted-text">Montant</span>
-              <NumberInput 
-                value={charge.value} 
-                onChange={(val) => handleVariableChange(charge.id, val)}
-                suffix="€"
-              />
-            </div>
-          </div>
-        ))}
-
-        <button className="btn-add-charge" onClick={addCharge}>
-          <Plus size={24} /> <span>Ajouter une charge</span>
+        <button className="btn-add-charge-premium" onClick={addCharge}>
+          <div className="add-icon-circle"><Plus size={20} /></div>
+          <span>Ajouter une charge personnalisée</span>
         </button>
       </div>
 
-      <div className="total-box glass">
-        <span>Total des charges mensuelles estimées</span>
-        <span className="total-value">{totalCharges.toLocaleString()} € <span className="small">/ mois</span></span>
-      </div>
-
-      <div className="solo-comparator">
-        <div className="solo-grid">
-          <div className="compare-card solo">
-            <span className="val">450 €</span>
-            <span className="tit">Coût en Solo (estimé)</span>
+      <div className="comparison-block-lime">
+        <div className="comp-header">
+          <h3>Comparatif Financier Mensuel</h3>
+          <p>Démonstration de la puissance du réseau</p>
+        </div>
+        <div className="comp-grid">
+          <div className="comp-item solo">
+            <span className="label">Indépendant Solo</span>
+            <span className="value">450 €</span>
+            <span className="sub">Moyenne du marché</span>
           </div>
-          <div className="compare-card rezolibri">
-            <span className="val">{totalCharges.toLocaleString()} €</span>
-            <span className="tit">Ton coût Rézolibri</span>
+          <div className="comp-divider">VS</div>
+          <div className="comp-item rezolibri">
+            <span className="label">Expert Rézolibri</span>
+            <span className="value">{totalCharges.toLocaleString()} €</span>
+            <span className="sub">Ton coût actuel</span>
           </div>
         </div>
-        <div style={{ textAlign: 'center' }}>
-          <div className="economy-badge">
+        <div className="comp-bonus">
+          <div className="economy-pill">
             🚀 Tu économises {(450 - totalCharges).toLocaleString()} € / mois
           </div>
         </div>
