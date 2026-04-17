@@ -29,16 +29,6 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
     updateData({ chargesVariables: newVars })
   }
 
-  const handleFixeChange = (id, val) => {
-    const newFixes = data.chargesFixes.map(c => c.id === id ? { ...c, value: val } : c)
-    updateData({ chargesFixes: newFixes })
-  }
-
-  const handleVariableChange = (id, val) => {
-    const newVars = data.chargesVariables.map(c => c.id === id ? { ...c, value: val } : c)
-    updateData({ chargesVariables: newVars })
-  }
-
   const addCharge = () => {
     const newCharge = { id: Date.now(), label: 'Nouvelle charge', value: 0 }
     updateData({ chargesVariables: [...data.chargesVariables, newCharge] })
