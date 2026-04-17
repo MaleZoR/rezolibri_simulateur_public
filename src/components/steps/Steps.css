@@ -31,15 +31,21 @@
 .avg-network-badge {
   background: var(--accent-lime);
   color: var(--accent-violet);
-  padding: 0.4rem 1rem;
-  border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  box-shadow: 0 4px 12px rgba(200, 255, 0, 0.3);
-  position: relative;
-  left: 20px; /* Décalage pour éviter le curseur au début */
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.avg-network-badge::before {
+  content: "🎯";
+  margin-right: 4px;
 }
 
 .main-logo {
@@ -89,12 +95,29 @@ h1, h2, h3, .main-title {
 }
 
 .info-box.glass-info {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  padding: 1.5rem;
-  border-radius: 20px;
+  background: rgba(71, 0, 102, 0.03);
+  border-left: 4px solid var(--accent-violet);
+  padding: 1.2rem 1.5rem;
+  border-radius: 0 16px 16px 0;
   margin-bottom: 2.5rem;
-  backdrop-filter: blur(10px);
+  text-align: left;
+}
+
+.info-box.glass-info h5 {
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: var(--accent-violet);
+  font-weight: 800;
+}
+
+.info-box.glass-info p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
 }
 
 .input-group.main-input {

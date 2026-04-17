@@ -56,19 +56,12 @@ export default function ActivityStep({ data, updateData, onNext }) {
         <div className="simulation-libre-view">
           <div className="info-box glass-info">
             <p className="title"><Info size={18} /> <strong>Comprendre l'ETP</strong></p>
-            <p>1 ETP = 1 consultant à temps plein (151,67 heures facturées / mois).</p>
-            <div className="examples-grid">
-              <div className="example-tag">1 Temps Plein = 1 ETP</div>
-              <div className="example-tag">2 Mi-Temps = 1 ETP</div>
-            </div>
+            <p>1 ETP = 1 consultant à temps plein (151,67 heures facturées / mois). Les temps partiels sont comptabilisés au prorata (ex: 0,5 ETP).</p>
           </div>
 
           <div className="input-group main-input">
             <div className="label-container">
-              <label>Consultants gérés</label>
-              <div className="avg-network-badge">
-                Moyenne Réseau : 8
-              </div>
+              <label>Consultants gérés <span className="avg-network-badge">Moyenne Réseau : 8</span></label>
             </div>
             
             <div className="slider-wrapper">
