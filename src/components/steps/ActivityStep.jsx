@@ -82,6 +82,11 @@ export default function ActivityStep({ data, updateData, onNext }) {
               </div>
             </div>
           </div>
+
+          <div className="info-box glass-info">
+            <p><Info size={18} /> <strong>Indépendant, mais soutenu</strong></p>
+            <p>Le recrutement est un métier passionnant au service de l'humain. Calculez votre revenu en fonction de votre volume d'activité (ETP) tout en profitant de la force du collectif.</p>
+          </div>
         </div>
       ) : (
         <div className="objective-mode-view">
