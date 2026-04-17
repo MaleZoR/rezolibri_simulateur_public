@@ -53,8 +53,8 @@ export default function ActivityStep({ data, updateData, onNext }) {
       {mode === 'libre' ? (
         <div className="simulation-libre-view">
           <div className="info-box glass-info">
-            <p className="title"><Info size={18} /> <strong>Comprendre l'ETP</strong></p>
-          <p>1 ETP = 1 intérimaire à temps plein (151,67 heures facturées / mois). Les temps partiels sont comptabilisés au prorata (ex: 0,5 ETP).</p>
+            <p className="title"><Info size={18} /> <strong>Qu'est-ce qu'un ETP ?</strong></p>
+            <p>1 ETP (L'Équivalent Temps Plein) représente un intérimaire travaillant 151,67 heures par mois. C'est l'étalon de mesure de votre force de frappe.</p>
           </div>
 
           <div className="input-group main-input">
@@ -91,7 +91,7 @@ export default function ActivityStep({ data, updateData, onNext }) {
       ) : (
         <div className="objective-mode-view">
           <div className="objective-input-wrapper">
-            <h3>Quel revenu net mensuel souhaites-tu atteindre ?</h3>
+            <h3>Quel est votre objectif de revenu net mensuel ?</h3>
             <NumberInput 
               value={targetIncome} 
               onChange={handleObjectiveChange} 
@@ -135,11 +135,11 @@ export default function ActivityStep({ data, updateData, onNext }) {
       <div className="acre-premium-card">
         <label className="acre-content" htmlFor="acre-toggle">
           <div className="acre-picto">
-            <img src={pictoAmpoule} alt="ACRE" />
+            <img src={pictoAmpoule} alt="Optimisation" />
           </div>
           <div className="acre-text">
-            <h4>Bénéficier de l'ACRE</h4>
-            <p>Exonération partielle de charges la 1ère année</p>
+            <h4>Activation du dispositif ACRE</h4>
+            <p>Bénéficiez d'une réduction stratégique de vos cotisations la première année.</p>
           </div>
           <div className="acre-action">
             <label className="switch-premium">

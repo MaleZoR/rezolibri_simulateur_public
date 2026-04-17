@@ -76,12 +76,12 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             className="main-title"
           >
-            Révélez votre potentiel, <br/>
-            <span className="highlight">boostez votre avenir pro</span>
+            Maîtrisez votre destin, <br/>
+            <span className="highlight">activez votre réseau d'expert</span>
           </motion.h1>
           <p className="main-subtitle">
-            Simule ton futur revenu d'entrepreneur en intérim avec l'infrastructure de Rézolibri. 
-            Précis, transparent, sans compromis.
+            Estimez précisément votre rémunération nette grâce au modèle économique mutualisé de Rézolibri. 
+            La puissance d'une infrastructure dédiée à votre succès.
           </p>
         </div>
       </header>

@@ -81,13 +81,13 @@ export default function ResultStep({ data, updateData, onPrev }) {
     >
       <div className="step-header">
         <div className="info-box glass-info lime-edge">
-          <h5><Sparkles size={18} /> Simulation Terminée</h5>
+          <h5><Sparkles size={18} /> Projection Validée</h5>
           <p>
-            Ton Business Plan 2026 est prêt. <br/>
-            Débloque ton analyse complète pour lancer ton agence d'emploi.
+            Votre dossier Business Plan 2026 est prêt à être généré. <br/>
+            Accédez à vos indicateurs de rentabilité pour piloter votre futur succès.
           </p>
         </div>
-        <h2>Ton compte d'exploitation</h2>
+        <h2>Votre prévisionnel d'exploitation</h2>
       </div>
 
       <div className="result-main-flow">
@@ -139,7 +139,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
           </div>
           
           <div className="net-explanation-badge">
-            <span>✨ Net de cotisations et frais de fonctionnement</span>
+            <span>✨ Net de cotisations sociales et frais de mutualisation</span>
           </div>
         </div>
 
@@ -152,10 +152,10 @@ export default function ResultStep({ data, updateData, onPrev }) {
           >
             <div className="form-header-premium">
               <div className="bp-badge">
-                <FileText size={18} /> Business Plan 2026 inclus
+                <FileText size={18} /> Dossier Business Plan Expert 2026
               </div>
-              <h3>Accéder aux détails du projet</h3>
-              <p>Reçois ton compte d'exploitation complet et tes prévisionnels détaillés par email.</p>
+              <h3>Accédez au détail de votre rentabilité</h3>
+              <p>Recevez votre pack de lancement complet incluant votre compte d'exploitation par email.</p>
             </div>
 
             <form className="form-grid-premium" onSubmit={handleSubmit}>
@@ -189,11 +189,11 @@ export default function ResultStep({ data, updateData, onPrev }) {
               <div className="checkbox-group-premium">
                 <label className="checkbox-item">
                   <input type="checkbox" defaultChecked />
-                  <span className="check-text">🚀 Je veux valider ces chiffres lors d'un rdv avec un expert</span>
+                  <span className="check-text">🚀 Je souhaite affiner cette simulation avec un expert Rézolibri</span>
                 </label>
                 <label className="checkbox-item">
                   <input type="checkbox" checked={data.lead.acceptedPolicy} onChange={(e) => handleLeadChange('acceptedPolicy', e.target.checked)} required />
-                  <span className="check-text small">J'accepte la politique de confidentialité de Rézolibri.</span>
+                  <span className="check-text small">J'accepte la politique de confidentialité du réseau Rézolibri.</span>
                 </label>
               </div>
 
@@ -215,8 +215,8 @@ export default function ResultStep({ data, updateData, onPrev }) {
             <div className="success-icon-wrapper">
               <CheckCircle2 size={48} />
             </div>
-            <h3>Félicitations {data.lead.prenom} !</h3>
-            <p>Ton Business Plan 2026 personnalisé est en cours de téléchargement automatique et vient d'être envoyé sur ton adresse email.</p>
+            <h3>Bravo {data.lead.prenom} ! Votre projet prend forme.</h3>
+            <p>Votre Business Plan Expert personnalisé est en cours de téléchargement. Une copie vient d'être envoyée sur votre boite email.</p>
             
             <div className="success-actions-premium">
               <button className="btn-final-impact pulse" onClick={() => window.open('https://calendly.com/stephanie-laval/60min', '_blank')}>

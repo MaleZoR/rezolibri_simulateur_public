@@ -9,33 +9,33 @@ import './Steps.css'
 const benefits = [
   { 
     icon: pictoExpert, 
-    title: 'Académie Rézolibri', 
-    desc: 'Formation intensive certifiante pour dominer le marché de l\'intérim dès le premier jour.' 
+    title: 'Académie Rezolibri', 
+    desc: 'Bénéficiez d\'un parcours d\'excellence pour maîtriser tous les leviers du recrutement expert.' 
   },
   { 
     icon: pictoMain, 
-    title: 'Support Juridique 24/7', 
-    desc: 'Zéro risque : protection totale et contrats de travail 100% conformes aux dernières lois.' 
+    title: 'Conformité & Juridique', 
+    desc: 'Une sérénité totale avec une gestion 100% conforme des contrats et des obligations légales.' 
   },
   { 
     icon: pictoCoeur, 
-    title: 'Matching IA "Flash"', 
-    desc: 'Notre algorithme exclusif trouve le bon intérimaire en quelques secondes.' 
+    title: 'Algorithme Libri-Match', 
+    desc: 'Notre interface intelligente connecte instantanément les meilleurs profils à vos besoins.' 
   },
   { 
     icon: pictoAmpoule, 
-    title: 'Réseau Co-Recrutement', 
-    desc: 'Partagez vos besoins, collaborez avec le réseau et multipliez vos marges.' 
+    title: 'Collaborative Hiring', 
+    desc: 'Exploitez la force de proposition du réseau pour décupler vos opportunités de business.' 
   },
   { 
     icon: pictoExpert, 
-    title: 'Licences LinkedIn Incluses', 
-    desc: 'Économisez 8000€/an : on vous offre les meilleurs outils de sourcing du marché.' 
+    title: 'Outils Sourcing Premium', 
+    desc: 'Accédez aux meilleures licences du marché sans surcoût. Nous gérons l\'investissement pour vous.' 
   },
   { 
     icon: pictoCoeur, 
-    title: 'Cash-Flow Garanti', 
-    desc: 'Terminé les impayés. Vos commissions sont sécurisées et payées sous 48h.' 
+    title: 'Sécurité de Trésorerie', 
+    desc: 'Vos commissions sont garanties et versées avec une rapidité exemplaire. Finis les délais.' 
   },
 ]
 
@@ -49,13 +49,13 @@ export default function BenefitsStep({ onNext, onPrev }) {
     >
       <div className="step-header">
         <div className="info-box glass-info lime-edge">
-          <h5><Info size={18} /> Pourquoi Rézolibri ?</h5>
+          <h5><Info size={18} /> L'écosystème Rezolibri</h5>
           <p>
-            On ne se contente pas de diviser tes charges. <br/>
-            On multiplie tes chances de succès avec une infrastructure de niveau mondial.
+            Nous ne nous contentons pas de réduire vos frais. <br/>
+            Nous bâtissons avec vous une infrastructure de pointe pour porter votre succès.
           </p>
         </div>
-        <h2>Ton arsenal de réussite</h2>
+        <h2>Votre arsenal de performance</h2>
       </div>
 
       <div className="benefits-grid-premium">

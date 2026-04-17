@@ -56,11 +56,11 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
     >
       <div className="step-header">
         <div className="info-box glass-info lime-edge">
-          <h5><Info size={18} /> Optimisation des charges</h5>
-          <p>Tes frais fixes sont mutualisés via Rézolibri. Moins de charges = Plus d'argent net.</p>
+          <h5><Info size={18} /> Mutualisation des ressources</h5>
+          <p>Grâce au modèle Rézolibri, vos frais fixes sont optimisés par la force du réseau. Plus d'efficacité = Plus de revenu net.</p>
         </div>
-        <h2>Mes charges mensuelles</h2>
-        <p className="step-sub">Renseigne tes charges pour affiner ta simulation.</p>
+        <h2>Ma structure de coûts</h2>
+        <p className="step-sub">Détaillez vos dépenses pour une simulation au plus proche de la réalité.</p>
       </div>
 
       <div className="charges-dashboard">
@@ -92,7 +92,7 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
         </div>
 
         <div className="charges-group">
-          <h3 className="group-title">CHARGES VARIABLES (OPTIONNELLES)</h3>
+          <h3 className="group-title">DÉPENSES COMPLÉMENTAIRES</h3>
           <div className="charges-list-rows">
             {data.chargesVariables.map(charge => (
               <div key={charge.id} className="charge-item-row editable">
@@ -126,7 +126,7 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
         </div>
 
         <div className="total-charges-summary">
-          <span className="total-label">Total charges mensuelles</span>
+          <span className="total-label">Total des frais mensuels</span>
           <span className="total-value">{totalCharges.toLocaleString()} €</span>
         </div>
       </div>

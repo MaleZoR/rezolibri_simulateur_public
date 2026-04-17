@@ -66,7 +66,7 @@ export const generateBusinessPlan = async (data) => {
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(14);
   doc.setFont('helvetica', 'normal');
-  doc.text('SIMULATION OFFICIELLE RÉZOLIBRI', 20, 160);
+  doc.text('SIMULATION EXPERTE RÉZOLIBRI', 20, 160);
   
   // Logo blanc (version simplifiée en texte sur fond violet)
   doc.setFontSize(20);
@@ -138,19 +138,19 @@ export const generateBusinessPlan = async (data) => {
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(32);
   doc.setFont('helvetica', 'bold');
-  doc.text('Prêt à lancer votr agence ?', 20, 60);
+  doc.text('Prêt à lancer votre agence ?', 20, 60);
   
   doc.setFontSize(16);
   doc.setFont('helvetica', 'normal');
-  doc.text('Votre projet mérite l\'expertise Rézolibri.', 20, 85);
+  doc.text('Votre avenir se construit avec l\'expertise Rézolibri.', 20, 85);
 
   const stepsY = 110;
   doc.setFontSize(13);
   const steps = [
-    '• Validez vos hypothèses financières avec nos experts.',
-    '• Accédez à notre infrastructure digitale clé en main.',
-    '• Bénéficiez du portage de BFR et de l\'automatisation de la paie.',
-    '• Rejoignez le réseau n°1 des créateurs d\'agences d\'emploi.'
+    '• Validez vos projections financières avec nos consultants.',
+    '• Activez votre infrastructure digitale haute performance.',
+    '• Sécurisez votre cash-flow dès le premier intérimaire.',
+    '• Intégrez le réseau n°1 des créateurs d\'agences expertes.'
   ];
   steps.forEach((step, idx) => doc.text(step, 20, stepsY + (idx * 12)));
 

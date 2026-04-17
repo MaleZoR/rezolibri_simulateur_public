@@ -35,8 +35,7 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         from: 'Rézolibri <simulation@simu.rezolibri.fr>',
         to: [lead.email],
-        reply_to: 'recruteurs@rezolibri.fr',
-        subject: `📈 Ton Business Plan 2026 - ${lead.prenom}`,
+        reply_to: 'recruteurs@rezol        subject: `📈 Votre Dossier Vision Expert 2026 - ${lead.prenom}`,
         html: `
           <html>
             <body style="margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f8f9fa;">
@@ -54,43 +53,43 @@ export async function onRequestPost(context) {
                       <!-- Content -->
                       <tr>
                         <td style="padding: 40px; color: #333333;">
-                          <h2 style="color: #470066; margin-top: 0;">Félicitations ${lead.prenom} !</h2>
+                          <h2 style="color: #470066; margin-top: 0;">Bonjour ${lead.prenom},</h2>
                           <p style="font-size: 16px; line-height: 1.6;">
-                            Ton projet d'agence d'emploi franchit une étape clé aujourd'hui. 
-                            Suite à ta simulation de <strong>${etp} ETP</strong>, nous avons le plaisir de te transmettre ton Business Plan complet pour l'année 2026.
+                            Votre projet de création d'agence d'emploi franchit une étape décisive. 
+                            Suite à votre simulation basée sur un volume de <strong>${etp} ETP</strong>, nous avons le plaisir de vous transmettre votre Dossier Vision Expert pour l'année 2026.
                           </p>
                           
                           <div style="background-color: #f4f1f7; border-radius: 8px; padding: 20px; margin: 25px 0;">
-                            <h3 style="margin-top: 0; font-size: 14px; color: #470066; text-transform: uppercase;">Récapitulatif de ta demande</h3>
-                            <p style="margin: 5px 0; font-size: 15px;"><strong>Nom :</strong> ${lead.prenom} ${lead.nom}</p>
-                            <p style="margin: 5px 0; font-size: 15px;"><strong>Département :</strong> ${lead.departement}</p>
+                            <h3 style="margin-top: 0; font-size: 14px; color: #470066; text-transform: uppercase;">Résumé de votre projection</h3>
+                            <p style="margin: 5px 0; font-size: 15px;"><strong>Expertise :</strong> ${lead.prenom} ${lead.nom}</p>
+                            <p style="margin: 5px 0; font-size: 15px;"><strong>Zone :</strong> ${lead.departement}</p>
                           </div>
-
+ 
                           <p style="font-size: 16px; line-height: 1.6;">
-                            Tu trouveras ton document PDF détaillé en pièce jointe de cet email. 
-                            Ce document contient ton compte d'exploitation prévisionnel et tes indicateurs clés de performance.
+                            Vous trouverez votre document prévisionnel détaillé en pièce jointe de cet email. 
+                            Ce dossier contient votre compte d'exploitation et vos indicateurs de rentabilité mutualisés.
                           </p>
-
+ 
                           <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 30px;">
                             <tr>
                               <td align="center">
                                 <a href="https://calendly.com/stephanie-laval/60min" style="background-color: #c8ff00; color: #470066; padding: 15px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block;">
-                                  VALIDER MON PROJET AVEC UN EXPERT
+                                  AFFINER MON PROJET AVEC UN CONSULTANT
                                 </a>
                               </td>
                             </tr>
                           </table>
                         </td>
                       </tr>
-
+ 
                       <!-- Footer -->
                       <tr>
                         <td style="padding: 40px; background-color: #470066; color: #ffffff; text-align: center;">
                           <p style="margin: 0; font-size: 14px; opacity: 0.8;">
-                            © 2026 Rézolibri - L'infrastructure digitale au service des agences d'emploi.
+                            © 2026 Rézolibri - L'infrastructure digitale au service de l'expertise intérim.
                           </p>
                           <p style="margin: 10px 0 0 0; font-size: 12px; opacity: 0.6;">
-                            Cet email a été envoyé via le simulateur officiel simu.rezolibri.fr
+                            Simulation générée via simu.rezolibri.fr
                           </p>
                         </td>
                       </tr>
