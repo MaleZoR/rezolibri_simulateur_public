@@ -15,14 +15,12 @@ export default function ActivityStep({ data, updateData, onNext }) {
   const taxRate = 0.256 // Standard rate 25.6%
   const marginPerEtp = 395 // Fixed by network
 
-  // Calculate required ETP based on Target Income
-  // Formula: Target = (ETP * Margin * (1 - TaxRate)) - Fixed
-  // ETP = (Target + Fixed) / (Margin * (1 - TaxRate))
-  const requiredEtp = Math.ceil((targetIncome + fixedCharges) / (marginPerEtp * (1 - taxRate)))
+  const requiredEtp = parseFloat(((targetIncome + fixedCharges) / (marginPerEtp * (1 - taxRate))).toFixed(1))
 
   const handleObjectiveChange = (val) => {
     setTargetIncome(val)
-    updateData({ etp: Math.ceil((val + fixedCharges) / (marginPerEtp * (1 - taxRate))) })
+    const newEtp = parseFloat(((val + fixedCharges) / (marginPerEtp * (1 - taxRate))).toFixed(1))
+    updateData({ etp: newEtp })
   }
 
   const caMensuel = data.etp * marginPerEtp

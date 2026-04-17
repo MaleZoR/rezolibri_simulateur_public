@@ -625,18 +625,51 @@ input:checked + .slider-premium:before {
 }
 
 /* --- RESULT STEP --- */
-/* --- FINAL RESULT CARD --- */
-.final-result-card {
-  background: white;
-  border: 4px solid var(--accent-lime);
-  border-radius: 40px;
-  padding: 4rem 2rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 3rem;
-  box-shadow: 0 30px 60px rgba(200, 255, 0, 0.15);
-  transition: var(--transition-smooth);
+/* --- SIMULATION RECAP GRID --- */
+.simulation-recap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.recap-item {
+  background: rgba(71, 0, 102, 0.03);
+  border: 1px solid rgba(71, 0, 102, 0.05);
+  border-radius: 20px;
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--accent-violet);
+}
+
+.recap-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.recap-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.recap-val {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.lead-capture-premium.highlighted-box {
+  background: var(--bg-soft);
+  border: 1px solid var(--accent-fuchsia);
+  box-shadow: 0 20px 60px rgba(230, 0, 126, 0.08);
+}
+@media (max-width: 768px) {
+  .simulation-recap-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .final-result-card.unlocked {
