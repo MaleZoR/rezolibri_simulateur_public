@@ -158,7 +158,7 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
         </div>
 
         <div className="economy-pill">
-          💰 ÉCONOMIE : {(3500 - totalCharges).toLocaleString()} € / MOIS
+          <Sparkles size={18} style={{ marginRight: '8px' }} /> ÉCONOMIE : {(3500 - totalCharges).toLocaleString()} € / MOIS
         </div>
       </motion.div>
 
