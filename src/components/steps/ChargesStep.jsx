@@ -98,7 +98,7 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
               <NumberInput 
                 value={charge.value} 
                 onChange={(val) => data.chargesFixes.find(f => f.id === charge.id) ? handleFixeChange(charge.id, val) : handleVariableChange(charge.id, val)}
-                readOnly={false}
+                readOnly={charge.locked}
                 suffix="€"
               />
             </div>
