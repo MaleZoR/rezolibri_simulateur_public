@@ -625,40 +625,65 @@ input:checked + .slider-premium:before {
 }
 
 /* --- RESULT STEP --- */
-/* --- SIMULATION RECAP GRID --- */
-.simulation-recap-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.recap-item {
-  background: rgba(71, 0, 102, 0.03);
-  border: 1px solid rgba(71, 0, 102, 0.05);
-  border-radius: 20px;
-  padding: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--accent-violet);
-}
-
-.recap-info {
+/* --- RECAP LIST PREMIUM (COHÉRENCE) --- */
+.recap-list-premium {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.recap-row-card {
+  background: white;
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+.recap-row-card:hover {
+  border-color: var(--accent-fuchsia);
+  box-shadow: 0 8px 20px rgba(71, 0, 102, 0.04);
+}
+
+.recap-icon-box {
+  width: 50px;
+  height: 50px;
+  background: var(--bg-soft);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.recap-picto {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.recap-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 .recap-label {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
+  color: var(--text-muted);
   text-transform: uppercase;
-  opacity: 0.6;
+  letter-spacing: 0.05em;
 }
 
-.recap-val {
-  font-size: 1rem;
+.recap-value {
+  font-size: 1.1rem;
   font-weight: 800;
+  color: var(--accent-violet);
 }
 
 .lead-capture-premium.highlighted-box {

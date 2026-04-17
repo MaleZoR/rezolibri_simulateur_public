@@ -1,8 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, Send, CheckCircle2, Lock, FileText, Sparkles, TrendingUp, Wallet, Receipt } from 'lucide-react'
+import { ArrowLeft, Send, CheckCircle2, Lock, FileText, Sparkles } from 'lucide-react'
 import { useState } from 'react'
 import confetti from 'canvas-confetti'
 import './Steps.css'
+
+// Official Rezolibri Pictograms
+import pictoExpert from '../../assets/4- PICTOGRAMMES/Recruteur actif.png'
+import pictoMain from '../../assets/4- PICTOGRAMMES/main violet.png'
+import pictoAmpoule from '../../assets/4- PICTOGRAMMES/ampoule violet.png'
 
 export default function ResultStep({ data, updateData, onPrev }) {
   const [submitted, setSubmitted] = useState(false)
@@ -54,37 +59,45 @@ export default function ResultStep({ data, updateData, onPrev }) {
     >
       <div className="step-header">
         <div className="info-box glass-info lime-edge">
-          <h5><Sparkles size={18} /> Analyse Terminée</h5>
+          <h5><Sparkles size={18} /> Simulation Terminée</h5>
           <p>
             Ton Business Plan 2026 est prêt. <br/>
-            Saisis tes coordonnées pour débloquer les chiffres détaillés.
+            Débloque ton analyse complète pour lancer ton agence d'emploi.
           </p>
         </div>
-        <h2>Résultat de ta simulation</h2>
+        <h2>Ton compte d'exploitation</h2>
       </div>
 
       <div className="result-main-flow">
-        {/* Recapitualtif "Public" - Toujours visible pour donner envie */}
-        <div className="simulation-recap-grid">
-          <div className="recap-item">
-            <TrendingUp size={20} />
-            <div className="recap-info">
-              <span className="recap-label">Volume d'activité</span>
-              <span className="recap-val">{data.etp} Intérimaires (ETP)</span>
+        {/* Recapitualtif Premium Horizontal (Cohérence avec Etape des Charges) */}
+        <div className="recap-list-premium">
+          <div className="recap-row-card">
+            <div className="recap-icon-box">
+              <img src={pictoExpert} alt="Activite" className="recap-picto" />
+            </div>
+            <div className="recap-details">
+              <span className="recap-label">Volume d'activité prévu</span>
+              <span className="recap-value">{data.etp} Intérimaires (ETP)</span>
             </div>
           </div>
-          <div className="recap-item">
-            <Wallet size={20} />
-            <div className="recap-info">
-              <span className="recap-label">Charges Sociales</span>
-              <span className="recap-val">{tauxCharges}% {data.isAcre ? '(ACRE)' : ''}</span>
+
+          <div className="recap-row-card">
+            <div className="recap-icon-box">
+              <img src={pictoMain} alt="Fiscalite" className="recap-picto" />
+            </div>
+            <div className="recap-details">
+              <span className="recap-label">Taux de cotisations sociales</span>
+              <span className="recap-value">{tauxCharges}% {data.isAcre ? ' (ACRE)' : ''}</span>
             </div>
           </div>
-          <div className="recap-item">
-            <Receipt size={20} />
-            <div className="recap-info">
-              <span className="recap-label">Frais de bureau</span>
-              <span className="recap-val">{chargesMensuelles} € / mois</span>
+
+          <div className="recap-row-card">
+            <div className="recap-icon-box">
+              <img src={pictoAmpoule} alt="Charges" className="recap-picto" />
+            </div>
+            <div className="recap-details">
+              <span className="recap-label">Frais de fonctionnement</span>
+              <span className="recap-value">{chargesMensuelles} € / mois</span>
             </div>
           </div>
         </div>
@@ -93,7 +106,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
         <div className={`final-result-card ${submitted ? 'unlocked' : 'locked'}`}>
           <div className="result-badge-top">
             {submitted ? <CheckCircle2 size={16} /> : <Lock size={16} />} 
-            {submitted ? 'COMPTE D\'EXPLOITATION DÉBLOQUÉ' : 'REVENU NET ESTIMÉ'}
+            {submitted ? 'COMPTE D\'EXPLOITATION DÉBLOQUÉ' : 'VOTRE REVENU NET ESTIMÉ'}
           </div>
           
           <div className="net-value-container">
@@ -117,10 +130,10 @@ export default function ResultStep({ data, updateData, onPrev }) {
           >
             <div className="form-header-premium">
               <div className="bp-badge">
-                <FileText size={18} /> Business Plan 2026 personnalisé
+                <FileText size={18} /> Business Plan 2026 inclus
               </div>
               <h3>Accéder aux détails du projet</h3>
-              <p>Reçois ton compte d'exploitation prévisionnel et planifie ton installation avec Rézolibri.</p>
+              <p>Reçois ton compte d'exploitation complet et tes prévisionnels détaillés par email.</p>
             </div>
 
             <form className="form-grid-premium" onSubmit={handleSubmit}>
@@ -154,16 +167,16 @@ export default function ResultStep({ data, updateData, onPrev }) {
               <div className="checkbox-group-premium">
                 <label className="checkbox-item">
                   <input type="checkbox" defaultChecked />
-                  <span className="check-text">🚀 Je souhaite valider ces étapes avec un chargé de développement</span>
+                  <span className="check-text">🚀 Je veux valider ces chiffres lors d'un rdv avec un expert</span>
                 </label>
                 <label className="checkbox-item">
                   <input type="checkbox" checked={data.lead.acceptedPolicy} onChange={(e) => handleLeadChange('acceptedPolicy', e.target.checked)} required />
-                  <span className="check-text small">J'accepte la politique de confidentialité.</span>
+                  <span className="check-text small">J'accepte la politique de confidentialité de Rézolibri.</span>
                 </label>
               </div>
 
               <button type="submit" className="btn-final-impact pulse">
-                Générer mon Business Plan <Send size={20} />
+                Recevoir mon Business Plan <Send size={20} />
               </button>
             </form>
           </motion.div>
@@ -177,7 +190,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
               <CheckCircle2 size={48} />
             </div>
             <h3>Félicitations {data.lead.prenom} !</h3>
-            <p>Ton Business Plan 2026 est en route vers ton adresse email. Notre équipe de développement reviendra vers toi d'ici 48h.</p>
+            <p>Ton Business Plan 2026 est en cours d'envoi. Un consultant Rézolibri reviendra vers toi pour valider ton projet.</p>
             
             <button className="btn-secondary" onClick={() => window.location.href='https://rezolibri.fr'}>
               Retour sur rezolibri.fr
@@ -189,7 +202,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
       {!submitted && (
         <div className="step-actions center">
           <button className="btn-secondary-soft" onClick={onPrev}>
-            <ArrowLeft size={18} /> Modifier ma simulation
+            <ArrowLeft size={18} /> Modifier mes paramètres
           </button>
         </div>
       )}
