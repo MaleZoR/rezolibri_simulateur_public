@@ -65,22 +65,35 @@
   .charge-row-card {
     flex-direction: column;
     align-items: stretch;
-    gap: 1.5rem;
-    padding: 1.5rem;
+    gap: 1.2rem;
+    padding: 1.2rem;
   }
   .charge-main-content {
     gap: 1rem;
-    align-items: flex-start;
+    align-items: center; /* Aligne le picto avec le premier texte */
   }
   .charge-label-row {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .charge-name {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+  .locked-badge {
+    align-self: flex-start;
+    margin-top: 2px;
   }
   .charge-input-section {
     width: 100%;
+    margin-top: 0.5rem;
   }
   .charge-input-section .number-input-container {
+    background: #f8f9fa;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: none; /* Intègre l'input sans effet de relief parasite */
     width: 100%;
     max-width: none;
   }
