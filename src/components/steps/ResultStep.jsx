@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, Send, CheckCircle2, Lock, FileText, Sparkles } from 'lucide-react'
+import { ArrowLeft, Send, CheckCircle2, Lock, FileText, Sparkles, Calendar } from 'lucide-react'
 import { useState } from 'react'
 import confetti from 'canvas-confetti'
 import './Steps.css'
