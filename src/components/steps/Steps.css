@@ -146,6 +146,26 @@
   font-size: 1.1rem;
 }
 
+.charge-name-input {
+  font-weight: 800;
+  color: var(--accent-violet);
+  font-size: 1.1rem;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  width: 100%;
+  border-bottom: 2px dashed rgba(230, 0, 126, 0.2);
+  transition: var(--transition-smooth);
+}
+
+.charge-name-input:focus {
+  outline: none;
+  border-bottom-color: var(--accent-fuchsia);
+  background: rgba(230, 0, 126, 0.02);
+}
+
 .charge-type {
   font-size: 0.85rem;
   color: var(--text-muted);

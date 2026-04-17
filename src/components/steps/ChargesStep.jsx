@@ -34,6 +34,14 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
     updateData({ chargesVariables: [...data.chargesVariables, newCharge] })
   }
 
+  const handleLabelChange = (id, newLabel) => {
+    const isFixe = data.chargesFixes.find(f => f.id === id)
+    if (isFixe) return // Sécurité
+
+    const newVars = data.chargesVariables.map(c => c.id === id ? { ...c, label: newLabel } : c)
+    updateData({ chargesVariables: newVars })
+  }
+
   return (
     <motion.div 
       initial={{ opacity: 0, x: 20 }}
@@ -65,7 +73,16 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
               </div>
               <div className="charge-text-details">
                 <div className="charge-label-row">
-                  <span className="charge-name">{charge.label}</span>
+                  {charge.locked ? (
+                    <span className="charge-name">{charge.label}</span>
+                  ) : (
+                    <input 
+                      className="charge-name-input" 
+                      value={charge.label} 
+                      onChange={(e) => handleLabelChange(charge.id, e.target.value)}
+                      placeholder="Nom de la charge"
+                    />
+                  )}
                   {charge.locked && <span className="locked-badge">Inclus</span>}
                 </div>
                 <span className="charge-type">
