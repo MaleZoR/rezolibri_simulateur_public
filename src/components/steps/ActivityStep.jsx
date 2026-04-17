@@ -84,8 +84,13 @@ export default function ActivityStep({ data, updateData, onNext }) {
           </div>
 
           <div className="info-box glass-info">
-            <p><Info size={18} /> <strong>Indépendant, mais soutenu</strong></p>
-            <p>Le recrutement est un métier passionnant au service de l'humain. Calculez votre revenu en fonction de votre volume d'activité (ETP) tout en profitant de la force du collectif.</p>
+            <p><strong>Calculez votre revenu en fonction de votre volume d'activité (ETP)</strong></p>
+            <p style={{ fontSize: '0.9rem', marginTop: '10px', opacity: 0.9 }}>
+              ETP = Équivalent Temps Plein<br/>
+              1 ETP = 1 personne à temps plein ou plusieurs à mi-temps.<br/>
+              1 ETP correspond à 151,67 heures facturées au client.<br/>
+              Exemples : 1 personne à temps plein sur 1 mois = 1 ETP · 2 personnes à mi-temps sur 1 mois = 1 ETP
+            </p>
           </div>
         </div>
       ) : (
