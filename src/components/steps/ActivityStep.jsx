@@ -52,6 +52,15 @@ export default function ActivityStep({ data, updateData, onNext }) {
 
       {mode === 'libre' ? (
         <div className="simulation-libre-view">
+          <div className="info-box glass-info" style={{ marginBottom: '2.5rem' }}>
+            <p><strong>Pilotez votre activité en toute simplicité</strong></p>
+            <p style={{ fontSize: '0.9rem', marginTop: '10px', opacity: 0.9 }}>
+              Votre revenu dépend de votre volume d'activité exprimé en ETP (Équivalent Temps Plein).<br/>
+              <strong>1 ETP</strong> représente 151,67 heures facturées à vos clients par mois.<br/>
+              Que vous déléguiez un seul talent à temps plein ou plusieurs collaborateurs à mi-temps, vous conservez la même maîtrise de votre rentabilité.
+            </p>
+          </div>
+
           <div className="input-group main-input">
             <div className="label-container">
               <label>Intérimaires gérés <span className="avg-network-badge">Moyenne Réseau : 8</span></label>
@@ -83,14 +92,6 @@ export default function ActivityStep({ data, updateData, onNext }) {
             </div>
           </div>
 
-          <div className="info-box glass-info">
-            <p><strong>Pilotez votre activité en toute simplicité</strong></p>
-            <p style={{ fontSize: '0.9rem', marginTop: '10px', opacity: 0.9 }}>
-              Votre revenu dépend de votre volume d'activité exprimé en ETP (Équivalent Temps Plein).<br/>
-              <strong>1 ETP</strong> représente 151,67 heures facturées à vos clients par mois.<br/>
-              Que vous déléguiez un seul talent à temps plein ou plusieurs collaborateurs à mi-temps, vous conservez la même maîtrise de votre rentabilité.
-            </p>
-          </div>
         </div>
       ) : (
         <div className="objective-mode-view">
