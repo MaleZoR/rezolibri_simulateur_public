@@ -111,7 +111,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
           
           <div className="net-value-container">
             <span className={`net-value ${!submitted ? 'blur-text' : ''}`}>
-              {submitted ? `${revenuNet.toLocaleString()} €` : 'REMPLI-LE-FORM'}
+              {submitted ? `${revenuNet.toLocaleString()} €` : '8 314 11 €'}
             </span>
             <span className="net-unit">/ mois net</span>
           </div>
