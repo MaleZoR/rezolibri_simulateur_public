@@ -57,7 +57,8 @@ export const generateBusinessPlan = async (data) => {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(38);
   doc.text('DOSSIER VISION', 20, 100);
-  doc.text('EXPERT 2026', 20, 115);
+  const currentYear = new Date().getFullYear();
+  doc.text(`EXPERT ${currentYear}`, 20, 115);
   
   doc.setFontSize(22);
   doc.setTextColor(...secondaryColor);

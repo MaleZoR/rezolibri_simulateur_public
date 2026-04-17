@@ -57,7 +57,8 @@ export default function ResultStep({ data, updateData, onPrev }) {
           const link = document.createElement('a');
           link.style.display = 'none';
           link.href = url;
-          link.download = `BP_2026_${data.lead.nom.toUpperCase()}.pdf`;
+          const currentYear = new Date().getFullYear();
+          link.download = `BP_${currentYear}_${data.lead.nom.toUpperCase()}.pdf`;
           document.body.appendChild(link);
           link.click();
           
@@ -83,7 +84,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
         <div className="info-box glass-info lime-edge">
           <h5><Sparkles size={18} /> Rémunération à la hauteur de votre investissement</h5>
           <p>
-            Votre projection Vision 2026 est prête. <br/>
+            Votre projection Vision {new Date().getFullYear()} est prête. <br/>
             Faites le choix d’un entrepreneuriat qui vous ressemble avec Rézolibri.
           </p>
         </div>
@@ -152,7 +153,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
           >
             <div className="form-header-premium">
               <div className="bp-badge">
-                <FileText size={18} /> Dossier Vision Expert 2026
+                <FileText size={18} /> Dossier Vision Expert {new Date().getFullYear()}
               </div>
               <h3>Prêt à donner un nouvel élan à votre carrière ?</h3>
               <p>Recevez votre pack complet incluant votre prévisionnel d'activité par email.</p>

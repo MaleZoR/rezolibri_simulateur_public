@@ -35,7 +35,7 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         from: 'Rézolibri <simulation@simu.rezolibri.fr>',
         to: [lead.email],
-        reply_to: 'recruteurs@rezol        subject: `📈 Votre Dossier Vision Expert 2026 - ${lead.prenom}`,
+        reply_to: 'recruteurs@rezol        subject: `📈 Votre Dossier Vision Expert ${new Date().getFullYear()} - ${lead.prenom}`,
         html: `
           <html>
             <body style="margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f8f9fa;">
@@ -56,7 +56,7 @@ export async function onRequestPost(context) {
                           <h2 style="color: #470066; margin-top: 0;">Bonjour ${lead.prenom},</h2>
                           <p style="font-size: 16px; line-height: 1.6;">
                             Votre projet de recruteur franchit une étape décisive. 
-                            Suite à votre simulation basée sur un volume de <strong>${etp} ETP</strong>, vous trouverez en pièce jointe votre Dossier Vision Expert pour 2026. Chez Rézolibri, nous croyons en la liberté d'entreprendre avec le soutien d'un collectif solide.
+                            Suite à votre simulation basée sur un volume de <strong>${etp} ETP</strong>, vous trouverez en pièce jointe votre Dossier Vision Expert pour ${new Date().getFullYear()}. Chez Rézolibri, nous croyons en la liberté d'entreprendre avec le soutien d'un collectif solide.
                           </p>
                           
                           <div style="background-color: #f4f1f7; border-radius: 8px; padding: 20px; margin: 25px 0;">
@@ -86,7 +86,7 @@ export async function onRequestPost(context) {
                       <tr>
                         <td style="padding: 40px; background-color: #470066; color: #ffffff; text-align: center;">
                           <p style="margin: 0; font-size: 14px; opacity: 0.8;">
-                            © 2026 Rézolibri - L'infrastructure digitale au service de l'expertise intérim.
+                            © ${new Date().getFullYear()} Rézolibri - L'infrastructure digitale au service de l'expertise intérim.
                           </p>
                           <p style="margin: 10px 0 0 0; font-size: 12px; opacity: 0.6;">
                             Simulation générée via simu.rezolibri.fr
@@ -102,7 +102,7 @@ export async function onRequestPost(context) {
         `,
         attachments: [
           {
-            filename: `Business_Plan_2026_${lead.nom.toUpperCase()}.pdf`,
+            filename: `Business_Plan_${new Date().getFullYear()}_${lead.nom.toUpperCase()}.pdf`,
             content: cleanBase64
           }
         ]
