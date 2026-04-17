@@ -45,17 +45,8 @@
 
 body {
   font-family: var(--font-main);
-  background: #0f051a;
-  background-image: 
-    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%), 
-    radial-gradient(at 0% 50%, hsla(270,50%,15%,1) 0, transparent 50%), 
-    radial-gradient(at 100% 50%, hsla(330,60%,20%,1) 0, transparent 50%), 
-    radial-gradient(at 0% 100%, hsla(250,40%,20%,1) 0, transparent 50%), 
-    radial-gradient(at 50% 100%, hsla(220,50%,25%,1) 0, transparent 50%), 
-    radial-gradient(at 100% 100%, hsla(330,50%,15%,1) 0, transparent 50%);
-  background-attachment: fixed;
+  background: #fdfdfd url('./assets/3- ICONOGRAPHIE/3. BACKGROUND/BG-MAUVE.webp') no-repeat center center fixed;
+  background-size: cover;
   color: #333;
   margin: 0;
   -webkit-font-smoothing: antialiased;
