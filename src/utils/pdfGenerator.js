@@ -122,6 +122,9 @@ export const generateBusinessPlan = async (data) => {
   doc.setTextColor(...primaryColor);
   doc.setFont('helvetica', 'bold');
   doc.text('PRENDRE RENDEZ-VOUS', 30, 150);
+  
+  // Rendre le bouton cliquable vers Calendly
+  doc.link(20, 140, 100, 15, { url: 'https://calendly.com/stephanie-laval/60min' });
 
   // SAUVEGARDE / RETOUR
   const pdfBlob = doc.output('blob');

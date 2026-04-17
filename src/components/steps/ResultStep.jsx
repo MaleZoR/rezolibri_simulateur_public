@@ -214,9 +214,15 @@ export default function ResultStep({ data, updateData, onPrev }) {
             <h3>Félicitations {data.lead.prenom} !</h3>
             <p>Ton Business Plan 2026 personnalisé est en cours de téléchargement automatique et vient d'être envoyé sur ton adresse email.</p>
             
-            <button className="btn-secondary" onClick={() => window.location.href='https://rezolibri.fr'}>
-              Retour sur rezolibri.fr
-            </button>
+            <div className="success-actions-premium">
+              <button className="btn-final-impact pulse" onClick={() => window.open('https://calendly.com/stephanie-laval/60min', '_blank')}>
+                Prendre rendez-vous avec un expert <Calendar size={20} />
+              </button>
+              
+              <button className="btn-secondary-soft" onClick={() => window.location.href='https://rezolibri.fr'}>
+                Retour sur rezolibri.fr
+              </button>
+            </div>
           </motion.div>
         )}
       </div>
