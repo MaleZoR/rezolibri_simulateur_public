@@ -128,10 +128,6 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
           </button>
         </div>
 
-        <div className="total-charges-summary">
-          <span className="total-label">Investissement mensuel total</span>
-          <span className="total-value">{totalCharges.toLocaleString()} €</span>
-        </div>
       </div>
 
       <motion.div 
