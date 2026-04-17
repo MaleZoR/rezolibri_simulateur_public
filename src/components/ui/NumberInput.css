@@ -13,6 +13,24 @@
   box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 }
 
+.number-input-wrapper.read-only {
+  background: #fdfdfd;
+  border-color: rgba(0,0,0,0.05);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.number-input-wrapper.read-only .num-btn {
+  pointer-events: none;
+  background: #fdfdfd;
+  color: #ccc;
+}
+
+.number-input-wrapper.read-only .num-field {
+  pointer-events: none;
+  color: #999;
+}
+
 .num-btn {
   background: #fdfdfd;
   border: none;
