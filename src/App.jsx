@@ -42,7 +42,12 @@ function App() {
   const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 1))
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const yOffset = -50; 
+    const element = document.querySelector('.simulator-wrapper');
+    if (element) {
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   }, [currentStep])
 
   const updateData = (newData) => {
