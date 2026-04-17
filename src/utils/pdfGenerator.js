@@ -3,6 +3,11 @@ import autoTable from 'jspdf-autotable';
 
 export const generateBusinessPlan = async (data) => {
   const doc = new jsPDF();
+  
+  // Force l'application du plugin si l'import side-effect a échoué
+  if (typeof doc.autoTable !== 'function' && typeof autoTable !== 'function') {
+    console.error("Erreur critique: jspdf-autotable n'est pas chargé correctement.");
+  }
   const primaryColor = [71, 0, 102]; // #470066 (Violet Rézolibri)
   const secondaryColor = [200, 255, 0]; // #c8ff00 (Lime Rézolibri)
   
@@ -63,7 +68,7 @@ export const generateBusinessPlan = async (data) => {
   });
 
   // Highlight Revenu Net
-  const finalY = doc.lastAutoTable.finalY + 20;
+  const finalY = (doc.lastAutoTable ? doc.lastAutoTable.finalY : 150) + 20;
   doc.setFillColor(...secondaryColor);
   doc.roundedRect(20, finalY, 170, 30, 5, 5, 'F');
   doc.setTextColor(...primaryColor);
