@@ -88,12 +88,14 @@
   }
   .charge-input-section {
     width: 100%;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
   }
-  .charge-input-section .number-input-container {
+  .charge-input-section .number-input-wrapper {
     background: #f8f9fa;
     border: 1px solid rgba(0,0,0,0.05);
-    box-shadow: none; /* Intègre l'input sans effet de relief parasite */
+    box-shadow: none;
     width: 100%;
     max-width: none;
   }
