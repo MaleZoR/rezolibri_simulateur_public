@@ -121,6 +121,7 @@ function App() {
 
       <footer className="extra-content">
         <h2 className="section-title">Les piliers de réussite d'un expert Rézolibri</h2>
+        
         <div className="rezolibri-piliers">
           <div className="pilier-card">
             <div className="icon-pilier">
