@@ -944,16 +944,25 @@ input:checked + .slider-premium:before {
 .btn-secondary-soft {
   background: rgba(71, 0, 102, 0.05);
   border: none;
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
   border-radius: 100px;
   color: var(--accent-violet);
   font-weight: 800;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  margin-top: 2rem;
   transition: var(--transition-smooth);
+}
+
+.success-actions-premium {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  width: 100%;
 }
 
 .btn-secondary-soft:hover {
