@@ -27,7 +27,7 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         from: 'Rézolibri <simulation@simu.rezolibri.fr>',
         to: [lead.email],
-        reply_to: 'formulaires@rezolibri.fr',
+        reply_to: 'recruteurs@rezolibri.fr',
         subject: `📈 Ton Business Plan 2026 - ${lead.prenom}`,
         html: `
           <html>
@@ -116,7 +116,7 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         from: 'Alertes Système <simulation@simu.rezolibri.fr>',
-        to: ['mickael@rezolibri.fr'],
+        to: ['recruteurs@rezolibri.fr'],
         subject: `🔥 NOUVEAU LEAD - ${lead.prenom} ${lead.nom}`,
         html: `
           <h3>Nouveau prospect sur le simulateur !</h3>
