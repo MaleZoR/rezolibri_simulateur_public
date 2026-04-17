@@ -6,6 +6,10 @@ import ChargesStep from './components/steps/ChargesStep'
 import BenefitsStep from './components/steps/BenefitsStep'
 import ResultStep from './components/steps/ResultStep'
 import StepIndicator from './components/StepIndicator'
+import logo from './assets/1- LOGO/Horizontal/1. RVB (à prioriser)/SVG/LG-Rezolibri-RVB-Horizontal-Couleurs.svg'
+import pictoAmpoule from './assets/4- PICTOGRAMMES/ampoule violet.png'
+import pictoMain from './assets/4- PICTOGRAMMES/main violet.png'
+import pictoCoeur from './assets/4- PICTOGRAMMES/coeur violet.png'
 import './App.css'
 
 function App() {
@@ -50,7 +54,7 @@ function App() {
       <header className="main-header">
         <div className="header-top">
           <div className="logo-wrapper">
-            <span className="logo-rezo">Rézo</span><span className="logo-libri">libri</span>
+            <img src={logo} alt="Rézolibri" className="main-logo" />
           </div>
           <button 
             className="btn-back-site" 
@@ -114,17 +118,23 @@ function App() {
         <h2 className="section-title">Les piliers de réussite d'un expert Rézolibri</h2>
         <div className="rezolibri-piliers">
           <div className="pilier-card">
-            <div className="icon-pilier"><TrendingUp size={32} /></div>
+            <div className="icon-pilier">
+              <img src={pictoAmpoule} alt="Expertise" className="rezopicto" />
+            </div>
             <h3>Expertise Recrutement</h3>
             <p>Maximisez vos revenus sur chaque placement réussi avec une rétrocession ultra-compétitive. Liberté totale, sans plafond.</p>
           </div>
           <div className="pilier-card">
-            <div className="icon-pilier"><Network size={32} /></div>
+            <div className="icon-pilier">
+              <img src={pictoMain} alt="Croissance" className="rezopicto" />
+            </div>
             <h3>Croissance Réseau</h3>
             <p>Bénéficiez de la puissance du collectif Rézolibri en parrainant de nouveaux experts et percevez des bonus sur la durée.</p>
           </div>
           <div className="pilier-card">
-            <div className="icon-pilier"><Award size={32} /></div>
+            <div className="icon-pilier">
+              <img src={pictoCoeur} alt="Coaching" className="rezopicto" />
+            </div>
             <h3>Co-Coaching Business</h3>
             <p>Partagez vos opportunités avec le réseau et profitez de l'intelligence collective pour débloquer des commissions bonus.</p>
           </div>

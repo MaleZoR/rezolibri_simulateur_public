@@ -1,35 +1,38 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, GraduationCap, Gavel, Cpu, Users, Globe, BarChart3, Zap } from 'lucide-react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
+import pictoAmpoule from '../../assets/4- PICTOGRAMMES/ampoule violet.png'
+import pictoMain from '../../assets/4- PICTOGRAMMES/main violet.png'
+import pictoCoeur from '../../assets/4- PICTOGRAMMES/coeur violet.png'
 import './Steps.css'
 
 const benefits = [
   { 
-    icon: <GraduationCap size={28} />, 
+    icon: pictoAmpoule, 
     title: 'Académie Rézolibri', 
     desc: 'Formation intensive de 15 jours certifiante pour maîtriser les outils et la méthode.' 
   },
   { 
-    icon: <Gavel size={28} />, 
+    icon: pictoMain, 
     title: 'Support Juridique', 
     desc: 'Protection totale et conformité RGPD/RGPD sur tous vos contrats de recrutement.' 
   },
   { 
-    icon: <Cpu size={28} />, 
+    icon: pictoCoeur, 
     title: 'Matching IA Exclusif', 
     desc: 'Accès à notre algorithme de matching candidat-mission pour gagner 2x plus de temps.' 
   },
   { 
-    icon: <Users size={28} />, 
+    icon: pictoAmpoule, 
     title: 'Réseau Co-Recrutement', 
     desc: 'Le "Uber" du recrutement : partagez vos mandats et gagnez des commissions sur le réseau.' 
   },
   { 
-    icon: <Globe size={28} />, 
+    icon: pictoMain, 
     title: 'Sourcing Premium', 
     desc: 'Licences LinkedIn Recruiter et jobboards incluses sans surcoût.' 
   },
   { 
-    icon: <Zap size={28} />, 
+    icon: pictoCoeur, 
     title: 'Paiement Express', 
     desc: 'Encaissez vos commissions sous 48h après facturation de votre client.' 
   },
@@ -55,11 +58,13 @@ export default function BenefitsStep({ onNext, onPrev }) {
             className="benefit-card"
             whileHover={{ y: -5 }}
           >
-            <div className="icon-box">
-              {benefit.icon}
+            <div className="pilier-card">
+              <div className="icon-pilier">
+                <img src={benefit.icon} alt={benefit.title} className="rezopicto" />
+              </div>
+              <h3>{benefit.title}</h3>
+              <p className="desc">{benefit.desc}</p>
             </div>
-            <h4>{benefit.title}</h4>
-            <p className="desc">{benefit.desc}</p>
           </motion.div>
         ))}
       </div>
