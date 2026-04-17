@@ -119,12 +119,34 @@
 }
 
 @media (max-width: 600px) {
-  .progress-track-bg {
-    left: 2rem;
-    right: 2rem;
+  .step-indicator-container {
+    padding: 0 0.5rem;
+    margin-bottom: 2.5rem;
   }
+
+  .progress-track-bg {
+    left: 20px;
+    right: 20px;
+    top: 16px; /* Ajusté pour cercles de 32px */
+  }
+
+  .step-circle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .circle-inner {
+    font-size: 0.75rem;
+  }
+
   .step-text {
-    font-size: 0.7rem;
-    max-width: 70px;
+    display: none; /* Masque les labels pour éviter l'encombrement */
+  }
+
+  .pulse-ring {
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
   }
 }

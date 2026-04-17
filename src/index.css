@@ -113,6 +113,13 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition-smooth);
 }
 
+@media (max-width: 768px) {
+  .premium-card {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+}
+
 /* On remplace la ligne rigide par un effet de lumière diffuse */
 .premium-card::after {
   content: '';
