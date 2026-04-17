@@ -3,6 +3,7 @@ import { ArrowLeft, Send, CheckCircle2, Lock, FileText, Sparkles } from 'lucide-
 import { useState } from 'react'
 import confetti from 'canvas-confetti'
 import './Steps.css'
+import { generateBusinessPlan } from '../../utils/pdfGenerator'
 
 // Official Rezolibri Pictograms
 import pictoExpert from '../../assets/4- PICTOGRAMMES/Recruteur actif.png'
@@ -47,6 +48,16 @@ export default function ResultStep({ data, updateData, onPrev }) {
 
       if (Date.now() < end) {
         requestAnimationFrame(frame);
+      } else {
+        // Déclenchement de l'usine à BP
+        generateBusinessPlan(data).then(pdfBlob => {
+          const url = URL.createObjectURL(pdfBlob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = `Business_Plan_2026_${data.lead.nom.toUpperCase()}.pdf`;
+          link.click();
+          URL.revokeObjectURL(url);
+        });
       }
     }());
   }
@@ -190,7 +201,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
               <CheckCircle2 size={48} />
             </div>
             <h3>Félicitations {data.lead.prenom} !</h3>
-            <p>Ton Business Plan 2026 est en cours d'envoi. Un consultant Rézolibri reviendra vers toi pour valider ton projet.</p>
+            <p>Ton Business Plan 2026 est en cours de téléchargement et a également été envoyé sur ton adresse email.</p>
             
             <button className="btn-secondary" onClick={() => window.location.href='https://rezolibri.fr'}>
               Retour sur rezolibri.fr
