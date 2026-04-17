@@ -1,5 +1,5 @@
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 
 export const generateBusinessPlan = async (data) => {
   const doc = new jsPDF();
@@ -48,7 +48,7 @@ export const generateBusinessPlan = async (data) => {
   doc.line(20, 35, 100, 35);
 
   // Box Résumé
-  doc.autoTable({
+  autoTable(doc, {
     startY: 50,
     head: [['Indicateur', 'Valeur mensuelle']],
     body: [
@@ -83,7 +83,7 @@ export const generateBusinessPlan = async (data) => {
     ...data.chargesVariables.map(c => [c.label, `${c.value} €`, 'Variable'])
   ];
 
-  doc.autoTable({
+  autoTable(doc, {
     startY: 50,
     head: [['Poste de dépense', 'Montant', 'Type']],
     body: chargesBody,
