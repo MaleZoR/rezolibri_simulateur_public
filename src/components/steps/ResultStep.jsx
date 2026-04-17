@@ -212,7 +212,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
               <CheckCircle2 size={48} />
             </div>
             <h3>Félicitations {data.lead.prenom} !</h3>
-            <p>Ton Business Plan 2026 est en cours de téléchargement et a également été envoyé sur ton adresse email.</p>
+            <p>Ton Business Plan 2026 personnalisé est en cours de téléchargement automatique et vient d'être envoyé sur ton adresse email.</p>
             
             <button className="btn-secondary" onClick={() => window.location.href='https://rezolibri.fr'}>
               Retour sur rezolibri.fr
