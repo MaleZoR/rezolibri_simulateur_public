@@ -84,12 +84,11 @@ export default function ActivityStep({ data, updateData, onNext }) {
           </div>
 
           <div className="info-box glass-info">
-            <p><strong>Calculez votre revenu en fonction de votre volume d'activité (ETP)</strong></p>
+            <p><strong>Pilotez votre activité en toute simplicité</strong></p>
             <p style={{ fontSize: '0.9rem', marginTop: '10px', opacity: 0.9 }}>
-              ETP = Équivalent Temps Plein<br/>
-              1 ETP = 1 personne à temps plein ou plusieurs à mi-temps.<br/>
-              1 ETP correspond à 151,67 heures facturées au client.<br/>
-              Exemples : 1 personne à temps plein sur 1 mois = 1 ETP · 2 personnes à mi-temps sur 1 mois = 1 ETP
+              Votre revenu dépend de votre volume d'activité exprimé en ETP (Équivalent Temps Plein).<br/>
+              <strong>1 ETP</strong> représente 151,67 heures facturées à vos clients par mois.<br/>
+              Que vous déléguiez un seul talent à temps plein ou plusieurs collaborateurs à mi-temps, vous conservez la même maîtrise de votre rentabilité.
             </p>
           </div>
         </div>
