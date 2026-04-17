@@ -118,6 +118,8 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   height: 4px;
   background: var(--gradient-main);
+  border-top-left-radius: var(--radius-xl);
+  border-top-right-radius: var(--radius-xl);
 }
 
 .disclaimer {
