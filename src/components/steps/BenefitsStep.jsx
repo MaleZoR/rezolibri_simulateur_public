@@ -49,13 +49,13 @@ export default function BenefitsStep({ onNext, onPrev }) {
     >
       <div className="step-header">
         <div className="info-box glass-info lime-edge">
-          <h5><Info size={18} /> L'écosystème Rezolibri</h5>
+          <h5><Info size={18} /> L'avantage Rézolibri</h5>
           <p>
-            Nous ne nous contentons pas de réduire vos frais. <br/>
-            Nous bâtissons avec vous une infrastructure de pointe pour porter votre succès.
+            Indépendant, mais jamais seul ! <br/>
+            Bénéficiez de la force d'un collectif pour réussir votre aventure entrepreneuriale.
           </p>
         </div>
-        <h2>Votre arsenal de performance</h2>
+        <h2>Les bénéfices du réseau</h2>
       </div>
 
       <div className="benefits-grid-premium">

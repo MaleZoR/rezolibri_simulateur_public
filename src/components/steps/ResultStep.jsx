@@ -81,13 +81,13 @@ export default function ResultStep({ data, updateData, onPrev }) {
     >
       <div className="step-header">
         <div className="info-box glass-info lime-edge">
-          <h5><Sparkles size={18} /> Projection Validée</h5>
+          <h5><Sparkles size={18} /> Rémunération à la hauteur de votre investissement</h5>
           <p>
-            Votre dossier Business Plan 2026 est prêt à être généré. <br/>
-            Accédez à vos indicateurs de rentabilité pour piloter votre futur succès.
+            Votre projection Vision 2026 est prête. <br/>
+            Faites le choix d’un entrepreneuriat qui vous ressemble avec Rézolibri.
           </p>
         </div>
-        <h2>Votre prévisionnel d'exploitation</h2>
+        <h2>Votre prévisionnel d'activité</h2>
       </div>
 
       <div className="result-main-flow">
@@ -139,7 +139,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
           </div>
           
           <div className="net-explanation-badge">
-            <span>✨ Net de cotisations sociales et frais de mutualisation</span>
+            <span>✨ Rémunération nette après mutualisation des coûts</span>
           </div>
         </div>
 
@@ -152,10 +152,10 @@ export default function ResultStep({ data, updateData, onPrev }) {
           >
             <div className="form-header-premium">
               <div className="bp-badge">
-                <FileText size={18} /> Dossier Business Plan Expert 2026
+                <FileText size={18} /> Dossier Vision Expert 2026
               </div>
-              <h3>Accédez au détail de votre rentabilité</h3>
-              <p>Recevez votre pack de lancement complet incluant votre compte d'exploitation par email.</p>
+              <h3>Prêt à donner un nouvel élan à votre carrière ?</h3>
+              <p>Recevez votre pack complet incluant votre prévisionnel d'activité par email.</p>
             </div>
 
             <form className="form-grid-premium" onSubmit={handleSubmit}>
@@ -189,11 +189,11 @@ export default function ResultStep({ data, updateData, onPrev }) {
               <div className="checkbox-group-premium">
                 <label className="checkbox-item">
                   <input type="checkbox" defaultChecked />
-                  <span className="check-text">🚀 Je souhaite affiner cette simulation avec un expert Rézolibri</span>
+                  <span className="check-text">🚀 Je souhaite valider mon projet avec un référent réseau dédié</span>
                 </label>
                 <label className="checkbox-item">
                   <input type="checkbox" checked={data.lead.acceptedPolicy} onChange={(e) => handleLeadChange('acceptedPolicy', e.target.checked)} required />
-                  <span className="check-text small">J'accepte la politique de confidentialité du réseau Rézolibri.</span>
+                  <span className="check-text small">J'accepte la politique de confidentialité de Rézolibri.</span>
                 </label>
               </div>
 
@@ -215,8 +215,8 @@ export default function ResultStep({ data, updateData, onPrev }) {
             <div className="success-icon-wrapper">
               <CheckCircle2 size={48} />
             </div>
-            <h3>Bravo {data.lead.prenom} ! Votre projet prend forme.</h3>
-            <p>Votre Business Plan Expert personnalisé est en cours de téléchargement. Une copie vient d'être envoyée sur votre boite email.</p>
+            <h3>Bravo {data.lead.prenom} ! Prenez votre envol.</h3>
+            <p>Votre Dossier Vision Expert est en cours de téléchargement. Une équipe de passionnés a hâte d'étudier votre projet.</p>
             
             <div className="success-actions-premium">
               <button className="btn-final-impact pulse" onClick={() => window.open('https://calendly.com/stephanie-laval/60min', '_blank')}>

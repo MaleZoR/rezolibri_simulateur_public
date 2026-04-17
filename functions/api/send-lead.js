@@ -55,8 +55,8 @@ export async function onRequestPost(context) {
                         <td style="padding: 40px; color: #333333;">
                           <h2 style="color: #470066; margin-top: 0;">Bonjour ${lead.prenom},</h2>
                           <p style="font-size: 16px; line-height: 1.6;">
-                            Votre projet de création d'agence d'emploi franchit une étape décisive. 
-                            Suite à votre simulation basée sur un volume de <strong>${etp} ETP</strong>, nous avons le plaisir de vous transmettre votre Dossier Vision Expert pour l'année 2026.
+                            Votre projet de recruteur franchit une étape décisive. 
+                            Suite à votre simulation basée sur un volume de <strong>${etp} ETP</strong>, vous trouverez en pièce jointe votre Dossier Vision Expert pour 2026. Chez Rézolibri, nous croyons en la liberté d'entreprendre avec le soutien d'un collectif solide.
                           </p>
                           
                           <div style="background-color: #f4f1f7; border-radius: 8px; padding: 20px; margin: 25px 0;">

@@ -45,7 +45,7 @@ export default function ActivityStep({ data, updateData, onNext }) {
             className={`mode-btn ${mode === 'objectif' ? 'active' : ''}`}
             onClick={() => setMode('objectif')}
           >
-            <Target size={16} style={{ marginRight: '6px' }} /> Objectif de Revenu
+            <Target size={16} style={{ marginRight: '6px' }} /> Votre Ambition
           </button>
         </div>
       </div>
@@ -53,8 +53,8 @@ export default function ActivityStep({ data, updateData, onNext }) {
       {mode === 'libre' ? (
         <div className="simulation-libre-view">
           <div className="info-box glass-info">
-            <p className="title"><Info size={18} /> <strong>Qu'est-ce qu'un ETP ?</strong></p>
-            <p>1 ETP (L'Équivalent Temps Plein) représente un intérimaire travaillant 151,67 heures par mois. C'est l'étalon de mesure de votre force de frappe.</p>
+            <p className="title"><Info size={18} /> <strong>Indépendant, mais soutenu</strong></p>
+            <p>Le recrutement est un métier passionnant au service de l'humain. Calculez votre revenu en fonction de votre volume d'activité (ETP) tout en profitant de la force du collectif.</p>
           </div>
 
           <div className="input-group main-input">
@@ -91,7 +91,7 @@ export default function ActivityStep({ data, updateData, onNext }) {
       ) : (
         <div className="objective-mode-view">
           <div className="objective-input-wrapper">
-            <h3>Quel est votre objectif de revenu net mensuel ?</h3>
+            <h3>À quelle rémunération aspirez-vous ?</h3>
             <NumberInput 
               value={targetIncome} 
               onChange={handleObjectiveChange} 
@@ -135,11 +135,11 @@ export default function ActivityStep({ data, updateData, onNext }) {
       <div className="acre-premium-card">
         <label className="acre-content" htmlFor="acre-toggle">
           <div className="acre-picto">
-            <img src={pictoAmpoule} alt="Optimisation" />
+            <img src={pictoAmpoule} alt="Succès" />
           </div>
           <div className="acre-text">
-            <h4>Activation du dispositif ACRE</h4>
-            <p>Bénéficiez d'une réduction stratégique de vos cotisations la première année.</p>
+            <h4>Liberté d'entreprendre</h4>
+            <p>Activez le dispositif ACRE pour maximiser votre rémunération à la hauteur de votre investissement dès le lancement.</p>
           </div>
           <div className="acre-action">
             <label className="switch-premium">

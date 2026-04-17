@@ -56,8 +56,8 @@ export const generateBusinessPlan = async (data) => {
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(38);
-  doc.text('BUSINESS PLAN', 20, 100);
-  doc.text('PREVISIONNEL 2026', 20, 115);
+  doc.text('DOSSIER VISION', 20, 100);
+  doc.text('EXPERT 2026', 20, 115);
   
   doc.setFontSize(22);
   doc.setTextColor(...secondaryColor);
@@ -138,7 +138,7 @@ export const generateBusinessPlan = async (data) => {
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(32);
   doc.setFont('helvetica', 'bold');
-  doc.text('Prêt à lancer votre agence ?', 20, 60);
+  doc.text('Prêt à donner un nouvel élan ?', 20, 60);
   
   doc.setFontSize(16);
   doc.setFont('helvetica', 'normal');
@@ -147,10 +147,10 @@ export const generateBusinessPlan = async (data) => {
   const stepsY = 110;
   doc.setFontSize(13);
   const steps = [
-    '• Validez vos projections financières avec nos consultants.',
+    '• Validez vos projections avec nos référents réseau dédié.',
     '• Activez votre infrastructure digitale haute performance.',
-    '• Sécurisez votre cash-flow dès le premier intérimaire.',
-    '• Intégrez le réseau n°1 des créateurs d\'agences expertes.'
+    '• Rémunération nette à la hauteur de votre investissement.',
+    '• Indépendant, mais soutenu par la force du collectif.'
   ];
   steps.forEach((step, idx) => doc.text(step, 20, stepsY + (idx * 12)));
 

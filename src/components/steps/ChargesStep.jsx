@@ -56,12 +56,15 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
     >
       <div className="step-header">
         <div className="info-box glass-info lime-edge">
-          <h5><Info size={18} /> Mutualisation des ressources</h5>
-          <p>Grâce au modèle Rézolibri, vos frais fixes sont optimisés par la force du réseau. Plus d'efficacité = Plus de revenu net.</p>
+          <h5><Info size={18} /> L'avantage Rézolibri</h5>
+          <p>
+            Indépendant, mais jamais seul ! <br/>
+            Bénéficiez de la force d'un collectif pour réussir votre aventure entrepreneuriale.
+          </p>
         </div>
-        <h2>Ma structure de coûts</h2>
-        <p className="step-sub">Détaillez vos dépenses pour une simulation au plus proche de la réalité.</p>
+        <h2>Les bénéfices du réseau</h2>
       </div>
+      <p className="step-sub">Ajustez vos ressources pour une réussite sereine au quotidien.</p>
 
       <div className="charges-dashboard">
         <div className="charges-group">
@@ -126,7 +129,7 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
         </div>
 
         <div className="total-charges-summary">
-          <span className="total-label">Total des frais mensuels</span>
+          <span className="total-label">Investissement mensuel total</span>
           <span className="total-value">{totalCharges.toLocaleString()} €</span>
         </div>
       </div>

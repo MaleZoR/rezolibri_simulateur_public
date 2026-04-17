@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { TrendingUp, Network, Award, ChevronLeft } from 'lucide-react'
+import { TrendingUp, Network, Award, ChevronLeft, Info } from 'lucide-react'
 import ActivityStep from './components/steps/ActivityStep'
 import ChargesStep from './components/steps/ChargesStep'
 import BenefitsStep from './components/steps/BenefitsStep'
@@ -76,12 +76,12 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             className="main-title"
           >
-            Maîtrisez votre destin, <br/>
-            <span className="highlight">activez votre réseau d'expert</span>
+            Révélez votre potentiel, <br/>
+            <span className="highlight">boostez votre avenir pro</span>
           </motion.h1>
           <p className="main-subtitle">
-            Estimez précisément votre rémunération nette grâce au modèle économique mutualisé de Rézolibri. 
-            La puissance d'une infrastructure dédiée à votre succès.
+            Indépendant, mais jamais seul ! Rejoignez Rézolibri et dynamisez votre carrière de recruteur 
+            avec un réseau et des outils performants.
           </p>
         </div>
       </header>
@@ -121,6 +121,12 @@ function App() {
 
       <footer className="extra-content">
         <h2 className="section-title">Les piliers de réussite d'un expert Rézolibri</h2>
+        <div className="simulation-libre-view">
+          <div className="info-box glass-info">
+            <p className="title"><Info size={18} /> <strong>Indépendant, mais soutenu</strong></p>
+            <p>Le recrutement est un métier passionnant au service de l'humain. Calculez ici votre revenu en fonction de votre volume d'activité (ETP).</p>
+          </div>
+        </div>
         <div className="rezolibri-piliers">
           <div className="pilier-card">
             <div className="icon-pilier">
