@@ -116,7 +116,7 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         from: '🦅 Radar Rézolibri <simulation@simu.rezolibri.fr>',
-        to: ['arenismd@gmail.com'],
+        to: ['recruteurs@rezolibri.fr'],
         subject: `🔥 NOUVEAU LEAD - ${lead.prenom} ${lead.nom}`,
         html: `
           <h3>Nouveau prospect sur le simulateur !</h3>
