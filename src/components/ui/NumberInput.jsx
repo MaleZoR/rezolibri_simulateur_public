@@ -16,27 +16,26 @@ export default function NumberInput({ value, onChange, min = 0, max = 1000000, s
   }
 
   const handleChange = (e) => {
-    const val = parseInt(e.target.value) || 0
-    if (val >= min && val <= max) onChange(val)
-  }
-
-  const handleWrapperClick = () => {
-    if (inputRef.current) {
-      inputRef.current.focus()
+    const val = e.target.value === '' ? '' : parseInt(e.target.value)
+    if (val === '') {
+      onChange(0)
+    } else if (!isNaN(val) && val >= 0 && val <= max) {
+      onChange(val)
     }
   }
 
   return (
-    <div className="number-input-wrapper" onClick={handleWrapperClick}>
+    <div className="number-input-wrapper">
       <button className="num-btn dec" onClick={handleDecrement} type="button">
         <Minus size={16} />
       </button>
-      <div className="input-with-unit">
+      <div className="input-with-unit" onClick={() => inputRef.current?.focus()}>
         <input 
           ref={inputRef}
           type="number" 
           value={value} 
           onChange={handleChange}
+          onFocus={(e) => e.target.select()}
           className="num-field"
         />
         {suffix && <span className="input-euro">{suffix}</span>}

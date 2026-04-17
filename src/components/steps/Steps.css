@@ -43,11 +43,25 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.main-logo {
-  height: 52px;
-  width: auto;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+/* --- MODE OBJECTIF RESULT --- */
+.objective-result-box {
+  background: var(--accent-lime);
+  color: var(--accent-violet);
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  box-shadow: 0 10px 25px rgba(200, 255, 0, 0.2);
+  border: 1px solid rgba(71,0,102,0.1);
+}
+
+.objective-result-box strong {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  display: block;
+  margin-top: 0.5rem;
 }
 
 .main-logo:hover {
