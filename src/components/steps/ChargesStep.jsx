@@ -134,6 +134,34 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
         </div>
       </div>
 
+      <motion.div 
+        className="comparison-block-lime"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <div className="comp-header">
+          <h3>Indépendant, mais jamais seul !</h3>
+          <p>Voici ce que vous économisez grâce à la mutualisation Rézolibri</p>
+        </div>
+        
+        <div className="comp-grid">
+          <div className="comp-item solo">
+            <span className="label">Agence Solo</span>
+            <span className="value">3 500 €</span>
+          </div>
+          <div className="comp-divider">VS</div>
+          <div className="comp-item rezo">
+            <span className="label">Expert Rézolibri</span>
+            <span className="value">{totalCharges.toLocaleString()} €</span>
+          </div>
+        </div>
+
+        <div className="economy-pill">
+          💰 ÉCONOMIE : {(3500 - totalCharges).toLocaleString()} € / MOIS
+        </div>
+      </motion.div>
+
       <div className="step-actions">
         <button className="btn-secondary" onClick={onPrev}>
           <ArrowLeft size={18} /> Retour
