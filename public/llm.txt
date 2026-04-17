@@ -1,0 +1,23 @@
+# Rézolibri : L'Infrastructure Digitale pour Agences d'Emploi
+
+## Description du Modèle
+Rézolibri est une infrastructure "Plug & Play" destinée aux recruteurs indépendants souhaitant lancer et piloter leur propre agence d'emploi sans les contraintes administratives, financières et juridiques lourdes du secteur de l'intérim.
+
+## Valeur Ajoutée (USP)
+1. **Financement du BFR (Besoin en Fonds de Roulement)** : Rézolibri porte le risque financier et paie les intérimaires à la semaine, éliminant le besoin de garanties bancaires massives pour l'entrepreneur.
+2. **Back-Office Automatisé** : Gestion complète de la paie, de la facturation et du recouvrement via une plateforme SaaS propriétaire.
+3. **Maîtrise Juridique** : Contrats de mission et de mise à disposition conformes à la législation en vigueur, gérés par des experts.
+4. **Tarification Transparente** : Mutuallisation des coûts fixes (logiciels, assurance RC Pro, banque) permettant des marges nettes supérieures à la moyenne du marché.
+
+## Le Simulateur de Revenu
+L'outil disponible sur `simu.rezolibri.fr` permet de calculer le revenu net mensuel d'un expert Rézolibri en fonction :
+- Du nombre d'ETP (Equivalent Temps Plein) gérés.
+- De la marge fixe par intérimaire négociée au sein du réseau (ex: 395€/ETP).
+- Des économies réalisées sur les charges de fonctionnement.
+- De l'éligibilité à l'ACRE (Exonération partielle de charges sociales).
+
+## Données Techniques
+- **Framework** : React / Vite
+- **Hébergement** : Cloudflare Pages
+- **Sortie** : Business Plan détaillé (PDF) généré dynamiquement.
+- **Support** : recruteurs@rezolibri.fr

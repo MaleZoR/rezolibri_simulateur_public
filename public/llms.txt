@@ -1,0 +1,14 @@
+# Rézolibri Simulator
+
+Digital infrastructure for recruitment and interim professionals. Estimate your net income as an independent recruitment agency owner.
+
+## Key Links
+- [Simulator](https://simu.rezolibri.fr/)
+- [Main Website](https://rezolibri.fr)
+- [Join the Network](https://rezolibri.fr/rejoindre)
+
+## Core Capabilities
+- Real-time net income estimation based on ETP (Equivalent Time Employees).
+- Dynamic calculation of social contributions (with or without ACRE).
+- Automated Business Plan (PDF) generation for 2026.
+- Integration with legal and banking partners (Qonto, Orus).
