@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, Plus, Info, Landmark, Smartphone, ShieldCheck, CreditCard, Fuel, Coffee, TrainFront } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Plus, Info, Landmark, Smartphone, ShieldCheck, CreditCard, Fuel, Coffee, TrainFront, Edit2 } from 'lucide-react'
 import './Steps.css'
 import NumberInput from '../ui/NumberInput'
 import pictoExpert from '../../assets/4- PICTOGRAMMES/Recruteur actif.png'
@@ -76,12 +76,15 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
                   {charge.locked ? (
                     <span className="charge-name">{charge.label}</span>
                   ) : (
-                    <input 
-                      className="charge-name-input" 
-                      value={charge.label} 
-                      onChange={(e) => handleLabelChange(charge.id, e.target.value)}
-                      placeholder="Nom de la charge"
-                    />
+                    <div className="editable-label-wrapper">
+                      <input 
+                        className="charge-name-input" 
+                        value={charge.label} 
+                        onChange={(e) => handleLabelChange(charge.id, e.target.value)}
+                        placeholder="Nom de la charge..."
+                      />
+                      <Edit2 size={14} className="edit-icon" />
+                    </div>
                   )}
                   {charge.locked && <span className="locked-badge">Inclus</span>}
                 </div>

@@ -146,6 +146,23 @@
   font-size: 1.1rem;
 }
 
+.editable-label-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(71, 0, 102, 0.03);
+  padding: 4px 12px;
+  border-radius: 8px;
+  transition: var(--transition-smooth);
+  border: 1px solid transparent;
+  width: 100%;
+}
+
+.editable-label-wrapper:hover {
+  background: rgba(230, 0, 126, 0.05);
+  border-color: rgba(230, 0, 126, 0.2);
+}
+
 .charge-name-input {
   font-weight: 800;
   color: var(--accent-violet);
@@ -155,15 +172,23 @@
   padding: 0;
   margin: 0;
   font-family: inherit;
-  width: 100%;
-  border-bottom: 2px dashed rgba(230, 0, 126, 0.2);
-  transition: var(--transition-smooth);
+  flex: 1; /* Prend toute la place */
+  width: auto;
 }
 
 .charge-name-input:focus {
   outline: none;
-  border-bottom-color: var(--accent-fuchsia);
-  background: rgba(230, 0, 126, 0.02);
+}
+
+.edit-icon {
+  color: var(--accent-fuchsia);
+  opacity: 0.6;
+  transition: var(--transition-smooth);
+}
+
+.editable-label-wrapper:hover .edit-icon {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 .charge-type {
