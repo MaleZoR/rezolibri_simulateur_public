@@ -77,7 +77,7 @@ export default function BenefitsStep({ onNext, onPrev }) {
         ))}
       </div>
 
-      <div className="step-actions split">
+      <div className="step-actions">
         <button className="btn-secondary" onClick={onPrev}>
           <ArrowLeft size={18} /> Retour
         </button>

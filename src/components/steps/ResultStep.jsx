@@ -228,7 +228,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
       </div>
 
       {!submitted && (
-        <div className="step-actions center">
+        <div className="step-actions">
           <button className="btn-secondary-soft" onClick={onPrev}>
             <ArrowLeft size={18} /> Modifier mes paramètres
           </button>

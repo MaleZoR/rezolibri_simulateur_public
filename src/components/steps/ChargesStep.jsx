@@ -116,7 +116,7 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
         </div>
       </div>
 
-      <div className="step-actions split">
+      <div className="step-actions">
         <button className="btn-secondary" onClick={onPrev}>
           <ArrowLeft size={18} /> Retour
         </button>

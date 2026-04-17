@@ -155,7 +155,7 @@ export default function ActivityStep({ data, updateData, onNext }) {
         </label>
       </div>
 
-      <div className="step-actions center">
+      <div className="step-actions">
         <button className="btn-primary pulse-on-hover" onClick={onNext}>
           Passer aux Charges <ArrowRight size={18} />
         </button>
