@@ -121,12 +121,6 @@ function App() {
 
       <footer className="extra-content">
         <h2 className="section-title">Les piliers de réussite d'un expert Rézolibri</h2>
-        <div className="simulation-libre-view">
-          <div className="info-box glass-info">
-            <p className="title"><Info size={18} /> <strong>Indépendant, mais soutenu</strong></p>
-            <p>Le recrutement est un métier passionnant au service de l'humain. Calculez ici votre revenu en fonction de votre volume d'activité (ETP).</p>
-          </div>
-        </div>
         <div className="rezolibri-piliers">
           <div className="pilier-card">
             <div className="icon-pilier">
