@@ -103,10 +103,10 @@ export default function ResultStep({ data, updateData, onPrev }) {
             <span className="net-unit">/ mois net</span>
           </div>
           
-          <p className="net-explanation sans-flou">
-            <Sparkles size={14} style={{ marginRight: '6px', verticalAlign: 'middle' }} />
-            Ce montant est calculé **net de toutes charges** (sociales, plateforme et frais de fonctionnement).
-          </p>
+          <div className="net-explanation-badge">
+            <Sparkles size={14} />
+            <span>Ce montant est calculé **net de toutes charges** (sociales, plateforme et frais de fonctionnement).</span>
+          </div>
         </div>
 
         {!submitted ? (
