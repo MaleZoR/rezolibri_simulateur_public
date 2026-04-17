@@ -114,5 +114,7 @@ export const generateBusinessPlan = async (data) => {
 
   // SAUVEGARDE / RETOUR
   const pdfBlob = doc.output('blob');
-  return pdfBlob;
+  const pdfBase64 = doc.output('datauristring'); // Utilisé par EmailJS
+  
+  return { pdfBlob, pdfBase64 };
 };

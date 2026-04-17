@@ -4,6 +4,7 @@ import { useState } from 'react'
 import confetti from 'canvas-confetti'
 import './Steps.css'
 import { generateBusinessPlan } from '../../utils/pdfGenerator'
+import { sendBusinessPlanEmail } from '../../services/emailService'
 
 // Official Rezolibri Pictograms
 import pictoExpert from '../../assets/4- PICTOGRAMMES/Recruteur actif.png'
@@ -50,13 +51,23 @@ export default function ResultStep({ data, updateData, onPrev }) {
         requestAnimationFrame(frame);
       } else {
         // Déclenchement de l'usine à BP
-        generateBusinessPlan(data).then(pdfBlob => {
+        generateBusinessPlan(data).then(({ pdfBlob, pdfBase64 }) => {
+          // 1. Fiabilisation du Téléchargement
           const url = URL.createObjectURL(pdfBlob);
           const link = document.createElement('a');
+          link.style.display = 'none';
           link.href = url;
-          link.download = `Business_Plan_2026_${data.lead.nom.toUpperCase()}.pdf`;
+          link.download = `BP_2026_${data.lead.nom.toUpperCase()}.pdf`;
+          document.body.appendChild(link);
           link.click();
-          URL.revokeObjectURL(url);
+          
+          setTimeout(() => {
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+          }, 100);
+
+          // 2. Envoi de l'Email (en tâche de fond)
+          sendBusinessPlanEmail(data, pdfBase64);
         });
       }
     }());
