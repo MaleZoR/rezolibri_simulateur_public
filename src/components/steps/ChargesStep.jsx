@@ -107,6 +107,24 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
         <span className="total-value">{totalCharges.toLocaleString()} € <span className="small">/ mois</span></span>
       </div>
 
+      <div className="solo-comparator">
+        <div className="solo-grid">
+          <div className="compare-card solo">
+            <span className="val">450 €</span>
+            <span className="tit">Coût en Solo (estimé)</span>
+          </div>
+          <div className="compare-card rezolibri">
+            <span className="val">{totalCharges.toLocaleString()} €</span>
+            <span className="tit">Ton coût Rézolibri</span>
+          </div>
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          <div className="economy-badge">
+            🚀 Tu économises {(450 - totalCharges).toLocaleString()} € / mois
+          </div>
+        </div>
+      </div>
+
       <div className="step-actions split">
         <button className="btn-secondary" onClick={onPrev}>
           <ArrowLeft size={18} /> Retour

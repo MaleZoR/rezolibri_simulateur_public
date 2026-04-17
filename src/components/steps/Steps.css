@@ -142,6 +142,67 @@
   box-shadow: 0 0 25px rgba(230, 0, 126, 0.6);
 }
 
+/* --- SWITCHER DE MODE (Simulation vs Objectif) --- */
+.mode-switcher-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.mode-switcher {
+  background: var(--bg-soft);
+  padding: 0.5rem;
+  border-radius: 50px;
+  display: flex;
+  gap: 0.5rem;
+  border: 1px solid rgba(71, 0, 102, 0.05);
+}
+
+.mode-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.mode-btn.active {
+  background: white;
+  color: var(--accent-violet);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.objective-input-wrapper {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.objective-input-wrapper h3 {
+  font-size: 1.5rem;
+  color: var(--accent-violet);
+  margin-bottom: 2rem;
+}
+
+.target-etp-reveal {
+  background: var(--accent-lime);
+  color: var(--accent-violet);
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  margin-top: 2rem;
+  font-weight: 800;
+  display: inline-block;
+  box-shadow: 0 10px 30px rgba(200, 255, 0, 0.2);
+}
+
+.target-etp-reveal strong {
+  font-size: 1.5rem;
+  display: block;
+}
+
 .value-display {
   background: white;
   padding: 0.5rem 1.5rem;
@@ -369,6 +430,69 @@ input:checked + .slider:before {
   border-top: 1px solid #f3f4f6;
   padding-top: 1.2rem;
   margin-top: 0.5rem;
+}
+
+/* --- COMPARATEUR SOLO VS REZOLIBRI --- */
+.solo-comparator {
+  background: var(--accent-violet);
+  color: white;
+  border-radius: 28px;
+  padding: 3rem;
+  margin-top: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.solo-comparator::before {
+  content: 'Économies';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 6rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+}
+
+.solo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.compare-card {
+  text-align: center;
+}
+
+.compare-card.solo {
+  opacity: 0.6;
+}
+
+.compare-card .val {
+  font-size: 2.5rem;
+  font-weight: 900;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.compare-card .tit {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.economy-badge {
+  background: var(--accent-lime);
+  color: var(--accent-violet);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
 }
 
 /* Étape 3 : Benefits Grid */

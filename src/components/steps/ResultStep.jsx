@@ -111,8 +111,11 @@ export default function ResultStep({ data, updateData, onPrev }) {
         {/* 4. Formulaire d'accès (Dans le flux) */}
         {!submitted && (
           <div className="lead-capture-card-inline">
-            <h3>Accéder à mon résultat complet</h3>
-            <p className="muted">Gratuit et sans engagement — un conseiller te contactera pour t'accompagner.</p>
+            <div className="badge-lock" style={{ background: 'var(--accent-lime)', color: 'var(--accent-violet)', border: 'none' }}>
+              Inclus : Ton Business Plan PDF
+            </div>
+            <h3>Recevoir mon Business Plan 2026</h3>
+            <p className="muted">Obtiens ton étude détaillée complète et planifie ta réussite avec l'appui d'un coach Rézolibri.</p>
             
             <form className="form-premium grid-2cols" onSubmit={handleSubmit}>
               <div className="form-group">
@@ -124,7 +127,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
                 <input type="text" value={data.lead.nom} onChange={(e) => handleLeadChange('nom', e.target.value)} required />
               </div>
               <div className="form-group form-full">
-                <label>Email <span className="req">*</span></label>
+                <label>Email professionnel <span className="req">*</span></label>
                 <input type="email" value={data.lead.email} onChange={(e) => handleLeadChange('email', e.target.value)} required />
               </div>
               <div className="form-group">
@@ -138,13 +141,22 @@ export default function ResultStep({ data, updateData, onPrev }) {
               
               <div className="form-group form-full">
                 <div className="form-check">
+                  <input type="checkbox" id="expert" defaultChecked />
+                  <label htmlFor="expert" style={{ fontWeight: '800', color: 'var(--accent-violet)' }}>
+                    ✨ Je souhaite valider ces chiffres avec un expert Rézolibri
+                  </label>
+                </div>
+              </div>
+
+              <div className="form-group form-full">
+                <div className="form-check">
                   <input type="checkbox" id="policy" checked={data.lead.acceptedPolicy} onChange={(e) => handleLeadChange('acceptedPolicy', e.target.checked)} required />
                   <label htmlFor="policy">J'accepte que mes données soient traitées conformément à la politique de confidentialité de Rézolibri *</label>
                 </div>
               </div>
 
-              <button type="submit" className="btn-primary form-full btn-submit">
-                Envoyer <Send size={18} />
+              <button type="submit" className="btn-primary form-full btn-submit" style={{ fontSize: '1.2rem', padding: '1.5rem' }}>
+                Générer mon Business Plan <Send size={18} />
               </button>
             </form>
           </div>
