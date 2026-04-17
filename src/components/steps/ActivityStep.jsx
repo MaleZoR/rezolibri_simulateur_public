@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Info, ArrowRight, Target, LayoutDashboard } from 'lucide-react'
 import './Steps.css'
 
+import pictoAmpoule from '../../assets/4- PICTOGRAMMES/ampoule rose.png'
 import NumberInput from '../ui/NumberInput'
 
 export default function ActivityStep({ data, updateData, onNext }) {
@@ -65,7 +66,9 @@ export default function ActivityStep({ data, updateData, onNext }) {
           <div className="input-group main-input">
             <div className="label-container">
               <label>Consultants gérés</label>
-              <span className="avg-badge">Moyenne Réseau : 8</span>
+              <div className="avg-network-badge">
+                Moyenne Réseau : 8
+              </div>
             </div>
             
             <div className="slider-wrapper">
@@ -136,21 +139,27 @@ export default function ActivityStep({ data, updateData, onNext }) {
         </motion.div>
       </div>
 
-      <div className="toggle-section-premium">
-        <div className="toggle-card">
-          <div className="toggle-info">
-            <p className="title">Bénéficier de l'ACRE</p>
-            <p className="desc">Exonération partielle de charges la 1ère année</p>
+      <div className="acre-premium-card">
+        <label className="acre-content" htmlFor="acre-toggle">
+          <div className="acre-picto">
+            <img src={pictoAmpoule} alt="ACRE" />
           </div>
-          <label className="switch-premium">
-            <input 
-              type="checkbox" 
-              checked={data.isAcre} 
-              onChange={(e) => updateData({ isAcre: e.target.checked })}
-            />
-            <span className="slider-premium"></span>
-          </label>
-        </div>
+          <div className="acre-text">
+            <h4>Bénéficier de l'ACRE</h4>
+            <p>Exonération partielle de charges la 1ère année</p>
+          </div>
+          <div className="acre-action">
+            <label className="switch-premium">
+              <input 
+                type="checkbox" 
+                id="acre-toggle"
+                checked={data.isAcre} 
+                onChange={(e) => updateData({ isAcre: e.target.checked })}
+              />
+              <span className="slider-premium"></span>
+            </label>
+          </div>
+        </label>
       </div>
 
       <div className="step-actions center">
