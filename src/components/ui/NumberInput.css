@@ -31,32 +31,36 @@
 }
 
 .num-field {
-  width: 70px;
+  width: 100px;
   border: none;
-  text-align: right;
+  text-align: center;
   font-weight: 800;
   font-family: inherit;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: var(--accent-violet);
   background: white;
   appearance: textfield;
   -webkit-appearance: none;
   margin: 0;
-  padding-right: 2px;
+  padding: 0;
+  cursor: text;
 }
 
 .input-with-unit {
   display: flex;
   align-items: center;
-  gap: 2px;
+  justify-content: center;
+  gap: 4px;
   background: white;
-  padding: 0 5px;
+  padding: 0 10px;
+  cursor: text;
 }
 
 .input-euro {
   font-weight: 800;
   color: var(--accent-violet);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  pointer-events: none;
 }
 
 .num-field:focus {

@@ -1,12 +1,17 @@
+import { useRef } from 'react'
 import { Plus, Minus } from 'lucide-react'
 import './NumberInput.css'
 
 export default function NumberInput({ value, onChange, min = 0, max = 1000000, suffix = "" }) {
-  const handleIncrement = () => {
+  const inputRef = useRef(null)
+
+  const handleIncrement = (e) => {
+    e.stopPropagation()
     if (value < max) onChange(value + 1)
   }
 
-  const handleDecrement = () => {
+  const handleDecrement = (e) => {
+    e.stopPropagation()
     if (value > min) onChange(value - 1)
   }
 
@@ -15,13 +20,20 @@ export default function NumberInput({ value, onChange, min = 0, max = 1000000, s
     if (val >= min && val <= max) onChange(val)
   }
 
+  const handleWrapperClick = () => {
+    if (inputRef.current) {
+      inputRef.current.focus()
+    }
+  }
+
   return (
-    <div className="number-input-wrapper">
+    <div className="number-input-wrapper" onClick={handleWrapperClick}>
       <button className="num-btn dec" onClick={handleDecrement} type="button">
         <Minus size={16} />
       </button>
       <div className="input-with-unit">
         <input 
+          ref={inputRef}
           type="number" 
           value={value} 
           onChange={handleChange}
