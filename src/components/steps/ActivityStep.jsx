@@ -52,11 +52,6 @@ export default function ActivityStep({ data, updateData, onNext }) {
 
       {mode === 'libre' ? (
         <div className="simulation-libre-view">
-          <div className="info-box glass-info">
-            <p className="title"><Info size={18} /> <strong>Indépendant, mais soutenu</strong></p>
-            <p>Le recrutement est un métier passionnant au service de l'humain. Calculez votre revenu en fonction de votre volume d'activité (ETP) tout en profitant de la force du collectif.</p>
-          </div>
-
           <div className="input-group main-input">
             <div className="label-container">
               <label>Intérimaires gérés <span className="avg-network-badge">Moyenne Réseau : 8</span></label>
