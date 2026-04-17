@@ -29,6 +29,16 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
     updateData({ chargesVariables: newVars })
   }
 
+  const handleFixeChange = (id, val) => {
+    const newFixes = data.chargesFixes.map(c => c.id === id ? { ...c, value: val } : c)
+    updateData({ chargesFixes: newFixes })
+  }
+
+  const handleVariableChange = (id, val) => {
+    const newVars = data.chargesVariables.map(c => c.id === id ? { ...c, value: val } : c)
+    updateData({ chargesVariables: newVars })
+  }
+
   const addCharge = () => {
     const newCharge = { id: Date.now(), label: 'Nouvelle charge', value: 0 }
     updateData({ chargesVariables: [...data.chargesVariables, newCharge] })
@@ -42,6 +52,11 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
     updateData({ chargesVariables: newVars })
   }
 
+  const removeCharge = (id) => {
+    const newVars = data.chargesVariables.filter(c => c.id !== id)
+    updateData({ chargesVariables: newVars })
+  }
+
   return (
     <motion.div 
       initial={{ opacity: 0, x: 20 }}
@@ -52,87 +67,77 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
       <div className="step-header">
         <div className="info-box glass-info lime-edge">
           <h5><Info size={18} /> Optimisation des charges</h5>
-          <p>
-            Tes frais fixes sont mutualisés via Rézolibri. <br/>
-            Moins de charges = Plus d'argent net dans ta poche à la fin du mois.
-          </p>
+          <p>Tes frais fixes sont mutualisés via Rézolibri. Moins de charges = Plus d'argent net.</p>
         </div>
         <h2>Mes charges mensuelles</h2>
+        <p className="step-sub">Renseigne tes charges pour affiner ta simulation.</p>
       </div>
 
-      <div className="charges-list-premium">
-        {[...data.chargesFixes, ...data.chargesVariables].map(charge => (
-          <motion.div 
-            key={charge.id} 
-            className="charge-row-card"
-            whileHover={{ x: 5 }}
-          >
-            <div className="charge-main-content">
-              <div className="charge-icon-circle">
-                {getIcon(charge.label)}
-              </div>
-              <div className="charge-text-details">
-                <div className="charge-label-row">
-                  {charge.locked ? (
+      <div className="charges-dashboard">
+        <div className="charges-group">
+          <h3 className="group-title">CHARGES FIXES</h3>
+          <div className="charges-list-rows">
+            {data.chargesFixes.map(charge => (
+              <div key={charge.id} className="charge-item-row">
+                <div className="charge-info-side">
+                  <div className="charge-icon-box">{getIcon(charge.label)}</div>
+                  <div className="charge-name-block">
                     <span className="charge-name">{charge.label}</span>
-                  ) : (
-                    <div className="editable-label-wrapper">
-                      <input 
-                        className="charge-name-input" 
-                        value={charge.label} 
-                        onChange={(e) => handleLabelChange(charge.id, e.target.value)}
-                        placeholder="Nom de la charge..."
-                      />
-                      <Edit2 size={14} className="edit-icon" />
-                    </div>
-                  )}
-                  {charge.locked && <span className="locked-badge">Inclus</span>}
+                    {charge.partner && <span className="partner-badge">Partenaire {charge.partner}</span>}
+                    {charge.locked && <span className="locked-badge">Inclus</span>}
+                  </div>
                 </div>
-                <span className="charge-type">
-                  {data.chargesFixes.find(f => f.id === charge.id) ? 'Charge fixe mensuelle' : 'Charge variable (optionnel)'}
-                </span>
+                <div className="charge-action-side">
+                  <Info size={14} className="row-info-icon" />
+                  <NumberInput 
+                    value={charge.value} 
+                    onChange={(val) => handleFixeChange(charge.id, val)}
+                    readOnly={charge.locked}
+                    suffix="€"
+                  />
+                </div>
               </div>
-            </div>
-            
-            <div className="charge-input-section">
-              <NumberInput 
-                value={charge.value} 
-                onChange={(val) => data.chargesFixes.find(f => f.id === charge.id) ? handleFixeChange(charge.id, val) : handleVariableChange(charge.id, val)}
-                readOnly={charge.locked}
-                suffix="€"
-              />
-            </div>
-          </motion.div>
-        ))}
-
-        <button className="btn-add-charge-premium" onClick={addCharge}>
-          <div className="add-icon-circle"><Plus size={20} /></div>
-          <span>Ajouter une charge personnalisée</span>
-        </button>
-      </div>
-
-      <div className="comparison-block-lime">
-        <div className="comp-header">
-          <h3>Comparatif Financier Mensuel</h3>
-          <p>Démonstration de la puissance du réseau</p>
-        </div>
-        <div className="comp-grid">
-          <div className="comp-item solo">
-            <span className="label">Indépendant Solo</span>
-            <span className="value">450 €</span>
-            <span className="sub">Moyenne du marché</span>
-          </div>
-          <div className="comp-divider">VS</div>
-          <div className="comp-item rezolibri">
-            <span className="label">Expert Rézolibri</span>
-            <span className="value">{totalCharges.toLocaleString()} €</span>
-            <span className="sub">Ton coût actuel</span>
+            ))}
           </div>
         </div>
-        <div className="comp-bonus">
-          <div className="economy-pill">
-            🚀 Tu économises {(450 - totalCharges).toLocaleString()} € / mois
+
+        <div className="charges-group">
+          <h3 className="group-title">CHARGES VARIABLES (OPTIONNELLES)</h3>
+          <div className="charges-list-rows">
+            {data.chargesVariables.map(charge => (
+              <div key={charge.id} className="charge-item-row editable">
+                <div className="charge-info-side">
+                  <div className="charge-icon-box">{getIcon(charge.label)}</div>
+                  <div className="editable-label-wrapper">
+                    <input 
+                      className="charge-name-input" 
+                      value={charge.label} 
+                      onChange={(e) => handleLabelChange(charge.id, e.target.value)}
+                      placeholder="Nom de la charge..."
+                    />
+                    <Edit2 size={12} className="edit-icon-mini" />
+                  </div>
+                </div>
+                <div className="charge-action-side">
+                  <NumberInput 
+                    value={charge.value} 
+                    onChange={(val) => handleVariableChange(charge.id, val)}
+                    suffix="€"
+                  />
+                  <button className="btn-remove-charge" onClick={() => removeCharge(charge.id)}>×</button>
+                </div>
+              </div>
+            ))}
           </div>
+          
+          <button className="btn-add-row" onClick={addCharge}>
+            <Plus size={14} /> Ajouter une charge
+          </button>
+        </div>
+
+        <div className="total-charges-summary">
+          <span className="total-label">Total charges mensuelles</span>
+          <span className="total-value">{totalCharges.toLocaleString()} €</span>
         </div>
       </div>
 
@@ -141,7 +146,7 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
           <ArrowLeft size={18} /> Retour
         </button>
         <button className="btn-primary" onClick={onNext}>
-          Passer aux Avantages <ArrowRight size={18} />
+          Suivant <ArrowRight size={18} />
         </button>
       </div>
     </motion.div>
