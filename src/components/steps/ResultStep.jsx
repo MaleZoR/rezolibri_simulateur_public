@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, Lock, Send, CheckCircle2 } from 'lucide-react'
+import { ArrowLeft, Send, CheckCircle2, Lock, FileText, Sparkles } from 'lucide-react'
 import { useState } from 'react'
 import confetti from 'canvas-confetti'
 import './Steps.css'
@@ -7,11 +7,12 @@ import './Steps.css'
 export default function ResultStep({ data, updateData, onPrev }) {
   const [submitted, setSubmitted] = useState(false)
   
-  const caMensuel = data.etp * 395
+  // Logic based on interim reality (395€ is the net margin per ETP after network fee)
+  const caMensuel = data.etp * 395 
   const tauxCharges = data.isAcre ? 12.8 : 25.6
   const cotisationsSociales = Math.round(caMensuel * (tauxCharges / 100))
-  const chargesMensuelles = [...data.chargesFixes, ...data.chargesVariables].reduce((acc, curr) => acc + (curr.value || 0), 0)
-  const revenuNet = caMensuel - cotisationsSociales - chargesMensuelles
+  const chargesMensuelles = [...data.chargesFixes, ...data.chargesVariables].reduce((acc, curr) => acc + (parseFloat(curr.value) || 0), 0)
+  const revenuNet = Math.round(caMensuel - cotisationsSociales - chargesMensuelles)
   
   const handleLeadChange = (field, val) => {
     updateData({ lead: { ...data.lead, [field]: val } })
@@ -21,20 +22,19 @@ export default function ResultStep({ data, updateData, onPrev }) {
     e.preventDefault()
     setSubmitted(true)
     
-    // Explosion de confettis pour le succès
-    const end = Date.now() + 2 * 1000;
+    const end = Date.now() + 3 * 1000;
     const colors = ['#470066', '#e6007e', '#c8ff00'];
 
     (function frame() {
       confetti({
-        particleCount: 3,
+        particleCount: 4,
         angle: 60,
         spread: 55,
         origin: { x: 0 },
         colors: colors
       });
       confetti({
-        particleCount: 3,
+        particleCount: 4,
         angle: 120,
         spread: 55,
         origin: { x: 1 },
@@ -51,144 +51,123 @@ export default function ResultStep({ data, updateData, onPrev }) {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="step-content"
+      className="step-content result-step-container"
     >
       <div className="step-header">
+        <div className="info-box glass-info lime-edge">
+          <h5><Sparkles size={18} /> Projet Viable</h5>
+          <p>
+            Tes paramètres indiquent un potentiel de business solide. <br/>
+            Débloque ton analyse complète pour passer à l'action.
+          </p>
+        </div>
         <h2>Ton potentiel de revenu</h2>
-        <p className="muted">Analyse de rentabilité basée sur tes paramètres de consultant.</p>
       </div>
 
-      <div className="result-display-flow">
-        {/* 1. CA Mensuel Estimé (Grande Carte - Clair) */}
-        <div className="result-card premium highlight-ca pulse-on-hover">
-          <span className="label">CA MENSUEL ESTIMÉ</span>
-          <div className="value">{caMensuel.toLocaleString()} €</div>
-          <span className="sub">/ mois</span>
-        </div>
-
-        {/* 2. Grille de Preview (3 cartes : Charges, Taux, Revenu Net - Floues) */}
-        <div className="charges-summary-grid">
-          <div className="result-card premium">
-            <span className="label">CHARGES MENSUELLES</span>
-            <div className={`value ${!submitted ? 'blur-data' : ''}`}>
-              {chargesMensuelles.toLocaleString()} €
-            </div>
-            <span className="sub">/ mois</span>
+      <div className="result-main-flow">
+        {/* Résultat Flashy (Flou si pas de lead) */}
+        <div className={`final-result-card ${submitted ? 'unlocked' : 'locked'}`}>
+          <div className="result-badge-top">
+            {submitted ? <CheckCircle2 size={16} /> : <Lock size={16} />} 
+            {submitted ? 'REVENU NET DÉBLOQUÉ' : 'REVENU NET ESTIMÉ'}
           </div>
           
-          <div className="result-card premium">
-            <span className="label">TAUX DE CHARGES</span>
-            <div className={`value ${!submitted ? 'blur-data' : ''}`}>
-              {tauxCharges}%
-            </div>
-            <span className="sub">cotisations sociales</span>
+          <div className="net-value-container">
+            <span className={`net-value ${!submitted ? 'blur-text' : ''}`}>
+              {revenuNet.toLocaleString()} €
+            </span>
+            <span className="net-unit">/ mois net</span>
           </div>
-
-          <div className="result-card premium highlight-net-preview">
-            <span className="label">REVENU NET ESTIMÉ</span>
-            <div className={`value ${!submitted ? 'blur-data' : ''}`}>
-              {(caMensuel - cotisationsSociales - chargesMensuelles).toLocaleString()} €
-            </div>
-            <span className="sub">Avant impôts</span>
-          </div>
+          
+          <p className="net-explanation">
+            Ce montant correspond à ton revenu net après cotisations sociales ({tauxCharges}%) et frais de fonctionnement.
+          </p>
         </div>
 
-        {/* 3. Le Revenu Net (Affiché après soumission) */}
-        <AnimatePresence>
-          {submitted && (
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="result-card premium highlighted success-net"
-            >
-              <span className="label">VOTRE REVENU NET ESTIMÉ</span>
-              <div className="value">{(caMensuel - cotisationsSociales - chargesMensuelles).toLocaleString()} €</div>
-              <span className="sub">Net de tout, avant impôt sur le revenu</span>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* 4. Formulaire d'accès (Dans le flux) */}
-        {!submitted && (
-          <div className="lead-capture-card-inline">
-            <div className="badge-lock" style={{ background: 'var(--accent-lime)', color: 'var(--accent-violet)', border: 'none' }}>
-              Inclus : Ton Business Plan PDF
-            </div>
-            <h3>Recevoir mon Business Plan 2026</h3>
-            <p className="muted">Obtiens ton étude détaillée complète et planifie ta réussite avec l'appui d'un coach Rézolibri.</p>
-            
-            <form className="form-premium grid-2cols" onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label>Prénom <span className="req">*</span></label>
-                <input type="text" value={data.lead.prenom} onChange={(e) => handleLeadChange('prenom', e.target.value)} required />
-              </div>
-              <div className="form-group">
-                <label>Nom <span className="req">*</span></label>
-                <input type="text" value={data.lead.nom} onChange={(e) => handleLeadChange('nom', e.target.value)} required />
-              </div>
-              <div className="form-group form-full">
-                <label>Email professionnel <span className="req">*</span></label>
-                <input type="email" value={data.lead.email} onChange={(e) => handleLeadChange('email', e.target.value)} required />
-              </div>
-              <div className="form-group">
-                <label>Téléphone <span className="req">*</span></label>
-                <input type="tel" value={data.lead.telephone} onChange={(e) => handleLeadChange('telephone', e.target.value)} required />
-              </div>
-              <div className="form-group">
-                <label>Département <span className="req">*</span></label>
-                <input type="text" value={data.lead.departement} onChange={(e) => handleLeadChange('departement', e.target.value)} required />
-              </div>
-              
-              <div className="form-group form-full">
-                <div className="form-check">
-                  <input type="checkbox" id="expert" defaultChecked />
-                  <label htmlFor="expert" style={{ fontWeight: '800', color: 'var(--accent-violet)' }}>
-                    ✨ Je souhaite valider ces chiffres avec un expert Rézolibri
-                  </label>
-                </div>
-              </div>
-
-              <div className="form-group form-full">
-                <div className="form-check">
-                  <input type="checkbox" id="policy" checked={data.lead.acceptedPolicy} onChange={(e) => handleLeadChange('acceptedPolicy', e.target.checked)} required />
-                  <label htmlFor="policy">J'accepte que mes données soient traitées conformément à la politique de confidentialité de Rézolibri *</label>
-                </div>
-              </div>
-
-              <button type="submit" className="btn-primary form-full btn-submit" style={{ fontSize: '1.2rem', padding: '1.5rem' }}>
-                Générer mon Business Plan <Send size={18} />
-              </button>
-            </form>
-          </div>
-        )}
-      </div>
-
-      <AnimatePresence>
-        {submitted && (
+        {!submitted ? (
           <motion.div 
+            className="lead-capture-premium"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="success-message"
-            style={{ marginBottom: '2rem' }}
           >
-            <div className="glass-info">
-              <p className="title"><CheckCircle2 size={18} /> <strong>Succès ! Tes résultats sont débloqués.</strong></p>
-              <p>Un conseiller Rézolibri a bien reçu ta demande et reviendra vers toi très rapidement pour affiner ces chiffres ensemble.</p>
+            <div className="form-header-premium">
+              <div className="bp-badge">
+                <FileText size={18} /> Business Plan 2026 Inclus
+              </div>
+              <h3>Générer mon Business Plan complet</h3>
+              <p>Reçois ton étude de marché personnalisée et tes prévisionnels détaillés par email.</p>
             </div>
+
+            <form className="form-grid-premium" onSubmit={handleSubmit}>
+              <div className="input-row">
+                <div className="input-group-premium">
+                  <label>Prénom</label>
+                  <input type="text" placeholder="Jean" value={data.lead.prenom} onChange={(e) => handleLeadChange('prenom', e.target.value)} required />
+                </div>
+                <div className="input-group-premium">
+                  <label>Nom</label>
+                  <input type="text" placeholder="Dupont" value={data.lead.nom} onChange={(e) => handleLeadChange('nom', e.target.value)} required />
+                </div>
+              </div>
+
+              <div className="input-group-premium full">
+                <label>Email Professionnel</label>
+                <input type="email" placeholder="contact@votre-agence.fr" value={data.lead.email} onChange={(e) => handleLeadChange('email', e.target.value)} required />
+              </div>
+
+              <div className="input-row">
+                <div className="input-group-premium">
+                  <label>Téléphone</label>
+                  <input type="tel" placeholder="06 12 34 56 78" value={data.lead.telephone} onChange={(e) => handleLeadChange('telephone', e.target.value)} required />
+                </div>
+                <div className="input-group-premium">
+                  <label>Département</label>
+                  <input type="text" placeholder="75" value={data.lead.departement} onChange={(e) => handleLeadChange('departement', e.target.value)} required />
+                </div>
+              </div>
+
+              <div className="checkbox-group-premium">
+                <label className="checkbox-item">
+                  <input type="checkbox" defaultChecked />
+                  <span className="check-text">🚀 Je veux valider ces chiffres lors d'un rdv avec un expert Rézolibri</span>
+                </label>
+                <label className="checkbox-item">
+                  <input type="checkbox" checked={data.lead.acceptedPolicy} onChange={(e) => handleLeadChange('acceptedPolicy', e.target.checked)} required />
+                  <span className="check-text small">J'accepte la politique de confidentialité de Rézolibri.</span>
+                </label>
+              </div>
+
+              <button type="submit" className="btn-final-impact pulse">
+                Recevoir mon Business Plan 2026 <Send size={20} />
+              </button>
+            </form>
+          </motion.div>
+        ) : (
+          <motion.div 
+            className="success-feedback-premium"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+          >
+            <div className="success-icon-wrapper">
+              <CheckCircle2 size={48} />
+            </div>
+            <h3>Analyse en cours d'envoi !</h3>
+            <p>Ton Business Plan 2026 est en train d'être généré par nos services. Un consultant reviendra vers toi pour affiner ton projet.</p>
+            
+            <button className="btn-secondary" onClick={() => window.location.href='https://rezolibri.fr'}>
+              Retour sur rezolibri.fr
+            </button>
           </motion.div>
         )}
-      </AnimatePresence>
-
-      <div className="step-actions split">
-        <button className="btn-secondary" onClick={onPrev}>
-          <ArrowLeft size={18} /> Modifier mes charges
-        </button>
-        {submitted && (
-          <button className="btn-primary" onClick={() => window.location.href = 'https://rezolibri.fr'}>
-            Retour à l'accueil
-          </button>
-        )}
       </div>
+
+      {!submitted && (
+        <div className="step-actions center">
+          <button className="btn-secondary-soft" onClick={onPrev}>
+            <ArrowLeft size={18} /> Modifier mes paramètres
+          </button>
+        </div>
+      )}
     </motion.div>
   )
 }

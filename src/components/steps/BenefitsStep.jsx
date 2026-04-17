@@ -1,40 +1,41 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Info } from 'lucide-react'
 import pictoAmpoule from '../../assets/4- PICTOGRAMMES/ampoule violet.png'
 import pictoMain from '../../assets/4- PICTOGRAMMES/main violet.png'
 import pictoCoeur from '../../assets/4- PICTOGRAMMES/coeur violet.png'
+import pictoExpert from '../../assets/4- PICTOGRAMMES/Recruteur actif.png'
 import './Steps.css'
 
 const benefits = [
   { 
-    icon: pictoAmpoule, 
+    icon: pictoExpert, 
     title: 'Académie Rézolibri', 
-    desc: 'Formation intensive de 15 jours certifiante pour maîtriser les outils et la méthode.' 
+    desc: 'Formation intensive certifiante pour dominer le marché de l\'intérim dès le premier jour.' 
   },
   { 
     icon: pictoMain, 
-    title: 'Support Juridique', 
-    desc: 'Protection totale et conformité RGPD/RGPD sur tous vos contrats de recrutement.' 
+    title: 'Support Juridique 24/7', 
+    desc: 'Zéro risque : protection totale et contrats de travail 100% conformes aux dernières lois.' 
   },
   { 
     icon: pictoCoeur, 
-    title: 'Matching IA Exclusif', 
-    desc: 'Accès à notre algorithme de matching candidat-mission pour gagner 2x plus de temps.' 
+    title: 'Matching IA "Flash"', 
+    desc: 'Notre algorithme exclusif trouve le bon intérimaire en quelques secondes.' 
   },
   { 
     icon: pictoAmpoule, 
     title: 'Réseau Co-Recrutement', 
-    desc: 'Le "Uber" du recrutement : partagez vos mandats et gagnez des commissions sur le réseau.' 
+    desc: 'Partagez vos besoins, collaborez avec le réseau et multipliez vos marges.' 
   },
   { 
-    icon: pictoMain, 
-    title: 'Sourcing Premium', 
-    desc: 'Licences LinkedIn Recruiter et jobboards incluses sans surcoût.' 
+    icon: pictoExpert, 
+    title: 'Licences LinkedIn Incluses', 
+    desc: 'Économisez 8000€/an : on vous offre les meilleurs outils de sourcing du marché.' 
   },
   { 
     icon: pictoCoeur, 
-    title: 'Paiement Express', 
-    desc: 'Encaissez vos commissions sous 48h après facturation de votre client.' 
+    title: 'Cash-Flow Garanti', 
+    desc: 'Terminé les impayés. Vos commissions sont sécurisées et payées sous 48h.' 
   },
 ]
 
@@ -47,24 +48,31 @@ export default function BenefitsStep({ onNext, onPrev }) {
       className="step-content"
     >
       <div className="step-header">
-        <h2>Ce que Rézolibri vous apporte en plus</h2>
-        <p className="muted">L'infrastructure d'un grand cabinet, la liberté du consultant indépendant.</p>
+        <div className="info-box glass-info lime-edge">
+          <h5><Info size={18} /> Pourquoi Rézolibri ?</h5>
+          <p>
+            On ne se contente pas de diviser tes charges. <br/>
+            On multiplie tes chances de succès avec une infrastructure de niveau mondial.
+          </p>
+        </div>
+        <h2>Ton arsenal de réussite</h2>
       </div>
 
-      <div className="benefits-grid">
+      <div className="benefits-grid-premium">
         {benefits.map((benefit, index) => (
           <motion.div 
             key={index} 
-            className="benefit-card"
-            whileHover={{ y: -5 }}
+            className="benefit-card-premium"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+            whileHover={{ y: -8, transition: { duration: 0.2 } }}
           >
-            <div className="pilier-card">
-              <div className="icon-pilier">
-                <img src={benefit.icon} alt={benefit.title} className="rezopicto" />
-              </div>
-              <h3>{benefit.title}</h3>
-              <p className="desc">{benefit.desc}</p>
+            <div className="benefit-icon-wrapper">
+              <img src={benefit.icon} alt={benefit.title} className="benefit-picto" />
             </div>
+            <h3>{benefit.title}</h3>
+            <p>{benefit.desc}</p>
           </motion.div>
         ))}
       </div>
@@ -74,7 +82,7 @@ export default function BenefitsStep({ onNext, onPrev }) {
           <ArrowLeft size={18} /> Retour
         </button>
         <button className="btn-primary" onClick={onNext}>
-          Calculer mon Résultat <ArrowRight size={18} />
+          Simulation Finale <ArrowRight size={18} />
         </button>
       </div>
     </motion.div>
