@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, Plus, Info, Landmark, Smartphone, ShieldCheck, CreditCard, Fuel, Coffee, TrainFront, Edit2 } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Plus, Info, Landmark, Smartphone, ShieldCheck, CreditCard, Fuel, Coffee, TrainFront, Edit2, Sparkles } from 'lucide-react'
 import './Steps.css'
 import NumberInput from '../ui/NumberInput'
 import pictoExpert from '../../assets/4- PICTOGRAMMES/Recruteur actif.png'
