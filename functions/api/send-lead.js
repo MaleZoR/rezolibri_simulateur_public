@@ -35,7 +35,8 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         from: 'Rézolibri <simulation@simu.rezolibri.fr>',
         to: [lead.email],
-        reply_to: 'recruteurs@rezol        subject: `📈 Votre Dossier Vision Expert ${new Date().getFullYear()} - ${lead.prenom}`,
+        reply_to: 'recruteurs@rezolibri.fr',
+        subject: `📈 Votre Dossier Vision Expert ${new Date().getFullYear()} - ${lead.prenom}`,
         html: `
           <html>
             <body style="margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f8f9fa;">
