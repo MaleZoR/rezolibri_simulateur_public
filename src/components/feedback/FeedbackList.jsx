@@ -2,6 +2,23 @@ import React from 'react';
 import { MessageSquare, ExternalLink, Calendar, User } from 'lucide-react';
 
 const FeedbackList = ({ issues, loading }) => {
+  // Fonction pour extraire uniquement la description humaine et nettoyer le markdown
+  const cleanBody = (text) => {
+    if (!text) return "";
+    
+    // 1. On essaie d'extraire ce qu'il y a après "## Description"
+    let cleanText = text;
+    if (text.includes('## Description')) {
+      cleanText = text.split('## Description')[1].split('---')[0].split('###')[0];
+    }
+    
+    // 2. On supprime les artefacts Markdown résiduels
+    return cleanText
+      .replace(/[#*`]/g, '') // Supprime les #, * et backticks
+      .replace(/!\[.*\]\(.*\)/g, '') // Supprime les liens images Markdown
+      .trim();
+  };
+
   if (loading) {
     return (
       <div className="loading-spinner">
@@ -36,7 +53,7 @@ const FeedbackList = ({ issues, loading }) => {
             </span>
           </div>
           <h4>{issue.title}</h4>
-          <p>{issue.body?.substring(0, 150)}{issue.body?.length > 150 ? '...' : ''}</p>
+          <p>{cleanBody(issue.body).substring(0, 120)}{cleanBody(issue.body).length > 120 ? '...' : ''}</p>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1rem' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
               <User size={12} />
