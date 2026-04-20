@@ -10,6 +10,7 @@ import logo from './assets/1- LOGO/Horizontal/1. RVB (à prioriser)/SVG/LG-Rezol
 import pictoAmpoule from './assets/4- PICTOGRAMMES/ampoule violet.png'
 import pictoMain from './assets/4- PICTOGRAMMES/main violet.png'
 import pictoCoeur from './assets/4- PICTOGRAMMES/coeur violet.png'
+import FeedbackHub from './components/feedback/FeedbackHub'
 import './App.css'
 
 function App() {
@@ -154,6 +155,7 @@ function App() {
           </button>
         </div>
       </footer>
+      <FeedbackHub currentStep={currentStep} />
     </div>
   )
 }
