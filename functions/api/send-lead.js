@@ -1,7 +1,7 @@
 export async function onRequestPost(context) {
   const { request, env } = context;
 
-  // v1.1.1 - Trigger redeploy for env vars
+  // v1.1.2 - Final trigger for ImgBB activation
   // 1. Validation de la clé API Resend (stockée dans les variables Cloudflare)
   const RESEND_API_KEY = env.RESEND_API_KEY;
   if (!RESEND_API_KEY) {
