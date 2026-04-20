@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Loader2, Camera } from 'lucide-react';
+import html2canvas from 'html2canvas';
 
 const FeedbackForm = ({ currentStep, onSubmitted }) => {
   const [title, setTitle] = useState('');
@@ -7,24 +8,43 @@ const FeedbackForm = ({ currentStep, onSubmitted }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(null);
+  const [isCapturing, setIsCapturing] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setIsCapturing(true);
     setError(null);
 
-    const metadata = {
-      userAgent: navigator.userAgent,
-      url: window.location.href,
-      currentStep: currentStep || 'Accueil',
-      screenResolution: `${window.innerWidth}x${window.innerHeight}`
-    };
+    let screenshotBase64 = null;
 
     try {
+      // 1. Capture d'écran (on masque le hub lui même si possible ou on capture tout le body)
+      const element = document.getElementById('root');
+      const canvas = await html2canvas(element, {
+        useCORS: true,
+        logging: false,
+        backgroundColor: '#ffffff'
+      });
+      screenshotBase64 = canvas.toDataURL('image/png');
+      setIsCapturing(false);
+
+      const metadata = {
+        userAgent: navigator.userAgent,
+        url: window.location.href,
+        currentStep: currentStep || 'Accueil',
+        screenResolution: `${window.innerWidth}x${window.innerHeight}`
+      };
+
       const response = await fetch('/api/feedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, body, metadata }),
+        body: JSON.stringify({ 
+          title, 
+          body, 
+          metadata,
+          screenshot: screenshotBase64 
+        }),
       });
 
       if (!response.ok) {
@@ -100,7 +120,10 @@ const FeedbackForm = ({ currentStep, onSubmitted }) => {
 
       <button className="submit-btn" type="submit" disabled={isSubmitting}>
         {isSubmitting ? (
-          <>Envoi en cours <Loader2 className="animate-spin" size={18} /></>
+          <>
+            {isCapturing ? "Capture d'écran..." : "Envoi en cours..."} 
+            <Loader2 className="animate-spin" size={18} />
+          </>
         ) : (
           <>Envoyer le feedback <Send size={18} /></>
         )}

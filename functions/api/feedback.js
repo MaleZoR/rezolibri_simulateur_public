@@ -58,12 +58,39 @@ export async function onRequest(context) {
   // --- POST : Créer un nouveau feedback ---
   if (request.method === "POST") {
     try {
-      const { title, body, metadata } = await request.json();
+      const { title, body, metadata, screenshot } = await request.json();
+      let imageUrl = null;
+
+      // 1. Upload vers ImgBB si une capture est présente
+      if (screenshot && env.IMGBB_API_KEY) {
+        try {
+          // Extraction du base64 pur (sans le préfixe data:image/png;base64,)
+          const base64Data = screenshot.split(',')[1] || screenshot;
+          
+          const formData = new FormData();
+          formData.append('image', base64Data);
+
+          const imgbbRes = await fetch(`https://api.imgbb.com/1/upload?key=${env.IMGBB_API_KEY}`, {
+            method: 'POST',
+            body: formData
+          });
+
+          if (imgbbRes.ok) {
+            const imgbbData = await imgbbRes.json();
+            imageUrl = imgbbData.data.display_url;
+          }
+        } catch (imgError) {
+          console.error("Erreur ImgBB:", imgError);
+          // On continue même si l'image échoue pour ne pas bloquer le feedback texte
+        }
+      }
 
       // Construction du corps détaillé du ticket
       const issueBody = `
 ## Description
 ${body}
+
+${imageUrl ? `### 📸 Capture d'écran\n![Capture](${imageUrl})` : ''}
 
 ---
 ### 🛠 Infos Techniques
