@@ -9,7 +9,7 @@ import './Steps.css'
 const benefits = [
   { 
     icon: pictoExpert, 
-    title: 'Académie Rezolibri', 
+    title: 'Académie Rézolibri', 
     desc: 'Bénéficiez d\'un parcours d\'excellence pour maîtriser tous les leviers du recrutement expert.' 
   },
   { 

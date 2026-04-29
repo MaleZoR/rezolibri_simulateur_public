@@ -6,7 +6,7 @@ import './Steps.css'
 import { generateBusinessPlan } from '../../utils/pdfGenerator'
 import { sendBusinessPlanEmail } from '../../services/emailService'
 
-// Official Rezolibri Pictograms
+// Official Rézolibri Pictograms
 import pictoExpert from '../../assets/4- PICTOGRAMMES/Recruteur actif.png'
 import pictoMain from '../../assets/4- PICTOGRAMMES/main violet.png'
 import pictoAmpoule from '../../assets/4- PICTOGRAMMES/ampoule violet.png'
@@ -225,7 +225,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
               </button>
               
               <button className="btn-secondary-soft" onClick={() => window.location.href='https://rezolibri.fr'}>
-                Retour sur rezolibri.fr
+                Retour sur Rézolibri.fr
               </button>
             </div>
           </motion.div>
