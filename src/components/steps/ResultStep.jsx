@@ -14,10 +14,10 @@ import pictoAmpoule from '../../assets/4- PICTOGRAMMES/ampoule violet.png'
 export default function ResultStep({ data, updateData, onPrev }) {
   const [submitted, setSubmitted] = useState(false)
   
-  const caMensuel = data.etp * 395 
+  const caMensuel = Math.round(data.etp * 395) 
   const tauxCharges = data.isAcre ? 12.8 : 25.6
   const cotisationsSociales = Math.round(caMensuel * (tauxCharges / 100))
-  const chargesMensuelles = [...data.chargesFixes, ...data.chargesVariables].reduce((acc, curr) => acc + (parseFloat(curr.value) || 0), 0)
+  const chargesMensuelles = Math.round([...data.chargesFixes, ...data.chargesVariables].reduce((acc, curr) => acc + (parseFloat(curr.value) || 0), 0))
   const revenuNet = Math.round(caMensuel - cotisationsSociales - chargesMensuelles)
   
   const handleLeadChange = (field, val) => {

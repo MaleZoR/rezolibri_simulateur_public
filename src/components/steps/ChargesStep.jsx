@@ -17,7 +17,7 @@ const getIcon = (label) => {
 }
 
 export default function ChargesStep({ data, updateData, onNext, onPrev }) {
-  const totalCharges = [...data.chargesFixes, ...data.chargesVariables].reduce((acc, curr) => acc + (parseFloat(curr.value) || 0), 0)
+  const totalCharges = Math.round([...data.chargesFixes, ...data.chargesVariables].reduce((acc, curr) => acc + (parseFloat(curr.value) || 0), 0))
 
   const handleFixeChange = (id, val) => {
     const newFixes = data.chargesFixes.map(c => c.id === id ? { ...c, value: val } : c)

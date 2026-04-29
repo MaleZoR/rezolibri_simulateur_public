@@ -20,10 +20,10 @@ export const generateBusinessPlan = async (data) => {
   const formatFR = (num) => Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 
   // CALCULS (inchangés)
-  const caMensuel = data.etp * 395;
+  const caMensuel = Math.round(data.etp * 395);
   const tauxCharges = data.isAcre ? 12.8 : 25.6;
   const cotisationsSociales = Math.round(caMensuel * (tauxCharges / 100));
-  const chargesMensuelles = [...data.chargesFixes, ...data.chargesVariables].reduce((acc, curr) => acc + (parseFloat(curr.value) || 0), 0);
+  const chargesMensuelles = Math.round([...data.chargesFixes, ...data.chargesVariables].reduce((acc, curr) => acc + (parseFloat(curr.value) || 0), 0));
   const revenuNet = Math.round(caMensuel - cotisationsSociales - chargesMensuelles);
 
   // --- FONCTION HEADER / FOOTER ---

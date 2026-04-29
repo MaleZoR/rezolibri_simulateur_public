@@ -15,16 +15,16 @@ export default function ActivityStep({ data, updateData, onNext }) {
   const taxRate = 0.256 // Standard rate 25.6%
   const marginPerEtp = 395 // Fixed by network
 
-  const requiredEtp = parseFloat(((targetIncome + fixedCharges) / (marginPerEtp * (1 - taxRate))).toFixed(1))
+  const requiredEtp = targetIncome === 0 ? 0 : Math.round((targetIncome + fixedCharges) / (marginPerEtp * (1 - taxRate)))
 
   const handleObjectiveChange = (val) => {
     setTargetIncome(val)
-    const newEtp = parseFloat(((val + fixedCharges) / (marginPerEtp * (1 - taxRate))).toFixed(1))
+    const newEtp = val === 0 ? 0 : Math.round((val + fixedCharges) / (marginPerEtp * (1 - taxRate)))
     updateData({ etp: newEtp })
   }
 
-  const caMensuel = data.etp * marginPerEtp
-  const caAnnuel = caMensuel * 12
+  const caMensuel = Math.round(data.etp * marginPerEtp)
+  const caAnnuel = Math.round(caMensuel * 12)
 
   return (
     <motion.div 
