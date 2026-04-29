@@ -225,7 +225,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
               </button>
               
               <button className="btn-secondary-soft" onClick={() => window.location.href='https://rezolibri.fr'}>
-                Retour sur Rézolibri.fr
+                Retour sur rezolibri.fr
               </button>
             </div>
           </motion.div>

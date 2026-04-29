@@ -123,24 +123,24 @@ function App() {
       <footer className="extra-content">
         <h2 className="section-title">Les piliers de réussite d'un expert Rézolibri</h2>
         
-        <div className="rézolibri-piliers">
+        <div className="rezolibri-piliers">
           <div className="pilier-card">
             <div className="icon-pilier">
-              <img src={pictoAmpoule} alt="Expertise" className="rézopicto" />
+              <img src={pictoAmpoule} alt="Expertise" className="rezopicto" />
             </div>
             <h3>Expertise Recrutement</h3>
             <p>Maximisez vos revenus sur chaque placement réussi avec une rétrocession ultra-compétitive. Liberté totale, sans plafond.</p>
           </div>
           <div className="pilier-card">
             <div className="icon-pilier">
-              <img src={pictoMain} alt="Croissance" className="rézopicto" />
+              <img src={pictoMain} alt="Croissance" className="rezopicto" />
             </div>
             <h3>Croissance Réseau</h3>
             <p>Bénéficiez de la puissance du collectif Rézolibri en parrainant de nouveaux experts et percevez des bonus sur la durée.</p>
           </div>
           <div className="pilier-card">
             <div className="icon-pilier">
-              <img src={pictoCoeur} alt="Coaching" className="rézopicto" />
+              <img src={pictoCoeur} alt="Coaching" className="rezopicto" />
             </div>
             <h3>Co-Coaching Business</h3>
             <p>Partagez vos opportunités avec le réseau et profitez de l'intelligence collective pour débloquer des commissions bonus.</p>

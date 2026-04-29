@@ -599,7 +599,7 @@
   }
 }
 
-.rézopicto {
+.rezopicto {
   width: 64px;
   height: 64px;
   object-fit: contain;
@@ -607,7 +607,7 @@
   transition: var(--transition-smooth);
 }
 
-.pilier-card:hover .rézopicto {
+.pilier-card:hover .rezopicto {
   transform: scale(1.15) rotate(5deg);
 }
 

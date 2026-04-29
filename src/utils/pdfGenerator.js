@@ -35,7 +35,7 @@ export const generateBusinessPlan = async (data) => {
     pageDoc.setFont('helvetica', 'normal');
     pageDoc.setFontSize(8);
     pageDoc.setTextColor(150, 150, 150);
-    pageDoc.text('www.rézolibri.fr - L\'infrastructure digitale au service des agences d\'emploi', 20, 285);
+    pageDoc.text('www.rezolibri.fr - L\'infrastructure digitale au service des agences d\'emploi', 20, 285);
     pageDoc.text(`Page ${pageNumber} / ${totalPages}`, 180, 285);
     
     // Ligne décorative Lime footer
@@ -170,7 +170,7 @@ export const generateBusinessPlan = async (data) => {
   doc.setFont('helvetica', 'normal');
   doc.text('Email : recruteurs@rezolibri.fr', 30, 210);
   doc.text('Tél : 02 85 35 63 47', 30, 220);
-  doc.text('Site : www.rézolibri.fr', 30, 230);
+  doc.text('Site : www.rezolibri.fr', 30, 230);
 
   // Bouton Calendly
   doc.setFillColor(...secondaryColor);
