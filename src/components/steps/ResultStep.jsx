@@ -155,7 +155,7 @@ export default function ResultStep({ data, updateData, onPrev }) {
               <div className="bp-badge">
                 <FileText size={18} /> Dossier Vision Expert {new Date().getFullYear()}
               </div>
-              <h3>Prêt à donner un nouvel élan à votre carrière ?</h3>
+              <h3>Prêt à donner un nouvel élan<br/>à votre carrière&nbsp;?</h3>
               <p>Recevez votre pack complet incluant votre prévisionnel d'activité par email.</p>
             </div>
 

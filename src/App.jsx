@@ -148,7 +148,7 @@ function App() {
         </div>
 
         <div className="cta-section">
-          <h3>Prêt à vivre l'aventure Rézolibri ?</h3>
+          <h3>Prêt à vivre l'aventure<br/>Rézolibri&nbsp;?</h3>
           <p>Rejoignez un réseau d'experts passionnés et donnez une nouvelle dimension à votre carrière de recruteur indépendant.</p>
           <button className="btn-devenir" onClick={() => window.location.href = 'https://www.rezolibri.fr/espace-recruteurs/'}>
             Nous rejoindre
