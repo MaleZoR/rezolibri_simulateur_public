@@ -143,7 +143,7 @@ export default function ChargesStep({ data, updateData, onNext, onPrev }) {
         
         <div className="comp-grid">
           <div className="comp-item solo">
-            <span className="label">Agence Solo</span>
+            <span className="label">MANAGER ISOLÉ</span>
             <span className="value">3 500 €</span>
           </div>
           <div className="comp-divider">VS</div>
