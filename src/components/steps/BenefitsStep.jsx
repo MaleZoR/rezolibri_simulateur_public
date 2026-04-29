@@ -24,7 +24,7 @@ const benefits = [
   },
   { 
     icon: pictoAmpoule, 
-    title: 'Collaborative Hiring', 
+    title: 'Recrutement Collaboratif', 
     desc: 'Exploitez la force de proposition du réseau pour décupler vos opportunités de business.' 
   },
   { 
