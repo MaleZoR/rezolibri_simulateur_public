@@ -48,7 +48,7 @@ const FeedbackForm = ({ currentStep, onSubmitted }) => {
       });
 
       if (!response.ok) {
-        throw new Error('Impossible d\'envoyer le retour. Vérifie ta connexion.');
+        throw new Error('Impossible d\'envoyer le retour. Vérifiez votre connexion.');
       }
 
       setSuccess(true);
@@ -65,7 +65,7 @@ const FeedbackForm = ({ currentStep, onSubmitted }) => {
       <div className="success-message">
         <CheckCircle2 size={64} color="var(--accent-lime)" style={{ marginBottom: '1.5rem' }} />
         <h3>Merci !</h3>
-        <p>Ton retour a été envoyé directement sur GitHub. Notre équipe de dev va s'en occuper.</p>
+        <p>Votre retour a été envoyé directement sur GitHub. Notre équipe de dev va s'en occuper.</p>
         <button 
           className="btn-primary" 
           style={{ marginTop: '2rem' }}
@@ -84,7 +84,7 @@ const FeedbackForm = ({ currentStep, onSubmitted }) => {
   return (
     <form className="feedback-form" onSubmit={handleSubmit}>
       <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-        Explique-nous ce qui ne va pas ou ce qu'on peut améliorer. Les infos techniques sont ajoutées automatiquement.
+        Expliquez-nous ce qui ne va pas ou ce qu'on peut améliorer. Les infos techniques sont ajoutées automatiquement.
       </p>
 
       <div className="form-group">
@@ -104,7 +104,7 @@ const FeedbackForm = ({ currentStep, onSubmitted }) => {
         <textarea 
           id="body"
           className="feedback-textarea" 
-          placeholder="Décris le problème ou ta suggestion..."
+          placeholder="Décrivez le problème ou votre suggestion..."
           value={body}
           onChange={(e) => setBody(e.target.value)}
           required

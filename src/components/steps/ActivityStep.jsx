@@ -110,7 +110,7 @@ export default function ActivityStep({ data, updateData, onNext }) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              C'est possible ! Tu dois piloter :
+              C'est possible ! Vous devez piloter :
               <strong>{requiredEtp} Intérimaires (ETP)</strong>
             </motion.div>
           </div>

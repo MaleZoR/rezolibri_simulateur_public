@@ -31,7 +31,7 @@ const FeedbackList = ({ issues, loading }) => {
     return (
       <div className="empty-state">
         <MessageSquare size={48} strokeWidth={1} style={{ marginBottom: '1rem', opacity: 0.3 }} />
-        <p>Aucun retour pour le moment.<br/>Sois le premier à en envoyer un !</p>
+        <p>Aucun retour pour le moment.<br/>Soyez le premier à en envoyer un !</p>
       </div>
     );
   }
